@@ -4,6 +4,6 @@ drop table if exists tb_Amigo;
 CREATE TABLE IF NOT EXISTS `db_emprestimo`.`tb_Amigo` (
   `idAmigo` INT NOT NULL,
   `nomeAmigo` VARCHAR(45) NULL,
-  `telefoneAmigo` VARCHAR(45) NULL,
+  `telefoneAmigo` VARCHAR(12) NULL,
   PRIMARY KEY (`idAmigo`))
 ENGINE = InnoDB
