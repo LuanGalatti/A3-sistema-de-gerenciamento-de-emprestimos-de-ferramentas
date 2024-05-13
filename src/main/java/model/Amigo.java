@@ -1,12 +1,17 @@
 package model;
+
 import dao.ClienteDAO;
-public class Cliente {
+
+public class Amigo {
+    private int idAmigo;
     private String nomeCliente;
     private String telefone;
-public Cliente(){
-    this("","");
-}
-    public Cliente(String nomeCliente, String telefone) {
+
+    public Amigo() {
+        this("", "");
+    }
+
+    public Amigo(String nomeCliente, String telefone) {
         this.nomeCliente = nomeCliente;
         this.telefone = telefone;
     }
@@ -26,7 +31,5 @@ public Cliente(){
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
-  
-    
 }
+
