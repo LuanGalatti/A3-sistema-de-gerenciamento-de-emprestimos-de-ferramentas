@@ -1,6 +1,6 @@
 package model;
 
-import dao.ClienteDAO;
+import dao.AmigoDAO;
 
 public class Amigo {
     private int idAmigo;
