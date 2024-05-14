@@ -8,10 +8,11 @@ public class Amigo {
     private String telefone;
 
     public Amigo() {
-        this("", "");
+        this(0,"", "");
     }
 
-    public Amigo(String nomeCliente, String telefone) {
+    public Amigo(int idAmigo, String nomeCliente, String telefone) {
+        this.idAmigo=idAmigo;
         this.nomeCliente = nomeCliente;
         this.telefone = telefone;
     }
