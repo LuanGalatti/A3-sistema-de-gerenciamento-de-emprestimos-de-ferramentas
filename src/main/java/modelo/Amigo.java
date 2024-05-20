@@ -1,43 +1,73 @@
 package modelo;
-
+  
 import dao.AmigoDAO;
 import java.util.ArrayList;
 
+/**
+ * Representa um amigo com id, nome e telefone.
+ */
 public class Amigo {
-
-    private int idAmigo;
+ private int idAmigo;
     private String nomeAmigo;
     private String telefone;
     AmigoDAO dao;
-
-    public Amigo() {
-        this(0, "", "");
-    }
-
-    public Amigo(int idAmigo, String nomeCliente, String telefone) {
-        this.idAmigo = idAmigo;
-        this.nomeAmigo = nomeCliente;
-        dao = new AmigoDAO();
-
+    /**
+     * Construtor padrão para a classe Amigo.
+     * Inicializa o cliente com id, nome e telefone vazios.
+     */
+public Amigo(){
+    this(0,"","");
+}
+  /**
+     * Construtor para a classe amigo.
+     * Inicializa o cliente com o nome e telefone fornecidos.
+     * @param idAmigo O id do amigo
+     * @param nomeCliente O nome do amigo.
+     * @param telefone    O telefone do cliente.
+     */
+public Amigo(int IdAmigo,String nomeCliente, String telefone) {
+    this.idAmigo =    idAmigo; 
+    this.nomeAmigo = nomeCliente;
         this.telefone = telefone;
     }
-
-    public String getNomeAmigo() {
+/**
+     * Obtém o nome do amigo.
+     *
+     * @return O nome do amigo.
+     */
+public String getNomeAmigo() {
         return nomeAmigo;
-
     }
 
-    public void setNomeAmigo(String nomeCliente) {
+    /**
+     * Define o nome do amigo.
+     *
+     * @param nomeCliente O nome do amigo a ser definido.
+     */
+public void setNomeAmigo(String nomeCliente) {
         this.nomeAmigo = nomeCliente;
     }
-
+    /**
+     * Obtém o telefone do amigo.
+     *
+     * @return O telefone do amigo.
+     */
     public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    /**
+     * Define o telefone do amigo.
+     *
+     * @param telefone O telefone do amigo a ser definido.
+     */
+public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+  
+    
+
 
     public int getIdAmigo() {
         return idAmigo;
