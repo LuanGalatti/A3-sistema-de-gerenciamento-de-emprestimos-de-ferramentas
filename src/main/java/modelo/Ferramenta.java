@@ -1,29 +1,35 @@
-
-
-
 package modelo;
+
 /**
  * Classe de ferramenta com nome, marca, custo e disponibilidade.
  */
 public class Ferramenta {
-    private final String nome;
-    private final String marca;
-    private final double custo;
+private int idFerramenta;
+    private String nome;
+    private String marca;
+    private double custo;
     private boolean disponivel;
-/**
-     * Construtor para a classe Ferramenta.
-     * Inicializa a ferramenta com nome e custo, define a marca como uma string vazia e define a disponibilidade como verdadeira.
+
+    /**
+     * Construtor para a classe Ferramenta. Inicializa a ferramenta com nome e
+     * custo, define a marca como uma string vazia e define a disponibilidade
+     * como verdadeira.
      *
-     * @param nome  O nome da ferramenta.
+     * @param nome O nome da ferramenta.
      * @param custo O custo da ferramenta.
      */
-    public Ferramenta(String nome, double custo) {
+   public Ferramenta(){
+       this(0,"",0,"");
+   }
+    public Ferramenta(int idFerramenta,String nome, double custo,String marca) {
+        this.idFerramenta= idFerramenta;
         this.nome = nome;
         this.custo = custo;
-        this.marca = ""; // Inicializa a marca como uma string vazia
+        this.marca = marca; // Inicializa a marca como uma string vazia
         this.disponivel = true;
     }
-/**
+
+    /**
      * Obtém o nome da ferramenta.
      *
      * @return O nome da ferramenta.
@@ -31,7 +37,10 @@ public class Ferramenta {
     public String getNome() {
         return nome;
     }
-/**
+public void setNome(String nome){
+    this.nome = nome;
+}
+    /**
      * Obtém o custo da ferramenta.
      *
      * @return O custo da ferramenta.
@@ -39,15 +48,22 @@ public class Ferramenta {
     public double getCusto() {
         return custo;
     }
-/**
+public void setCusto(double custo){
+    this.custo = custo;
+}
+    /**
      * Verifica se a ferramenta está disponível.
      *
-     * @return {@code true} se a ferramenta estiver disponível, {@code false} caso contrário.
+     * @return {@code true} se a ferramenta estiver disponível, {@code false}
+     * caso contrário.
      */
-    public boolean isDisponivel() {
+    public boolean getDisponivel() {
         return disponivel;
     }
-/**
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel= disponivel;
+    }
+    /**
      * Obtém a marca da ferramenta.
      *
      * @return A marca da ferramenta.
@@ -55,9 +71,13 @@ public class Ferramenta {
     public String getMarca() {
         return marca;
     }
-/**
-     * Empresta a ferramenta, marcando-a como indisponível se estiver disponível.
-     * Imprime uma mensagem indicando o sucesso ou falha do empréstimo.
+public void setMarca(String marca){
+    this.marca = marca;
+}
+    /**
+     * Empresta a ferramenta, marcando-a como indisponível se estiver
+     * disponível. Imprime uma mensagem indicando o sucesso ou falha do
+     * empréstimo.
      */
     public void emprestar() {
         if (disponivel) {
@@ -67,7 +87,8 @@ public class Ferramenta {
             System.out.println("Esta ferramenta está indisponível para empréstimo");
         }
     }
- /**
+
+    /**
      * Devolve a ferramenta, marcando-a como disponível se estiver indisponível.
      * Imprime uma mensagem indicando o sucesso ou falha da devolução.
      */
@@ -79,5 +100,13 @@ public class Ferramenta {
             System.out.println("Ferramenta já está disponível no sistema");
         }
     }
-}
 
+    public int getIdFerramenta() {
+        return idFerramenta;
+    }
+
+    public void setIdFerramenta(int idFerramenta) {
+        this.idFerramenta = idFerramenta;
+    }
+
+}

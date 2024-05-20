@@ -1,5 +1,5 @@
 package modelo;
-  
+
 import dao.AmigoDAO;
 import java.util.ArrayList;
 
@@ -7,35 +7,40 @@ import java.util.ArrayList;
  * Representa um amigo com id, nome e telefone.
  */
 public class Amigo {
- private int idAmigo;
+
+    private int idAmigo;
     private String nomeAmigo;
     private String telefone;
     AmigoDAO dao;
+
     /**
-     * Construtor padrão para a classe Amigo.
-     * Inicializa o cliente com id, nome e telefone vazios.
+     * Construtor padrão para a classe Amigo. Inicializa o cliente com id, nome
+     * e telefone vazios.
      */
-public Amigo(){
-    this(0,"","");
-}
-  /**
-     * Construtor para a classe amigo.
-     * Inicializa o cliente com o nome e telefone fornecidos.
+    public Amigo() {
+        this(0, "", "");
+    }
+
+    /**
+     * Construtor para a classe amigo. Inicializa o cliente com o nome e
+     * telefone fornecidos.
+     *
      * @param idAmigo O id do amigo
      * @param nomeCliente O nome do amigo.
-     * @param telefone    O telefone do cliente.
+     * @param telefone O telefone do cliente.
      */
-public Amigo(int IdAmigo,String nomeCliente, String telefone) {
-    this.idAmigo =    idAmigo; 
-    this.nomeAmigo = nomeCliente;
+    public Amigo(int IdAmigo, String nomeCliente, String telefone) {
+        this.idAmigo = idAmigo;
+        this.nomeAmigo = nomeCliente;
         this.telefone = telefone;
     }
-/**
+
+    /**
      * Obtém o nome do amigo.
      *
      * @return O nome do amigo.
      */
-public String getNomeAmigo() {
+    public String getNomeAmigo() {
         return nomeAmigo;
     }
 
@@ -44,9 +49,10 @@ public String getNomeAmigo() {
      *
      * @param nomeCliente O nome do amigo a ser definido.
      */
-public void setNomeAmigo(String nomeCliente) {
+    public void setNomeAmigo(String nomeCliente) {
         this.nomeAmigo = nomeCliente;
     }
+
     /**
      * Obtém o telefone do amigo.
      *
@@ -61,13 +67,9 @@ public void setNomeAmigo(String nomeCliente) {
      *
      * @param telefone O telefone do amigo a ser definido.
      */
-public void setTelefone(String telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
-  
-    
-
 
     public int getIdAmigo() {
         return idAmigo;
