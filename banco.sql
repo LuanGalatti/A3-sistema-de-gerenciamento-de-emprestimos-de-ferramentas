@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `db_emprestimo`.`tb_Ferramenta` (
   `idFerramenta` INT NOT NULL,
   `nomeFerramenta` VARCHAR(45) NULL,
    `marcaFerramenta` VARCHAR(45) NULL,
-    `custoFerramenta` VARCHAR(8) NULL,
+    `custoFerramenta` DOUBLE NULL,
   `disponivel` TINYINT NOT NULL,  
 PRIMARY KEY (`idFerramenta`));
 
