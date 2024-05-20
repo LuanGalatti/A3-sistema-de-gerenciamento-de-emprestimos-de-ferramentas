@@ -26,7 +26,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArquivo = new javax.swing.JMenu();
         jMenuItemGerenciarAmigos = new javax.swing.JMenuItem();
@@ -40,8 +39,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuItemDevolução = new javax.swing.JMenuItem();
         jMenuRelatório = new javax.swing.JMenu();
         jMenuSobre = new javax.swing.JMenu();
-
-        jMenuItem6.setText("jMenuItem6");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -170,7 +167,6 @@ objeto.setVisible(true);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenuArquivo;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItemCadastrarFerramentas;
     private javax.swing.JMenuItem jMenuItemDevolução;
     private javax.swing.JMenuItem jMenuItemEmpréstimo;

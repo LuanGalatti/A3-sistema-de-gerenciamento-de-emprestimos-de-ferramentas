@@ -1,6 +1,3 @@
-
-
-
 package modelo;
 /**
  * Classe de ferramenta com nome, marca, custo e disponibilidade.
@@ -9,17 +6,20 @@ public class Ferramenta {
     private final String nome;
     private final String marca;
     private final double custo;
+    private final int idFerramenta;
     private boolean disponivel;
 /**
      * Construtor para a classe Ferramenta.
-     * Inicializa a ferramenta com nome e custo, define a marca como uma string vazia e define a disponibilidade como verdadeira.
+     * Inicializa a ferramenta com nome,custo e ID, define a marca como uma string vazia e define a disponibilidade como verdadeira.
      *
      * @param nome  O nome da ferramenta.
      * @param custo O custo da ferramenta.
+     * @param idFerramenta O id da ferramenta.
      */
-    public Ferramenta(String nome, double custo) {
+    public Ferramenta(String nome, double custo, int idFerramenta) {
         this.nome = nome;
         this.custo = custo;
+        this.idFerramenta = idFerramenta;
         this.marca = ""; // Inicializa a marca como uma string vazia
         this.disponivel = true;
     }
@@ -38,6 +38,14 @@ public class Ferramenta {
      */
     public double getCusto() {
         return custo;
+    }
+/**
+ * * Obtém o id da ferramenta.
+     *
+     * @return O id da ferramenta.
+     */
+    public int getIdFerramenta() {
+        return idFerramenta;
     }
 /**
      * Verifica se a ferramenta está disponível.

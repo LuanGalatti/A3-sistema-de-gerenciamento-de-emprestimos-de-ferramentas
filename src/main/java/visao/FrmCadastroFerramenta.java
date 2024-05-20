@@ -26,9 +26,9 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        JLNomeFerramenta = new javax.swing.JLabel();
+        JLMarcaFerramenta = new javax.swing.JLabel();
+        JLCustoFerramenta = new javax.swing.JLabel();
         JTFNomeFerramenta = new javax.swing.JTextField();
         JTFMarcaFerramenta = new javax.swing.JTextField();
         JTFCustoFerramenta = new javax.swing.JTextField();
@@ -39,11 +39,11 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Ferramentas");
 
-        jLabel1.setText("Nome da Ferramenta:");
+        JLNomeFerramenta.setText("Nome da Ferramenta:");
 
-        jLabel2.setText("Marca da Ferramenta:");
+        JLMarcaFerramenta.setText("Marca da Ferramenta:");
 
-        jLabel3.setText("Custo de obtenção:");
+        JLCustoFerramenta.setText("Custo de obtenção:");
 
         JTFNomeFerramenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,9 +71,9 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
+                            .addComponent(JLCustoFerramenta)
+                            .addComponent(JLMarcaFerramenta)
+                            .addComponent(JLNomeFerramenta)
                             .addComponent(JTFNomeFerramenta, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                             .addComponent(JTFMarcaFerramenta)
                             .addComponent(JTFCustoFerramenta)))
@@ -90,15 +90,15 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel1)
+                .addComponent(JLNomeFerramenta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTFNomeFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(JLMarcaFerramenta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTFMarcaFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(JLCustoFerramenta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTFCustoFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
@@ -160,11 +160,11 @@ this.dispose();
     private javax.swing.JButton JBCadastrar;
     private javax.swing.JButton JBCancelar;
     private javax.swing.JButton JBLimpar;
+    private javax.swing.JLabel JLCustoFerramenta;
+    private javax.swing.JLabel JLMarcaFerramenta;
+    private javax.swing.JLabel JLNomeFerramenta;
     private javax.swing.JTextField JTFCustoFerramenta;
     private javax.swing.JTextField JTFMarcaFerramenta;
     private javax.swing.JTextField JTFNomeFerramenta;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
