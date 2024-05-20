@@ -1,4 +1,5 @@
 package dao;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,8 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Ferramenta;
+
 public class FerramentaDAO {
-     public static ArrayList<Ferramenta> listaFerramenta = new ArrayList<>();
+
+    public static ArrayList<Ferramenta> listaFerramenta = new ArrayList<>();
 
     public Connection getConexaoFerramenta() {
 
@@ -40,8 +43,9 @@ public class FerramentaDAO {
             System.out.println("Nao foi possivel conectar...");
             return null;
         }
-    }   
- public ArrayList<Ferramenta> getListaFerramenta() {
+    }
+
+    public ArrayList<Ferramenta> getListaFerramenta() {
         listaFerramenta.clear();
         try {
             Statement smt = this.getConexaoFerramenta().createStatement();
@@ -51,8 +55,8 @@ public class FerramentaDAO {
                 String nomeFerramenta = res.getString("nomeFerramenta");
                 String marcaFerramenta = res.getString("marcaFerramenta");
                 double custoFerramenta = res.getDouble("custoFerramenta");
-                Ferramenta objeto = new Ferramenta(idFerramenta, nomeFerramenta,custoFerramenta,marcaFerramenta);
-                
+                Ferramenta objeto = new Ferramenta(idFerramenta, nomeFerramenta, custoFerramenta, marcaFerramenta);
+
                 listaFerramenta.add(objeto);
             }
             smt.close();
@@ -65,7 +69,8 @@ public class FerramentaDAO {
     public static void setListaAmigo(ArrayList<Ferramenta> listaFerramenta) {
         FerramentaDAO.listaFerramenta = listaFerramenta;
     }
-  public int maiorIDFerramenta() {
+
+    public int maiorIDFerramenta() {
         int MaiorID = 0;
         try {
             Statement smt = this.getConexaoFerramenta().createStatement();
@@ -78,16 +83,17 @@ public class FerramentaDAO {
         }
         return MaiorID;
     }
-public boolean insertFerramentaDB(Ferramenta ferramenta) {
+
+    public boolean insertFerramentaDB(Ferramenta ferramenta) {
         String res = ("insert into tb_Ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta,disponivel)values(?,?,?,?,?)");
         try {
             PreparedStatement smt = this.getConexaoFerramenta().prepareCall(res);
             smt.setInt(1, ferramenta.getIdFerramenta());
             smt.setString(2, ferramenta.getNome());
             smt.setString(3, ferramenta.getMarca());
-             smt.setString(4, ferramenta.getCusto()+"");
+            smt.setString(4, ferramenta.getCusto() + "");
             smt.setBoolean(5, true);
-             smt.execute();
+            smt.execute();
             smt.close();
             return true;
         } catch (SQLException erro) {
@@ -95,7 +101,8 @@ public boolean insertFerramentaDB(Ferramenta ferramenta) {
             throw new RuntimeException(erro);
         }
     }
- public Ferramenta retrieveFerramentaDB(int IdFerramenta) {
+
+    public Ferramenta retrieveFerramentaDB(int IdFerramenta) {
         Ferramenta ferramenta = new Ferramenta();
         ferramenta.setIdFerramenta(IdFerramenta);
         try {
@@ -113,7 +120,8 @@ public boolean insertFerramentaDB(Ferramenta ferramenta) {
         }
         return ferramenta;
     }
-public boolean updateFerramentaDB(Ferramenta ferramenta) {
+
+    public boolean updateFerramentaDB(Ferramenta ferramenta) {
         String res = "update tb_Ferramenta set idFerramenta=?,nomeFerramenta=?, marcaFerramenta=?, custoFerramenta=?, disponivel=?";
         try {
             PreparedStatement smt = this.getConexaoFerramenta().prepareStatement(res);
@@ -130,7 +138,8 @@ public boolean updateFerramentaDB(Ferramenta ferramenta) {
             throw new RuntimeException(erro);
         }
     }
- public boolean deleteFerramentaDB(int IdFerramenta) {
+
+    public boolean deleteFerramentaDB(int IdFerramenta) {
         try {
             Statement smt = this.getConexaoFerramenta().createStatement();
             ResultSet res = smt.executeQuery("delete from tb_Ferramenta where id=" + IdFerramenta);

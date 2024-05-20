@@ -12,11 +12,11 @@
         <exec.mainClass>com.mycompany.trabalhoa3.TrabalhoA3</exec.mainClass>
     
     </properties>
-<dependencies>
-<dependency>
-<groupId>com.mysql</groupId>
-<artifactId>mysql-connector-j</artifactId>
-<version>8.3.0</version>
-</dependency>
-</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.3.0</version>
+        </dependency>
+    </dependencies>
 </project>

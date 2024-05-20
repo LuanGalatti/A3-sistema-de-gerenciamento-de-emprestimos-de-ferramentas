@@ -24,3 +24,8 @@ Requisitos não funcionais do sistema:
             * Prevenção contra falhas: se o sistema der falha, o funcionamento deve ser reconstituido em até 10 minutos após a falha e retomar suas atividades;
             * Salvamento de Dados (Backup): o sistema deve salvar as movimentações do usuário a cada operação realizada pelo mesmo. Armazenando-as em um local seguro;
 5-> RNF005 - Manutenção:
+            * Modulação: o sistema deve apresentar uma facilidade de modulação, sendo de fácil adição de novas funcionalidades ou remoção de funcionalidades ultrapassadas/falhas;
+            * O sistema deve apresentar uma revisão de rotina sobre a funcionalidade do sistema e seus erros;
+            * Teste automatizado : o sistema deve apresentar uma funcionalidade de teste o sistema para conferir se funciona com a atualização inserida ou com alguma funcionalidade removida.
+6-> RNF006 - Comportabilidade:
+            * o sistema deve comportar a funcionalidade para dispositivos móveis, tanto quanto sites como aplicativos;

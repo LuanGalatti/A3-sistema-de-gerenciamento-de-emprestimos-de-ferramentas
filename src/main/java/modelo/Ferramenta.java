@@ -4,7 +4,8 @@ package modelo;
  * Classe de ferramenta com nome, marca, custo e disponibilidade.
  */
 public class Ferramenta {
-private int idFerramenta;
+
+    private int idFerramenta;
     private String nome;
     private String marca;
     private double custo;
@@ -17,12 +18,14 @@ private int idFerramenta;
      *
      * @param nome O nome da ferramenta.
      * @param custo O custo da ferramenta.
+     * @param idFerramenta O id da ferramenta.
      */
-   public Ferramenta(){
-       this(0,"",0,"");
-   }
-    public Ferramenta(int idFerramenta,String nome, double custo,String marca) {
-        this.idFerramenta= idFerramenta;
+    public Ferramenta() {
+        this(0, "", 0, "");
+    }
+
+    public Ferramenta(int idFerramenta, String nome, double custo, String marca) {
+        this.idFerramenta = idFerramenta;
         this.nome = nome;
         this.custo = custo;
         this.marca = marca; // Inicializa a marca como uma string vazia
@@ -37,9 +40,11 @@ private int idFerramenta;
     public String getNome() {
         return nome;
     }
-public void setNome(String nome){
-    this.nome = nome;
-}
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     /**
      * Obtém o custo da ferramenta.
      *
@@ -48,9 +53,11 @@ public void setNome(String nome){
     public double getCusto() {
         return custo;
     }
-public void setCusto(double custo){
-    this.custo = custo;
-}
+
+    public void setCusto(double custo) {
+        this.custo = custo;
+    }
+
     /**
      * Verifica se a ferramenta está disponível.
      *
@@ -60,9 +67,11 @@ public void setCusto(double custo){
     public boolean getDisponivel() {
         return disponivel;
     }
+
     public void setDisponivel(boolean disponivel) {
-        this.disponivel= disponivel;
+        this.disponivel = disponivel;
     }
+
     /**
      * Obtém a marca da ferramenta.
      *
@@ -71,9 +80,11 @@ public void setCusto(double custo){
     public String getMarca() {
         return marca;
     }
-public void setMarca(String marca){
-    this.marca = marca;
-}
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
     /**
      * Empresta a ferramenta, marcando-a como indisponível se estiver
      * disponível. Imprime uma mensagem indicando o sucesso ou falha do
