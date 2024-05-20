@@ -1,5 +1,8 @@
 package modelo;
 
+import dao.FerramentaDAO;
+import java.util.ArrayList;
+
 /**
  * Classe de ferramenta com nome, marca, custo e disponibilidade.
  */
@@ -10,7 +13,7 @@ public class Ferramenta {
     private String marca;
     private double custo;
     private boolean disponivel;
-
+FerramentaDAO dao;
     /**
      * Construtor para a classe Ferramenta. Inicializa a ferramenta com nome e
      * custo, define a marca como uma string vazia e define a disponibilidade
@@ -31,7 +34,13 @@ public class Ferramenta {
         this.marca = marca; // Inicializa a marca como uma string vazia
         this.disponivel = true;
     }
-
+public Ferramenta(int idFerramenta, String nome, double custo, String marca, boolean disponivel) {
+        this.idFerramenta = idFerramenta;
+        this.nome = nome;
+        this.custo = custo;
+        this.marca = marca; // Inicializa a marca como uma string vazia
+        this.disponivel = disponivel;
+    }
     /**
      * Obtém o nome da ferramenta.
      *
@@ -119,5 +128,44 @@ public class Ferramenta {
     public void setIdFerramenta(int idFerramenta) {
         this.idFerramenta = idFerramenta;
     }
+   public ArrayList<Ferramenta> listaFerramenta() {
+        return dao.getListaFerramenta();
+    }
 
+    public boolean InsertAmigoDB(String nome, String marca, double custo) {
+        int maiorID = dao.maiorIDFerramenta() + 1;
+        Ferramenta ferramenta = new Ferramenta(maiorID, nome, custo, marca);
+        dao.insertFerramentaDB(ferramenta);
+        return true;
+
+    }
+
+    public boolean deleteFerramentaDB(int id) {
+        dao.deleteFerramentaDB(id);
+        return true;
+    }
+
+    private int procuraIndice(int id) {
+        int indice = -1;
+        for (int i = 0; i < FerramentaDAO.listaFerramenta.size(); i++) {
+            if (FerramentaDAO.listaFerramenta.get(i).getIdFerramenta() == id) {
+                indice = i;
+            }
+
+        }
+        return indice;
+    }
+public boolean updateFerramentaDB(int id, String nome, String marca, double custo, boolean disponivel) {
+        Ferramenta ferramenta = new Ferramenta(id, nome,custo, marca, disponivel );
+        int indice = this.procuraIndice(id);
+        dao.updateFerramentaDB(ferramenta);
+        return true;
+    }
+
+    public Ferramenta retrieveAmigoDB(int id) {
+        return dao.retrieveFerramentaDB(id);
+    }
+ public int MaiorID() {
+        return dao.maiorIDFerramenta();
+    }
 }
