@@ -8,12 +8,13 @@ CREATE TABLE IF NOT EXISTS `db_emprestimo`.`tb_Amigo` (
   `nomeAmigo` VARCHAR(45) NULL,
   `telefoneAmigo` VARCHAR(12) NULL,
   PRIMARY KEY (`idAmigo`));
-#cria a tabela "tb_Ferramenta" com os parametros idFerramenta,nomeFerramenta, marcaFerramenta, curstoFerramenta
+#cria a tabela "tb_Ferramenta" com os parametros idFerramenta,nomeFerramenta, marcaFerramenta, curstoFerramenta e disponivel
 #define a primary key da tb_Ferramenta como idFerramenta  
 CREATE TABLE IF NOT EXISTS `db_emprestimo`.`tb_Ferramenta` (
   `idFerramenta` INT NOT NULL,
   `nomeFerramenta` VARCHAR(45) NULL,
    `marcaFerramenta` VARCHAR(45) NULL,
     `custoFerramenta` VARCHAR(8) NULL,
-  PRIMARY KEY (`idFerramenta`));
+  `disponivel` TINYINT NOT NULL,  
+PRIMARY KEY (`idFerramenta`));
 
