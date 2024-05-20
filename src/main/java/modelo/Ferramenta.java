@@ -1,6 +1,6 @@
 
 
-package model;
+package modelo;
 
 public class Ferramenta {
     private final String nome;
