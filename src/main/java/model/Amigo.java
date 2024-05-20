@@ -1,58 +1,70 @@
-package model;
-
+package modelo;
+  
 import dao.AmigoDAO;
 
+/**
+ * Representa um cliente com nome e telefone.
+ */
 public class Amigo {
-
-    private int idAmigo;
-    private String nomeAmigo;
+    private String nomeCliente;
     private String telefone;
-
-    public Amigo() {
-        this(0,"", "");
-    }
-
-
-    public Amigo(int idAmigo, String nomeCliente, String telefone) {
-        this.idAmigo=idAmigo;
-        this.nomeAmigo = nomeCliente;
-
-
+    
+    /**
+     * Construtor padrão para a classe Cliente.
+     * Inicializa o cliente com nome e telefone vazios.
+     */
+public Amigo(){
+    this("","");
+}
+  /**
+     * Construtor para a classe Cliente.
+     * Inicializa o cliente com o nome e telefone fornecidos.
+     *
+     * @param nomeCliente O nome do cliente.
+     * @param telefone    O telefone do cliente.
+     */
+public Amigo(String nomeCliente, String telefone) {
+        this.nomeCliente = nomeCliente;
         this.telefone = telefone;
     }
-
-
-    public String getNomeAmigo() {
-        return nomeAmigo;
-
-
+/**
+     * Obtém o nome do cliente.
+     *
+     * @return O nome do cliente.
+     */
+public String getNomeCliente() {
+        return nomeCliente;
     }
 
-
-    public void setNomeAmigo(String nomeCliente) {
-        this.nomeAmigo = nomeCliente;
+    /**
+     * Define o nome do cliente.
+     *
+     * @param nomeCliente O nome do cliente a ser definido.
+     */
+public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
     }
-
-
+    /**
+     * Obtém o telefone do cliente.
+     *
+     * @return O telefone do cliente.
+     */
     public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    /**
+     * Define o telefone do cliente.
+     *
+     * @param telefone O telefone do cliente a ser definido.
+     */
+public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-
-    public int getIdAmigo() {
-        return idAmigo;
-    }
-
-    public void setIdAmigo(int idAmigo) {
-        this.idAmigo = idAmigo;
-    }
-
+  
+    
 }
-
 
 
 
