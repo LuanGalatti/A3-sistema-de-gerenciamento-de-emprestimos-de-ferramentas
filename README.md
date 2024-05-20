@@ -4,8 +4,8 @@ Requisitos funcionais do sistema:
 3-> RF003 - O sistema deve permitir o registro do empréstimo de uma ou mais pecas para um amigo marcando a data de entrega e a data de devolução;
 4-> RF004 - O sistema deve ter um relatório de ferramentas e o quanto ele gastou;
 5-> RF005 - O sistema deve mostrar os empréstimos ativos e outros empréstimos realizados;
-6-> RF006 -	O sistema deve mostrar quem realizou a maior quantidade de empréstimos;
-7-> RF007 -	O sistema deve mostrar quem ainda não devolveu a ferramenta;
+6-> RF006 - O sistema deve mostrar quem realizou a maior quantidade de empréstimos;
+7-> RF007 - O sistema deve mostrar quem ainda não devolveu a ferramenta;
 8-> RF008 - O sistema deve mostrar se alguém ainda não devolveu uma ferramenta ao requisitar um novo empréstimo.
 
 Requisitos não funcionais do sistema:
