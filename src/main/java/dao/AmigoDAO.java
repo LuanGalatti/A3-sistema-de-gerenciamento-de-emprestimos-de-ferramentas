@@ -8,13 +8,28 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Amigo;
-
+/**
+ * Esta classe é responsável por lidar com a persistência de dados relacionados aos amigos em um banco de dados.
+ * Ela fornece métodos para conexão com o banco de dados, inserção, recuperação, atualização e exclusão de registros de amigos.
+ */
 public class AmigoDAO {
-
+ /**
+     * ArrayList para armazenar objetos do tipo Amigo.
+     * É estático para que possa ser compartilhado entre diferentes instâncias desta classe.
+     */
     public static ArrayList<Amigo> listaAmigo = new ArrayList<>();
-
+/**
+     * Obtém a conexão com o banco de dados.
+     *
+     * @return Uma conexão com o banco de dados.
+     */
     public Connection getConexaoAmigo() {
-
+ 
+    /**
+     * Obtém uma lista de todos os amigos no banco de dados.
+     *
+     * @return Uma lista de objetos Amigo.
+     */
         Connection connection = null;
         try {
 
@@ -46,6 +61,12 @@ public class AmigoDAO {
     }
 
     public ArrayList<Amigo> getListaAmigo() {
+     /**
+     * Define a lista de amigos.
+     *
+     * @param listaAmigo A lista de amigos a ser definida.
+     */
+
         listaAmigo.clear();
         try {
             Statement smt = this.getConexaoAmigo().createStatement();
@@ -65,10 +86,23 @@ public class AmigoDAO {
     }
 
     public static void setListaAmigo(ArrayList<Amigo> listaAmigo) {
+     
+    /**
+     * Obtém o maior ID de amigo presente no banco de dados.
+     *
+     * @return O maior ID de amigo.
+     */
         AmigoDAO.listaAmigo = listaAmigo;
     }
 
     public int maiorIDAmigo() {
+        
+    /**
+     * Insere um novo amigo no banco de dados.
+     *
+     * @param amigo O objeto Amigo a ser inserido no banco de dados.
+     * @return true se a operação for bem-sucedida, false caso contrário.
+     */
         int MaiorID = 0;
         try {
             Statement smt = this.getConexaoAmigo().createStatement();
@@ -83,6 +117,13 @@ public class AmigoDAO {
     }
 
     public boolean insertAmigoDB(Amigo amigo) {
+   
+   /**
+     * Recupera um amigo do banco de dados com base no ID especificado.
+     *
+     * @param IdAmigo O ID do amigo a ser recuperado.
+     * @return Um objeto Amigo recuperado do banco de dados.
+     */
         String res = ("insert into tb_amigo(idAmigo,nomeAmigo,telefoneAmigo)values(?,?,?)");
         try {
             PreparedStatement smt = this.getConexaoAmigo().prepareCall(res);
@@ -99,6 +140,12 @@ public class AmigoDAO {
     }
 
     public Amigo retrieveAmigoDB(int IdAmigo) {
+        /**
+     * Atualiza as informações de um amigo no banco de dados.
+     *
+     * @param amigo O objeto Amigo com as informações atualizadas a serem atualizadas no banco de dados.
+     * @return true se a operação for bem-sucedida, false caso contrário.
+     */
         Amigo amigo = new Amigo();
         amigo.setIdAmigo(IdAmigo);
         try {
@@ -116,6 +163,12 @@ public class AmigoDAO {
     }
 
     public boolean updateAmigoDB(Amigo amigo) {
+        /**
+     * Exclui um amigo do banco de dados com base no ID especificado.
+     *
+     * @param IdAmigo O ID do amigo a ser excluído.
+     * @return true se a operação for bem-sucedida, false caso contrário.
+     */
         String res = "update tb_amigo set idAmigo=?,nomeAmigo=?,telefoneAmigo=?";
         try {
             PreparedStatement smt = this.getConexaoAmigo().prepareStatement(res);
