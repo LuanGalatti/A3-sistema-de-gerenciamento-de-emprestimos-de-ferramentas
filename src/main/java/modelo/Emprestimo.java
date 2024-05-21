@@ -1,7 +1,12 @@
 package modelo;
+
 import dao.EmprestimoDAO;
 import java.util.ArrayList;
 
+/**
+ * Representa um emprestimo com id, id do amigo, id da ferramenta, 
+ * data de emprestimo e data de devolução.
+ */
 public class Emprestimo{
     private int idEmprestimo;
     private int idAmigo;
@@ -127,10 +132,24 @@ public class Emprestimo{
         this.DataDevolucao = DataDevolucao;
     }
     
+        /**
+     * Retorna uma lista de emprestimos.
+     *
+     * @return Uma lista de emprestimos.
+     */
     public ArrayList<Emprestimo> listaEmprestimo() {
         return dao.getListaEmprestimo();
     }
 
+        /**
+     * Insere um emprestimo no banco de dados.
+     *
+     * @param idAmgio O id do amigo a ser inserido.
+     * @param idFerramenta O id da ferramenta a ser inserido.
+     * @param DataEmprestimo Data do emprestimo a ser inserido.
+     * @param DataDevolucao Data de devolução da ferramenta a ser inserida.
+     * @return true se a inserção for bem-sucedida, false caso contrário.
+     */
     public boolean InsertEmprestimoDB(int idAmigo, int idFerramenta, String DataEmprestimo, String DataDevolucao) {
         int maiorID = dao.maiorIDEmprestimo() + 1;
         Emprestimo emprestimo = new Emprestimo(maiorID, idAmigo, idFerramenta, DataEmprestimo, DataDevolucao);
@@ -138,33 +157,64 @@ public class Emprestimo{
         return true;
 
     }
-
-    public boolean deleteEmprestimoDB(int id) {
-        dao.deleteEmprestimoDB(id);
+    
+    /**
+     * Remove um emprestimo do banco de dados.
+     *
+     * @param idEmprestimo O ID do emprestimo a ser removido.
+     * @return true se a remoção for bem-sucedida, false caso contrário.
+     */
+    public boolean deleteEmprestimoDB(int idEmprestimo) {
+        dao.deleteEmprestimoDB(idEmprestimo);
         return true;
     }
 
-    private int procuraIndice(int id) {
+    /**
+     * Retorna o índice de um emprestimo na lista.
+     *
+     * @param idEmprestimo O ID do emprestimo a ser buscado.
+     * @return O índice do emprestimo na lista.
+     */
+    private int procuraIndice(int idEmprestimo) {
         int indice = -1;
         for (int i = 0; i < EmprestimoDAO.listaEmprestimo.size(); i++) {
-            if (EmprestimoDAO.listaEmprestimo.get(i).getIdAmigo() == id) {
+            if (EmprestimoDAO.listaEmprestimo.get(i).getIdEmprestimo() == idEmprestimo) {
                 indice = i;
             }
         }
         return indice;
     }
 
-    public boolean updateEmprestimoDB(int id, int idAmigo, int idFerrmaneta, String DataEmprestimo, String DataDevolucao) {
-        Emprestimo emprestimo = new Emprestimo(id, idAmigo, idFerramenta, DataEmprestimo, DataDevolucao);
-        int indice = this.procuraIndice(id);
+    /**
+     * Atualiza um emprestimo no banco de dados.
+     * @param idEmprestimo O id do emprestimo a ser atualizado.
+     * @param idAmgio O id do amigo a ser atualizado.
+     * @param idFerramenta O id da ferramenta a ser atualizada.
+     * @param DataEmprestimo A Data do emprestimo a ser atualizada.
+     * @param DataDevolucao A Data de devolução da ferramenta a ser atualizada.
+     * @return true se a inserção for bem-sucedida, false caso contrário.
+     */
+    public boolean updateEmprestimoDB(int idEmprestimo, int idAmigo, int idFerrmaneta, String DataEmprestimo, String DataDevolucao) {
+        Emprestimo emprestimo = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, DataEmprestimo, DataDevolucao);
+        int indice = this.procuraIndice(idEmprestimo);
         dao.updateEmprestimoDB(emprestimo);
         return true;
     }
 
-    public Emprestimo retrieveEmprestimoDB(int id) {
-        return dao.retrieveEmprestimoDB(id);
+    /**
+     * Retorna um emprestimo do banco de dados com base no ID.
+     *
+     * @param idEmprestimo O ID do Emprestimo a ser recuperado.
+     * @return O emprestimo recuperado do banco de dados.
+     */
+    public Emprestimo retrieveEmprestimoDB(int idEmprestimo) {
+        return dao.retrieveEmprestimoDB(idEmprestimo);
     }
-
+    /**
+     * Retorna o maior ID de emprestimo no banco de dados.
+     *
+     * @return O maior ID de emprestimo no banco de dados.
+     */
     public int MaiorID() {
         return dao.maiorIDEmprestimo();
     }
