@@ -24,8 +24,7 @@ public class AmigoDAO {
      * @return Uma conexão com o banco de dados.
      */
     public Connection getConexaoAmigo() {
- 
-    /**
+     /**
      * Obtém uma lista de todos os amigos no banco de dados.
      *
      * @return Uma lista de objetos Amigo.
@@ -86,7 +85,6 @@ public class AmigoDAO {
     }
 
     public static void setListaAmigo(ArrayList<Amigo> listaAmigo) {
-     
     /**
      * Obtém o maior ID de amigo presente no banco de dados.
      *
@@ -96,8 +94,7 @@ public class AmigoDAO {
     }
 
     public int maiorIDAmigo() {
-        
-    /**
+     /**
      * Insere um novo amigo no banco de dados.
      *
      * @param amigo O objeto Amigo a ser inserido no banco de dados.
@@ -117,7 +114,6 @@ public class AmigoDAO {
     }
 
     public boolean insertAmigoDB(Amigo amigo) {
-   
    /**
      * Recupera um amigo do banco de dados com base no ID especificado.
      *
@@ -140,7 +136,7 @@ public class AmigoDAO {
     }
 
     public Amigo retrieveAmigoDB(int IdAmigo) {
-        /**
+     /**
      * Atualiza as informações de um amigo no banco de dados.
      *
      * @param amigo O objeto Amigo com as informações atualizadas a serem atualizadas no banco de dados.
@@ -163,7 +159,7 @@ public class AmigoDAO {
     }
 
     public boolean updateAmigoDB(Amigo amigo) {
-        /**
+     /**
      * Exclui um amigo do banco de dados com base no ID especificado.
      *
      * @param IdAmigo O ID do amigo a ser excluído.
