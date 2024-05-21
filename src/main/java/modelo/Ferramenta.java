@@ -50,11 +50,11 @@ public class Ferramenta {
      *
      * @return O nome da ferramenta.
      */
-    public String getNome() {
+    public String getNomeFerramenta() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNomeFerramenta(String nome) {
         this.nome = nome;
     }
 
@@ -63,11 +63,11 @@ public class Ferramenta {
      *
      * @return O custo da ferramenta.
      */
-    public double getCusto() {
+    public double getCustoFerramenta() {
         return custo;
     }
 
-    public void setCusto(double custo) {
+    public void setCustoFerramenta(double custo) {
         this.custo = custo;
     }
 
@@ -90,11 +90,11 @@ public class Ferramenta {
      *
      * @return A marca da ferramenta.
      */
-    public String getMarca() {
+    public String getMarcaFerramenta() {
         return marca;
     }
 
-    public void setMarca(String marca) {
+    public void setMarcaFerramenta(String marca) {
         this.marca = marca;
     }
 

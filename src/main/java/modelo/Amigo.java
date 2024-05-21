@@ -14,8 +14,8 @@ public class Amigo {
     AmigoDAO dao;
 
     /**
-     * Construtor padrão para a classe Amigo. Inicializa o amigo com id, nome
-     * e telefone vazios.
+     * Construtor padrão para a classe Amigo. Inicializa o amigo com id, nome e
+     * telefone vazios.
      */
     public Amigo() {
         this(0, "", "");

@@ -110,7 +110,8 @@ public class AmigoDAO {
      * Insere um amigo no banco de dados.
      *
      * @param amigo Amigo a ser inserido.
-     * @return {@code true} se a inserção for bem-sucedida, caso contrário, lança uma exceção.
+     * @return {@code true} se a inserção for bem-sucedida, caso contrário,
+     * lança uma exceção.
      */
     public boolean insertAmigoDB(Amigo amigo) {
         String res = "insert into tb_amigo(idAmigo,nomeAmigo,telefoneAmigo)values(?,?,?)";
@@ -154,7 +155,8 @@ public class AmigoDAO {
      * Atualiza as informações de um amigo no banco de dados.
      *
      * @param amigo Amigo a ser atualizado.
-     * @return {@code true} se a atualização for bem-sucedida, caso contrário, lança uma exceção.
+     * @return {@code true} se a atualização for bem-sucedida, caso contrário,
+     * lança uma exceção.
      */
     public boolean updateAmigoDB(Amigo amigo) {
         String res = "update tb_amigo set idAmigo=?,nomeAmigo=?,telefoneAmigo=?";
@@ -176,7 +178,8 @@ public class AmigoDAO {
      * Remove um amigo do banco de dados com base no ID.
      *
      * @param IdAmigo ID do amigo a ser removido.
-     * @return {@code true} se a remoção for bem-sucedida, caso contrário, {@code false}.
+     * @return {@code true} se a remoção for bem-sucedida, caso contrário,
+     * {@code false}.
      */
     public boolean deleteAmigoDB(int IdAmigo) {
         try {
@@ -189,4 +192,3 @@ public class AmigoDAO {
         return true;
     }
 }
-

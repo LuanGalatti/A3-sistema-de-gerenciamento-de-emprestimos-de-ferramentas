@@ -62,6 +62,11 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
         });
 
         JBLimpar.setText("Limpar");
+        JBLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBLimparActionPerformed(evt);
+            }
+        });
 
         JBCancelar.setText("Cancelar");
         JBCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -130,36 +135,46 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
-       try{
-        
-    
-        Ferramenta ferramenta = new Ferramenta();
-        String nome="";
-        String marca="";
-        double custo=0;
-        if (JTFNomeFerramenta.getText().length() < 3) {
-             throw new Erro("Nome deve conter mais de 3 caracteres, tente novamente");
-        } else {
-            nome = (JTFNomeFerramenta.getText());
+        try {
 
-        }
-        if (JTFMarcaFerramenta.getText().length() < 3) {
-            throw new Erro("Marca deve conter mais de 3 caracteres, tente novamente");
-        } else {
-            marca = (JTFMarcaFerramenta.getText());
+            Ferramenta ferramenta = new Ferramenta();
+            String nome = "";
+            String marca = "";
+            double custo = 0;
+            if (JTFNomeFerramenta.getText().length() < 3) {
+                throw new Erro("Nome deve conter mais de 3 caracteres, tente novamente");
+            } else {
+                nome = (JTFNomeFerramenta.getText());
 
-        }
-        if (Double.parseDouble(JTFCustoFerramenta.getText()) <= 0) {
-            throw new Erro("Custo deve ser maior que 0, tente novamente");
-        } else {
-            custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
+            }
+            if (JTFMarcaFerramenta.getText().length() < 3) {
+                throw new Erro("Marca deve conter mais de 3 caracteres, tente novamente");
+            } else {
+                marca = (JTFMarcaFerramenta.getText());
 
+            }
+            if (Double.parseDouble(JTFCustoFerramenta.getText()) <= 0) {
+                throw new Erro("Custo deve ser maior que 0, tente novamente");
+            } else {
+                custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
+
+            }
+            if (ferramenta.InsertFerramentaDB(nome, marca, custo)) {
+                JOptionPane.showMessageDialog(null, "Ferramenta cadastrada com sucesso");
+                JTFMarcaFerramenta.setText("");
+                JTFNomeFerramenta.setText("");
+                JTFCustoFerramenta.setText("");
+            }
+        } catch (Erro erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
         }
-        if(ferramenta.InsertFerramentaDB(nome, marca, custo));
-    }catch(Erro erro){
-        JOptionPane.showMessageDialog(null, erro.getMessage());
-    }
     }//GEN-LAST:event_JBCadastrarActionPerformed
+
+    private void JBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimparActionPerformed
+        JTFMarcaFerramenta.setText("");
+        JTFNomeFerramenta.setText("");
+        JTFCustoFerramenta.setText("");
+    }//GEN-LAST:event_JBLimparActionPerformed
 
     /**
      * @param args the command line arguments

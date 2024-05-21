@@ -112,16 +112,17 @@ public class FerramentaDAO {
      * Insere uma ferramenta no banco de dados.
      *
      * @param ferramenta Ferramenta a ser inserida.
-     * @return {@code true} se a inserção for bem-sucedida, caso contrário, lança uma exceção.
+     * @return {@code true} se a inserção for bem-sucedida, caso contrário,
+     * lança uma exceção.
      */
     public boolean insertFerramentaDB(Ferramenta ferramenta) {
         String res = "insert into tb_Ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta,disponivel)values(?,?,?,?,?)";
         try {
             PreparedStatement smt = this.getConexaoFerramenta().prepareCall(res);
             smt.setInt(1, ferramenta.getIdFerramenta());
-            smt.setString(2, ferramenta.getNome());
-            smt.setString(3, ferramenta.getMarca());
-            smt.setDouble(4, ferramenta.getCusto());
+            smt.setString(2, ferramenta.getNomeFerramenta());
+            smt.setString(3, ferramenta.getMarcaFerramenta());
+            smt.setDouble(4, ferramenta.getCustoFerramenta());
             smt.setBoolean(5, true);
             smt.execute();
             smt.close();
@@ -145,9 +146,9 @@ public class FerramentaDAO {
             Statement smt = this.getConexaoFerramenta().createStatement();
             ResultSet res = smt.executeQuery("select * from tb_Ferramenta where idFerramenta = " + IdFerramenta);
             res.next();
-            ferramenta.setNome(res.getString("nomeFerramenta"));
-            ferramenta.setMarca(res.getString("marcaFerramenta"));
-            ferramenta.setCusto(res.getDouble("custoFerramenta"));
+            ferramenta.setNomeFerramenta(res.getString("nomeFerramenta"));
+            ferramenta.setMarcaFerramenta(res.getString("marcaFerramenta"));
+            ferramenta.setCustoFerramenta(res.getDouble("custoFerramenta"));
             ferramenta.setDisponivel(res.getBoolean("disponivel"));
             smt.close();
         } catch (SQLException erro) {
@@ -160,16 +161,17 @@ public class FerramentaDAO {
      * Atualiza as informações de uma ferramenta no banco de dados.
      *
      * @param ferramenta Ferramenta a ser atualizada.
-     * @return {@code true} se a atualização for bem-sucedida, caso contrário, lança uma exceção.
+     * @return {@code true} se a atualização for bem-sucedida, caso contrário,
+     * lança uma exceção.
      */
     public boolean updateFerramentaDB(Ferramenta ferramenta) {
         String res = "update tb_Ferramenta set idFerramenta=?,nomeFerramenta=?, marcaFerramenta=?, custoFerramenta=?, disponivel=?";
         try {
             PreparedStatement smt = this.getConexaoFerramenta().prepareStatement(res);
             smt.setInt(1, ferramenta.getIdFerramenta());
-            smt.setString(2, ferramenta.getNome());
-            smt.setString(3, ferramenta.getMarca());
-            smt.setDouble(4, ferramenta.getCusto());
+            smt.setString(2, ferramenta.getNomeFerramenta());
+            smt.setString(3, ferramenta.getMarcaFerramenta());
+            smt.setDouble(4, ferramenta.getCustoFerramenta());
             smt.setBoolean(5, ferramenta.getDisponivel());
             smt.execute();
             smt.close();
@@ -184,7 +186,8 @@ public class FerramentaDAO {
      * Remove uma ferramenta do banco de dados com base no ID.
      *
      * @param IdFerramenta ID da ferramenta a ser removida.
-     * @return {@code true} se a remoção for bem-sucedida, caso contrário, {@code false}.
+     * @return {@code true} se a remoção for bem-sucedida, caso contrário,
+     * {@code false}.
      */
     public boolean deleteFerramentaDB(int IdFerramenta) {
         try {

@@ -1,8 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package visao;
+
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import modelo.Ferramenta;
 
 /**
  *
@@ -10,11 +10,12 @@ package visao;
  */
 public class FrmGerenciarFerramenta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmGerenciarFerramenta
-     */
+    private Ferramenta ferramenta;
+
     public FrmGerenciarFerramenta() {
         initComponents();
+        this.ferramenta = new Ferramenta();
+        this.CarregaListaFerramenta();
     }
 
     /**
@@ -179,6 +180,20 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFNomeActionPerformed
+    public void CarregaListaFerramenta() {
+        DefaultTableModel model = (DefaultTableModel) jTableAmigos.getModel();
+        model.setNumRows(0);
+        ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
+        for (Ferramenta objeto : listaFerramenta) {
+            model.addRow(new Object[]{
+                objeto.getIdFerramenta(),
+                objeto.getNomeFerramenta(),
+                objeto.getMarcaFerramenta(),
+                objeto.getCustoFerramenta(),
+                objeto.getDisponivel(),}
+            );
+        }
+    }
 
     /**
      * @param args the command line arguments
