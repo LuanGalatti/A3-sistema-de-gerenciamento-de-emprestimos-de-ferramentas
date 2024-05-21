@@ -9,15 +9,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Amigo;
 
+/**
+ * Classe responsável pelo acesso aos dados dos amigos no banco de dados.
+ */
 public class AmigoDAO {
 
+    /**
+     * Lista de amigos em memória.
+     */
     public static ArrayList<Amigo> listaAmigo = new ArrayList<>();
 
+    /**
+     * Se conecta com o banco de dados de amigos.
+     *
+     * @return Conexão com o banco de dados ou null se a conexão falhar.
+     */
     public Connection getConexaoAmigo() {
-
         Connection connection = null;
         try {
-
             String driver = "com.mysql.cj.jdbc.Driver";
             Class.forName(driver);
 
@@ -37,14 +46,19 @@ public class AmigoDAO {
             return connection;
 
         } catch (ClassNotFoundException erro) {
-            System.out.println("O driver nao foi encontrado. " + erro.getMessage());
+            System.out.println("O driver não foi encontrado. " + erro.getMessage());
             return null;
         } catch (SQLException erro) {
-            System.out.println("Nao foi possivel conectar...");
+            System.out.println("Não foi possível conectar...");
             return null;
         }
     }
 
+    /**
+     * Obtém a lista de amigos do banco de dados.
+     *
+     * @return Lista de amigos.
+     */
     public ArrayList<Amigo> getListaAmigo() {
         listaAmigo.clear();
         try {
@@ -64,10 +78,20 @@ public class AmigoDAO {
         return listaAmigo;
     }
 
+    /**
+     * Define a lista de amigos.
+     *
+     * @param listaAmigo Lista de amigos a ser definida.
+     */
     public static void setListaAmigo(ArrayList<Amigo> listaAmigo) {
         AmigoDAO.listaAmigo = listaAmigo;
     }
 
+    /**
+     * Obtém o maior ID de amigo no banco de dados.
+     *
+     * @return Maior ID de amigo.
+     */
     public int maiorIDAmigo() {
         int MaiorID = 0;
         try {
@@ -77,13 +101,19 @@ public class AmigoDAO {
             MaiorID = res.getInt("idAmigo");
             smt.close();
         } catch (SQLException erro) {
-            System.out.println("Erro:" + erro);
+            System.out.println("Erro: " + erro);
         }
         return MaiorID;
     }
 
+    /**
+     * Insere um amigo no banco de dados.
+     *
+     * @param amigo Amigo a ser inserido.
+     * @return {@code true} se a inserção for bem-sucedida, caso contrário, lança uma exceção.
+     */
     public boolean insertAmigoDB(Amigo amigo) {
-        String res = ("insert into tb_amigo(idAmigo,nomeAmigo,telefoneAmigo)values(?,?,?)");
+        String res = "insert into tb_amigo(idAmigo,nomeAmigo,telefoneAmigo)values(?,?,?)";
         try {
             PreparedStatement smt = this.getConexaoAmigo().prepareCall(res);
             smt.setInt(1, amigo.getIdAmigo());
@@ -98,11 +128,16 @@ public class AmigoDAO {
         }
     }
 
+    /**
+     * Recupera um amigo do banco de dados com base no ID.
+     *
+     * @param IdAmigo ID do amigo a ser recuperado.
+     * @return Amigo recuperado.
+     */
     public Amigo retrieveAmigoDB(int IdAmigo) {
         Amigo amigo = new Amigo();
         amigo.setIdAmigo(IdAmigo);
         try {
-
             Statement smt = this.getConexaoAmigo().createStatement();
             ResultSet res = smt.executeQuery("select * from tb_amigo where idAmigo = " + IdAmigo);
             res.next();
@@ -115,6 +150,12 @@ public class AmigoDAO {
         return amigo;
     }
 
+    /**
+     * Atualiza as informações de um amigo no banco de dados.
+     *
+     * @param amigo Amigo a ser atualizado.
+     * @return {@code true} se a atualização for bem-sucedida, caso contrário, lança uma exceção.
+     */
     public boolean updateAmigoDB(Amigo amigo) {
         String res = "update tb_amigo set idAmigo=?,nomeAmigo=?,telefoneAmigo=?";
         try {
@@ -131,15 +172,21 @@ public class AmigoDAO {
         }
     }
 
+    /**
+     * Remove um amigo do banco de dados com base no ID.
+     *
+     * @param IdAmigo ID do amigo a ser removido.
+     * @return {@code true} se a remoção for bem-sucedida, caso contrário, {@code false}.
+     */
     public boolean deleteAmigoDB(int IdAmigo) {
         try {
             Statement smt = this.getConexaoAmigo().createStatement();
             ResultSet res = smt.executeQuery("delete from tb_amigo where id=" + IdAmigo);
             smt.close();
-
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
         }
         return true;
     }
 }
+
