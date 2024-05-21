@@ -28,4 +28,6 @@ Requisitos não funcionais do sistema:
             * O sistema deve apresentar uma revisão de rotina sobre a funcionalidade do sistema e seus erros;
             * Teste automatizado : o sistema deve apresentar uma funcionalidade de teste o sistema para conferir se funciona com a atualização inserida ou com alguma funcionalidade removida.
 6-> RNF006 - Comportabilidade:
-            * o sistema deve comportar a funcionalidade para dispositivos móveis, tanto quanto sites como aplicativos;
+            * o sistema deve comportar a funcionalidade para dispositivos móveis, tanto quanto sites como aplicativos (IOS, Windows e Android);
+            * o sistema deve funcionar em navegadores, como: Google, Safari e Edge.
+
