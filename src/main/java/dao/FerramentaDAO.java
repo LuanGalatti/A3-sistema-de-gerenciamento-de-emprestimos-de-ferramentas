@@ -165,7 +165,7 @@ public class FerramentaDAO {
      * lança uma exceção.
      */
     public boolean updateFerramentaDB(Ferramenta ferramenta) {
-        String res = "update tb_Ferramenta set idFerramenta=?,nomeFerramenta=?, marcaFerramenta=?, custoFerramenta=?, disponivel=?";
+        String res = "update tb_Ferramenta set idFerramenta=?,nomeFerramenta=?, marcaFerramenta=?, custoFerramenta=?, disponivel=? where idFerramenta=?";
         try {
             PreparedStatement smt = this.getConexaoFerramenta().prepareStatement(res);
             smt.setInt(1, ferramenta.getIdFerramenta());
@@ -173,6 +173,7 @@ public class FerramentaDAO {
             smt.setString(3, ferramenta.getMarcaFerramenta());
             smt.setDouble(4, ferramenta.getCustoFerramenta());
             smt.setBoolean(5, ferramenta.getDisponivel());
+            smt.setInt(6, ferramenta.getIdFerramenta());
             smt.execute();
             smt.close();
             return true;

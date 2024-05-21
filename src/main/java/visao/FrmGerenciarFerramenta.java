@@ -1,6 +1,7 @@
 package visao;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Ferramenta;
 
@@ -30,7 +31,6 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAmigos = new javax.swing.JTable();
         JLID = new javax.swing.JLabel();
-        JTFID = new javax.swing.JTextField();
         JLNome = new javax.swing.JLabel();
         jScrollBar1 = new javax.swing.JScrollBar();
         JTFNome = new javax.swing.JTextField();
@@ -43,6 +43,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         JBApagar = new javax.swing.JButton();
         JBModificar = new javax.swing.JButton();
         JBCancelar = new javax.swing.JButton();
+        JLId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciador de Ferramentas");
@@ -58,6 +59,11 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 "ID", "Nome", "Marca", "Custo", "Disponivel"
             }
         ));
+        jTableAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAmigosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAmigos);
 
         JLID.setText("ID:");
@@ -81,6 +87,11 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         JBApagar.setText("Apagar");
 
         JBModificar.setText("Modificar");
+        JBModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBModificarActionPerformed(evt);
+            }
+        });
 
         JBCancelar.setText("Cancelar");
         JBCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +99,8 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 JBCancelarActionPerformed(evt);
             }
         });
+
+        JLId.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,11 +114,12 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JLNome)
-                                    .addComponent(JLID))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(JLID)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JLId)))
                                 .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JTFNome, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                    .addComponent(JTFID)))
+                                .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JLCustoFerramenta)
@@ -144,7 +158,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLID)
-                    .addComponent(JTFID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JLId))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLNome)
@@ -157,7 +171,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLCustoFerramenta)
                     .addComponent(JTFCustoFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLDisponivel)
                     .addComponent(JTFDisponivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -180,8 +194,60 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFNomeActionPerformed
+
+    private void jTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAmigosMouseClicked
+if (this.jTableAmigos.getSelectedRow() != -1){
+    JLId.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),0 ).toString());
+    JLId.setVisible(true);
+    JTFNome.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),1 ).toString());
+    JTFMarca.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),2 ).toString());
+    JTFCustoFerramenta.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),3 ).toString());
+    JTFDisponivel.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),4 ).toString());
+
+}
+    }//GEN-LAST:event_jTableAmigosMouseClicked
+
+    private void JBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBModificarActionPerformed
+try{
+int id=Integer.parseInt(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),0 ).toString());
+String nome="";
+String marca="";
+double custo=0;
+boolean disponivel=true;
+ if (JTFNome.getText().length() < 3) {
+                throw new Erro("Nome deve conter mais de 3 caracteres, tente novamente");
+            } else {
+                nome = (JTFNome.getText());
+
+            }
+            if (JTFMarca.getText().length() < 3) {
+                throw new Erro("Marca deve conter mais de 3 caracteres, tente novamente");
+            } else {
+                marca = (JTFMarca.getText());
+
+            }
+            if (Double.parseDouble(JTFCustoFerramenta.getText()) <= 0) {
+                throw new Erro("Custo deve ser maior que 0, tente novamente");
+            } else {
+                custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
+
+            }
+            if (ferramenta.updateFerramentaDB(id,nome, marca, custo,disponivel)) {
+                JOptionPane.showMessageDialog(null, "Ferramenta atualizada com sucesso");
+                JLId.setVisible(false);
+                JTFMarca.setText("");
+                JTFNome.setText("");
+                JTFCustoFerramenta.setText("");
+                JTFDisponivel.setText("");
+            this.CarregaListaFerramenta();
+            }
+} catch (Erro erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+}
+    }//GEN-LAST:event_JBModificarActionPerformed
     public void CarregaListaFerramenta() {
         DefaultTableModel model = (DefaultTableModel) jTableAmigos.getModel();
+        JLId.setVisible(false);
         model.setNumRows(0);
         ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
         for (Ferramenta objeto : listaFerramenta) {
@@ -237,11 +303,11 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     private javax.swing.JLabel JLCustoFerramenta;
     private javax.swing.JLabel JLDisponivel;
     private javax.swing.JLabel JLID;
+    private javax.swing.JLabel JLId;
     private javax.swing.JLabel JLMarca;
     private javax.swing.JLabel JLNome;
     private javax.swing.JTextField JTFCustoFerramenta;
     private javax.swing.JTextField JTFDisponivel;
-    private javax.swing.JTextField JTFID;
     private javax.swing.JTextField JTFMarca;
     private javax.swing.JTextField JTFNome;
     private javax.swing.JScrollBar jScrollBar1;
