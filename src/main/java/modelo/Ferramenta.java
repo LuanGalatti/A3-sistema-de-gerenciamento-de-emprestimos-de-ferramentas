@@ -25,9 +25,9 @@ public class Ferramenta {
      * @param idFerramenta O id da ferramenta.
      */
     public Ferramenta() {
-        this(0, "", 0, "");
+        this(0, "", 0, "",true);
     }
-
+/**
     public Ferramenta(int idFerramenta, String nome, double custo, String marca) {
         this.idFerramenta = idFerramenta;
         this.nome = nome;
@@ -36,13 +36,14 @@ public class Ferramenta {
         this.disponivel = true;
         this.dao = new FerramentaDAO();
     }
-
+*/
     public Ferramenta(int idFerramenta, String nome, double custo, String marca, boolean disponivel) {
         this.idFerramenta = idFerramenta;
         this.nome = nome;
         this.custo = custo;
         this.marca = marca; // Inicializa a marca como uma string vazia
         this.disponivel = disponivel;
+        this.dao = new FerramentaDAO();
     }
 
     /**
@@ -139,7 +140,8 @@ public class Ferramenta {
 
     public boolean InsertFerramentaDB(String nome, String marca, double custo) {
         int maiorID = dao.maiorIDFerramenta() + 1;
-        Ferramenta ferramenta = new Ferramenta(maiorID, nome, custo, marca);
+        boolean disponivel=true;
+        Ferramenta ferramenta = new Ferramenta(maiorID, nome, custo, marca, disponivel);
         dao.insertFerramentaDB(ferramenta);
         return true;
 
@@ -163,7 +165,6 @@ public class Ferramenta {
 
     public boolean updateFerramentaDB(int id, String nome, String marca, double custo, boolean disponivel) {
         Ferramenta ferramenta = new Ferramenta(id, nome, custo, marca, disponivel);
-        int indice = this.procuraIndice(id);
         dao.updateFerramentaDB(ferramenta);
         return true;
     }

@@ -20,7 +20,7 @@ public class AmigoDAO {
     public static ArrayList<Amigo> listaAmigo = new ArrayList<>();
 
     /**
-     * Se conecta com o banco de dados de amigos.
+     * Se conecta com o banco de dados de emprestimos.
      *
      * @return Conexão com o banco de dados ou null se a conexão falhar.
      */

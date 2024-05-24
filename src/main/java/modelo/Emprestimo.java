@@ -11,8 +11,8 @@ public class Emprestimo{
     private int idEmprestimo;
     private int idAmigo;
     private int idFerramenta;
-    private String DataEmprestimo;
-    private String DataDevolucao;
+    private String dataEmprestimo;
+    private String dataDevolucao;
     EmprestimoDAO dao;
     
     /**
@@ -39,8 +39,9 @@ public class Emprestimo{
         this.idEmprestimo = idEmprestimo;
         this.idAmigo = idAmigo;
         this.idFerramenta = idFerramenta;
-        this.DataEmprestimo = DataEmprestimo;
-        this.DataDevolucao = DataDevolucao;
+        this.dataEmprestimo = DataEmprestimo;
+        this.dataDevolucao = DataDevolucao;
+    this.dao = new EmprestimoDAO();
     }
 
     /**
@@ -102,7 +103,7 @@ public class Emprestimo{
      * @return A data do emprestimo.
      */
     public String getDataEmprestimo() {
-        return DataEmprestimo;
+        return dataEmprestimo;
     }
 
     /**
@@ -110,8 +111,8 @@ public class Emprestimo{
      *
      * @param DataEmprestimo A data do emprestimo a ser definida.
      */
-    public void DataEmprestimo(String DataEmprestimo) {
-        this.DataEmprestimo = DataEmprestimo;
+    public void setDataEmprestimo(String DataEmprestimo) {
+        this.dataEmprestimo = DataEmprestimo;
     }
     
     /**
@@ -120,7 +121,7 @@ public class Emprestimo{
      * @return A data de devolução do emprestimo.
      */
     public String getDataDevolucao() {
-        return DataDevolucao;
+        return dataDevolucao;
     }
     
     /**
@@ -129,7 +130,7 @@ public class Emprestimo{
      * @param DataDevolucao A data de devolução do emprestimo a ser definida.
      */
     public void setDataDevolucao(String DataDevolucao) {
-        this.DataDevolucao = DataDevolucao;
+        this.dataDevolucao = DataDevolucao;
     }
     
         /**
@@ -150,9 +151,9 @@ public class Emprestimo{
      * @param DataDevolucao Data de devolução da ferramenta a ser inserida.
      * @return true se a inserção for bem-sucedida, false caso contrário.
      */
-    public boolean InsertEmprestimoDB(int idAmigo, int idFerramenta, String DataEmprestimo, String DataDevolucao) {
+    public boolean InsertEmprestimoDB(int idAmigo, int idFerramenta, String dataEmprestimo, String dataDevolucao) {
         int maiorID = dao.maiorIDEmprestimo() + 1;
-        Emprestimo emprestimo = new Emprestimo(maiorID, idAmigo, idFerramenta, DataEmprestimo, DataDevolucao);
+        Emprestimo emprestimo = new Emprestimo(maiorID, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
         dao.insertEmprestimoDB(emprestimo);
         return true;
 
@@ -178,7 +179,7 @@ public class Emprestimo{
     private int procuraIndice(int idEmprestimo) {
         int indice = -1;
         for (int i = 0; i < EmprestimoDAO.listaEmprestimo.size(); i++) {
-            if (EmprestimoDAO.listaEmprestimo.get(i).getIdEmprestimo() == idEmprestimo) {
+            if (EmprestimoDAO.listaEmprestimo.get(i).getidEmprestimo() == idEmprestimo) {
                 indice = i;
             }
         }
@@ -194,8 +195,8 @@ public class Emprestimo{
      * @param DataDevolucao A Data de devolução da ferramenta a ser atualizada.
      * @return true se a inserção for bem-sucedida, false caso contrário.
      */
-    public boolean updateEmprestimoDB(int idEmprestimo, int idAmigo, int idFerrmaneta, String DataEmprestimo, String DataDevolucao) {
-        Emprestimo emprestimo = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, DataEmprestimo, DataDevolucao);
+    public boolean updateEmprestimoDB(int idEmprestimo, int idAmigo, int idFerrmaneta, String dataEmprestimo, String dataDevolucao) {
+        Emprestimo emprestimo = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
         int indice = this.procuraIndice(idEmprestimo);
         dao.updateEmprestimoDB(emprestimo);
         return true;

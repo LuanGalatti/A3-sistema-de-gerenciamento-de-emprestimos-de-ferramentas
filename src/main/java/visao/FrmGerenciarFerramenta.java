@@ -213,7 +213,7 @@ int id=Integer.parseInt(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow
 String nome="";
 String marca="";
 double custo=0;
-boolean disponivel=true;
+boolean disponivel=Boolean.parseBoolean(JTFDisponivel.getText());
  if (JTFNome.getText().length() < 3) {
                 throw new Erro("Nome deve conter mais de 3 caracteres, tente novamente");
             } else {
