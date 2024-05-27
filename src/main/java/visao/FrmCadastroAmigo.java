@@ -1,22 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package visao;
 
+import modelo.Amigo;
 /**
  *
  * @author 1072416842
  */
 public class FrmCadastroAmigo extends javax.swing.JFrame {
-
-    /**
+        /**
      * Creates new form FrmCadastroAmigo
      */
-    public FrmCadastroAmigo() {
-        initComponents();
-    }
 
+
+    private Amigo objetoamigo; 
+    // cria o vínculo com Amigo.java
+    
+    public FrmCadastroAmigo() {
+    initComponents();
+    this.objetoamigo = new Amigo(); 
+    // carrega o objeto vazio de amigo
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,6 +46,11 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         JBCadastrar.setText("Cadastrar");
 
         JBLimpar.setText("Limpar");
+        JBLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBLimparActionPerformed(evt);
+            }
+        });
 
         JBCancelar.setText("Cancelar");
         JBCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +107,10 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         //Libera todos os recurso da interface gráfica
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
+
+    private void JBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimparActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBLimparActionPerformed
 
     /**
      * @param args the command line arguments

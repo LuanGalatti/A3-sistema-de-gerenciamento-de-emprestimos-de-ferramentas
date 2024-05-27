@@ -150,12 +150,12 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
-//Encerra o programa
+        //Encerra o programa
         System.exit(0);
     }//GEN-LAST:event_jMenuItemSairActionPerformed
 
     private void jMenuItemGerenciarAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciarAmigosActionPerformed
-//Instancia a tela de gerenciar de aluno
+        //Instancia a tela de gerenciar amigo
         FrmGerenciaAmigo objeto = new FrmGerenciaAmigo();
         objeto.setVisible(true);
 
@@ -168,8 +168,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCadastrarFerramentasActionPerformed
 
     private void jMenuItemEmpréstimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEmpréstimoActionPerformed
-FrmCadastroEmprestimo tela = new FrmCadastroEmprestimo();
-tela.setVisible(true);
+        // Instancia a tela de cadastro de empréstimo
+        FrmCadastroEmprestimo tela = new FrmCadastroEmprestimo();
+        tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemEmpréstimoActionPerformed
     private void jMenuItemGerenciarFerramentasMouseClicked(java.awt.event.MouseEvent evt) {
 
@@ -184,7 +185,7 @@ tela.setVisible(true);
     }
 
     private void jMenuItemGerenciarFerramentasActionPerformed(java.awt.event.ActionEvent evt) {
-        // Instancia a tela de cadastro de ferramenta
+        // Instancia a tela de gerenciar ferramenta
         FrmGerenciarFerramenta objeto = new FrmGerenciarFerramenta();
         objeto.setVisible(true);
     }
