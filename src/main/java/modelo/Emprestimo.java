@@ -4,30 +4,32 @@ import dao.EmprestimoDAO;
 import java.util.ArrayList;
 
 /**
- * Representa um emprestimo com id, id do amigo, id da ferramenta, 
- * data de emprestimo e data de devolução.
+ * Representa um emprestimo com id, id do amigo, id da ferramenta, data de
+ * emprestimo e data de devolução.
  */
-public class Emprestimo{
+public class Emprestimo {
+
     private int idEmprestimo;
     private int idAmigo;
     private int idFerramenta;
     private String dataEmprestimo;
     private String dataDevolucao;
     EmprestimoDAO dao;
-    
+
     /**
-     * Construtor padrão para a classe Emprestimo. Inicializa o id do emprestimo,
-     * o id do amigo(para quem foi emprestado),
-     * o id da ferramenta(ferramenta que foi emprestada),
-     * data do emprestimo e data de devolução vazios.
+     * Construtor padrão para a classe Emprestimo. Inicializa o id do
+     * emprestimo, o id do amigo(para quem foi emprestado), o id da
+     * ferramenta(ferramenta que foi emprestada), data do emprestimo e data de
+     * devolução vazios.
      */
     public Emprestimo() {
         this(0, 0, 0, "", "");
     }
 
     /**
-     * Construtor para a classe Emprestimo. Inicializa o emprestimo com os id's de Emprestimo,
-     * Amigo e ferramenta, Data de emprestimo e de devolução fornecidos.
+     * Construtor para a classe Emprestimo. Inicializa o emprestimo com os id's
+     * de Emprestimo, Amigo e ferramenta, Data de emprestimo e de devolução
+     * fornecidos.
      *
      * @param idEmprestimo Id do emprestimo
      * @param idAmigo Para que amigo foi emprestada a ferramenta.
@@ -41,18 +43,19 @@ public class Emprestimo{
         this.idFerramenta = idFerramenta;
         this.dataEmprestimo = DataEmprestimo;
         this.dataDevolucao = DataDevolucao;
-    this.dao = new EmprestimoDAO();
+        this.dao = new EmprestimoDAO();
     }
 
     /**
      * Obtém od id do emprestimo.
      *
      * @return o id do emprestimo.
-     * 
+     *
      */
     public int getidEmprestimo() {
         return idEmprestimo;
     }
+
     /**
      * Define o id do emprestimo.
      *
@@ -61,11 +64,12 @@ public class Emprestimo{
     public void setidEmprestimo(int idEmprestimo) {
         this.idEmprestimo = idEmprestimo;
     }
+
     /**
      * Obtém para que amigo foi emprestado.
      *
      * @return para quem foi emprestado.
-     * 
+     *
      */
     public int getidAmigo() {
         return idAmigo;
@@ -84,11 +88,12 @@ public class Emprestimo{
      * Obtém od id da ferramenta.
      *
      * @return o id da ferramenta.
-     * 
+     *
      */
     public int getidFerramenta() {
         return idFerramenta;
     }
+
     /**
      * Define o id da ferramenta.
      *
@@ -97,6 +102,7 @@ public class Emprestimo{
     public void setidFerramenta(int idFerramenta) {
         this.idFerramenta = idFerramenta;
     }
+
     /**
      * Obtém a data do emprestimo.
      *
@@ -114,7 +120,7 @@ public class Emprestimo{
     public void setDataEmprestimo(String DataEmprestimo) {
         this.dataEmprestimo = DataEmprestimo;
     }
-    
+
     /**
      * Obtém a data de devolução do emprestimo.
      *
@@ -123,7 +129,7 @@ public class Emprestimo{
     public String getDataDevolucao() {
         return dataDevolucao;
     }
-    
+
     /**
      * Define a data de devolução do emprestimo.
      *
@@ -132,8 +138,8 @@ public class Emprestimo{
     public void setDataDevolucao(String DataDevolucao) {
         this.dataDevolucao = DataDevolucao;
     }
-    
-        /**
+
+    /**
      * Retorna uma lista de emprestimos.
      *
      * @return Uma lista de emprestimos.
@@ -142,7 +148,7 @@ public class Emprestimo{
         return dao.getListaEmprestimo();
     }
 
-        /**
+    /**
      * Insere um emprestimo no banco de dados.
      *
      * @param idAmgio O id do amigo a ser inserido.
@@ -151,14 +157,14 @@ public class Emprestimo{
      * @param DataDevolucao Data de devolução da ferramenta a ser inserida.
      * @return true se a inserção for bem-sucedida, false caso contrário.
      */
-    public boolean InsertEmprestimoDB(int idAmigo, int idFerramenta, String dataEmprestimo, String dataDevolucao) {
+    public boolean InsertEmprestimoDB(int idAmigo, int idFerramenta, String dataEmprestimo) {
         int maiorID = dao.maiorIDEmprestimo() + 1;
-        Emprestimo emprestimo = new Emprestimo(maiorID, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
+        Emprestimo emprestimo = new Emprestimo(maiorID, idAmigo, idFerramenta, dataEmprestimo, null);
         dao.insertEmprestimoDB(emprestimo);
         return true;
 
     }
-    
+
     /**
      * Remove um emprestimo do banco de dados.
      *
@@ -188,6 +194,7 @@ public class Emprestimo{
 
     /**
      * Atualiza um emprestimo no banco de dados.
+     *
      * @param idEmprestimo O id do emprestimo a ser atualizado.
      * @param idAmgio O id do amigo a ser atualizado.
      * @param idFerramenta O id da ferramenta a ser atualizada.
@@ -211,6 +218,7 @@ public class Emprestimo{
     public Emprestimo retrieveEmprestimoDB(int idEmprestimo) {
         return dao.retrieveEmprestimoDB(idEmprestimo);
     }
+
     /**
      * Retorna o maior ID de emprestimo no banco de dados.
      *
