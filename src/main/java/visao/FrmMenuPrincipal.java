@@ -168,8 +168,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCadastrarFerramentasActionPerformed
 
     private void jMenuItemEmpréstimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEmpréstimoActionPerformed
-FrmCadastroEmprestimo tela = new FrmCadastroEmprestimo();
-tela.setVisible(true);
+        FrmCadastroEmprestimo tela = new FrmCadastroEmprestimo();
+        tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemEmpréstimoActionPerformed
     private void jMenuItemGerenciarFerramentasMouseClicked(java.awt.event.MouseEvent evt) {
 
@@ -188,8 +188,7 @@ tela.setVisible(true);
         FrmGerenciarFerramenta objeto = new FrmGerenciarFerramenta();
         objeto.setVisible(true);
     }
-    
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

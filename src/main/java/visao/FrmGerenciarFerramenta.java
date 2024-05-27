@@ -196,25 +196,25 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_JTFNomeActionPerformed
 
     private void jTableAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAmigosMouseClicked
-if (this.jTableAmigos.getSelectedRow() != -1){
-    JLId.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),0 ).toString());
-    JLId.setVisible(true);
-    JTFNome.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),1 ).toString());
-    JTFMarca.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),2 ).toString());
-    JTFCustoFerramenta.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),3 ).toString());
-    JTFDisponivel.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),4 ).toString());
+        if (this.jTableAmigos.getSelectedRow() != -1) {
+            JLId.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
+            JLId.setVisible(true);
+            JTFNome.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 1).toString());
+            JTFMarca.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 2).toString());
+            JTFCustoFerramenta.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 3).toString());
+            JTFDisponivel.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 4).toString());
 
-}
+        }
     }//GEN-LAST:event_jTableAmigosMouseClicked
 
     private void JBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBModificarActionPerformed
-try{
-int id=Integer.parseInt(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(),0 ).toString());
-String nome="";
-String marca="";
-double custo=0;
-boolean disponivel=Boolean.parseBoolean(JTFDisponivel.getText());
- if (JTFNome.getText().length() < 3) {
+        try {
+            int id = Integer.parseInt(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 0).toString());
+            String nome = "";
+            String marca = "";
+            double custo = 0;
+            boolean disponivel = Boolean.parseBoolean(JTFDisponivel.getText());
+            if (JTFNome.getText().length() < 3) {
                 throw new Erro("Nome deve conter mais de 3 caracteres, tente novamente");
             } else {
                 nome = (JTFNome.getText());
@@ -232,18 +232,18 @@ boolean disponivel=Boolean.parseBoolean(JTFDisponivel.getText());
                 custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
 
             }
-            if (ferramenta.updateFerramentaDB(id,nome, marca, custo,disponivel)) {
+            if (ferramenta.updateFerramentaDB(id, nome, marca, custo, disponivel)) {
                 JOptionPane.showMessageDialog(null, "Ferramenta atualizada com sucesso");
                 JLId.setVisible(false);
                 JTFMarca.setText("");
                 JTFNome.setText("");
                 JTFCustoFerramenta.setText("");
                 JTFDisponivel.setText("");
-            this.CarregaListaFerramenta();
+                this.CarregaListaFerramenta();
             }
-} catch (Erro erro) {
+        } catch (Erro erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
-}
+        }
     }//GEN-LAST:event_JBModificarActionPerformed
     public void CarregaListaFerramenta() {
         DefaultTableModel model = (DefaultTableModel) jTableAmigos.getModel();

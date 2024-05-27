@@ -4,8 +4,10 @@
  */
 package visao;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import modelo.Amigo;
+import modelo.Emprestimo;
 import modelo.Ferramenta;
 
 /**
@@ -15,11 +17,12 @@ import modelo.Ferramenta;
 public class FrmCadastroEmprestimo extends javax.swing.JFrame {
 
     private Ferramenta ferramenta;
-     private Amigo amigo;
+    private Amigo amigo;
+
     public FrmCadastroEmprestimo() {
         initComponents();
-    this.ferramenta=new Ferramenta();
-    this.amigo=new Amigo();
+        this.ferramenta = new Ferramenta();
+        this.amigo = new Amigo();
         carregaCBFerramenta();
         carregaCBAmigo();
     }
@@ -37,20 +40,7 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
         JCBFerramenta = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         JCBAmigo = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        JTFDataInicio = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        JTFMesInicio = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        JTFAnoInicio = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        JTFDataDevolucao = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        JTFMesDevolucao = new javax.swing.JTextField();
-        JTFAnoDevolucao = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         JBCancelar = new javax.swing.JButton();
-        JBLimpar = new javax.swing.JButton();
         JBCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,63 +51,19 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
 
         jLabel2.setText("Amigo:");
 
-        jLabel3.setText("Data de inicio do emprestimo:");
-
-        JTFDataInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFDataInicioActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("/");
-
-        JTFMesInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFMesInicioActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("/");
-
-        JTFAnoInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFAnoInicioActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setText("Data de devolucao do emprestimo: (opicional)");
-
-        JTFDataDevolucao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFDataDevolucaoActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("/");
-
-        JTFMesDevolucao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFMesDevolucaoActionPerformed(evt);
-            }
-        });
-
-        JTFAnoDevolucao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFAnoDevolucaoActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("/");
-
         JBCancelar.setText("Cancelar");
-
-        JBLimpar.setText("Limpar");
+        JBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCancelarActionPerformed(evt);
+            }
+        });
 
         JBCadastrar.setText("Cadastrar");
+        JBCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCadastrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,38 +72,14 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
                     .addComponent(JCBAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(JCBFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JTFDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFMesInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFAnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JTFDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFMesDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFAnoDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6))
-                .addContainerGap(136, Short.MAX_VALUE))
+                    .addComponent(jLabel1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(226, Short.MAX_VALUE)
                 .addComponent(JBCadastrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JBLimpar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JBCancelar)
                 .addContainerGap())
@@ -173,28 +95,9 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JCBAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTFDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JTFMesInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JTFAnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTFDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JTFMesDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JTFAnoDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBCancelar)
-                    .addComponent(JBLimpar)
                     .addComponent(JBCadastrar))
                 .addContainerGap())
         );
@@ -202,45 +105,37 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTFDataInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFDataInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFDataInicioActionPerformed
+    private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_JBCancelarActionPerformed
 
-    private void JTFMesInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFMesInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFMesInicioActionPerformed
-
-    private void JTFAnoInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFAnoInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFAnoInicioActionPerformed
-
-    private void JTFDataDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFDataDevolucaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFDataDevolucaoActionPerformed
-
-    private void JTFMesDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFMesDevolucaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFMesDevolucaoActionPerformed
-
-    private void JTFAnoDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFAnoDevolucaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFAnoDevolucaoActionPerformed
-public void carregaCBFerramenta(){
-    ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
-    for (Ferramenta objeto : listaFerramenta) {
-            JCBFerramenta.addItem(objeto.getIdFerramenta()+"- "+objeto.getNomeFerramenta());
-                }
-            
-        }
-    public void carregaCBAmigo(){
-    ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
-    for (Amigo objeto : listaAmigo) {
-            JCBAmigo.addItem(objeto.getIdAmigo()+"- "+objeto.getNomeAmigo());
-                }
-            
+    private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
+        int posicaoFerramenta = JCBFerramenta.getSelectedIndex();
+        int posicaoAmigo = JCBAmigo.getSelectedIndex();
+        ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
+        ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
+        Emprestimo emprestimo = new Emprestimo();
+        int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
+        int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramenta();
+        String DataInicio = LocalDate.now() + "";
+        emprestimo.InsertEmprestimoDB(idAmigo, idFerramenta, DataInicio);
+    }//GEN-LAST:event_JBCadastrarActionPerformed
+    public void carregaCBFerramenta() {
+        ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
+        for (Ferramenta objeto : listaFerramenta) {
+            JCBFerramenta.addItem(objeto.getIdFerramenta() + "- " + objeto.getNomeFerramenta());
         }
 
-    
+    }
+
+    public void carregaCBAmigo() {
+        ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
+        for (Amigo objeto : listaAmigo) {
+            JCBAmigo.addItem(objeto.getIdAmigo() + "- " + objeto.getNomeAmigo());
+        }
+
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -276,22 +171,9 @@ public void carregaCBFerramenta(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBCadastrar;
     private javax.swing.JButton JBCancelar;
-    private javax.swing.JButton JBLimpar;
     private javax.swing.JComboBox<String> JCBAmigo;
     private javax.swing.JComboBox<String> JCBFerramenta;
-    private javax.swing.JTextField JTFAnoDevolucao;
-    private javax.swing.JTextField JTFAnoInicio;
-    private javax.swing.JTextField JTFDataDevolucao;
-    private javax.swing.JTextField JTFDataInicio;
-    private javax.swing.JTextField JTFMesDevolucao;
-    private javax.swing.JTextField JTFMesInicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }

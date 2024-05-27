@@ -70,7 +70,7 @@ public class FerramentaDAO {
                 String marcaFerramenta = res.getString("marcaFerramenta");
                 double custoFerramenta = res.getDouble("custoFerramenta");
                 boolean disponivelFerramenta = res.getBoolean("disponivel");
-                Ferramenta objeto = new Ferramenta(idFerramenta, nomeFerramenta, custoFerramenta, marcaFerramenta,disponivelFerramenta);
+                Ferramenta objeto = new Ferramenta(idFerramenta, nomeFerramenta, custoFerramenta, marcaFerramenta, disponivelFerramenta);
 
                 listaFerramenta.add(objeto);
             }

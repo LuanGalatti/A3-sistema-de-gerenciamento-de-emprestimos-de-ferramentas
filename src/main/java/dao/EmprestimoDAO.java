@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import modelo.Emprestimo;
 
 public class EmprestimoDAO {
-public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
+
+    public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
 
     /**
      * Se conecta com o banco de dados de emprestimos.
@@ -46,7 +47,8 @@ public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
             return null;
         }
     }
-public ArrayList<Emprestimo> getListaEmprestimo() {
+
+    public ArrayList<Emprestimo> getListaEmprestimo() {
         listaEmprestimo.clear();
         try {
             Statement smt = this.getConexaoEmprestimo().createStatement();
@@ -57,7 +59,7 @@ public ArrayList<Emprestimo> getListaEmprestimo() {
                 int idFerramenta = res.getInt("idFerramenta");
                 String dataEmprestimo = res.getString("dataInicio");
                 String dataDevolucao = res.getString("dataDevolucao");
-                Emprestimo objeto = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo,dataDevolucao);
+                Emprestimo objeto = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
 
                 listaEmprestimo.add(objeto);
             }
@@ -66,11 +68,13 @@ public ArrayList<Emprestimo> getListaEmprestimo() {
             System.out.println("Erro: " + erro);
         }
         return listaEmprestimo;
-}
- public static void setListaEmprestimo(ArrayList<Emprestimo> listaEmprestimo) {
+    }
+
+    public static void setListaEmprestimo(ArrayList<Emprestimo> listaEmprestimo) {
         EmprestimoDAO.listaEmprestimo = listaEmprestimo;
     }
-public int maiorIDEmprestimo() {
+
+    public int maiorIDEmprestimo() {
         int MaiorID = 0;
         try {
             Statement smt = this.getConexaoEmprestimo().createStatement();
@@ -83,7 +87,8 @@ public int maiorIDEmprestimo() {
         }
         return MaiorID;
     }
- public boolean insertEmprestimoDB(Emprestimo emprestimo) {
+
+    public boolean insertEmprestimoDB(Emprestimo emprestimo) {
         String res = "insert into tb_emprestimo(idEmprestimo,idAmigo,idFerramenta,dataInicio,dataDevolucao)values(?,?,?,?,?)";
         try {
             PreparedStatement smt = this.getConexaoEmprestimo().prepareCall(res);
@@ -100,7 +105,8 @@ public int maiorIDEmprestimo() {
             throw new RuntimeException(erro);
         }
     }
- public Emprestimo retrieveEmprestimoDB(int IdEmprestimo) {
+
+    public Emprestimo retrieveEmprestimoDB(int IdEmprestimo) {
         Emprestimo emprestimo = new Emprestimo();
         emprestimo.setidEmprestimo(IdEmprestimo);
         try {
@@ -118,7 +124,8 @@ public int maiorIDEmprestimo() {
         }
         return emprestimo;
     }
- public boolean updateEmprestimoDB(Emprestimo emprestimo) {
+
+    public boolean updateEmprestimoDB(Emprestimo emprestimo) {
         String res = "update tb_emprestimo set idEmprestimo=?,idAmigo=?, idFerramenta=?, dataInicio=?, dataDevolucao=? where idEmprestimo=?";
         try {
             PreparedStatement smt = this.getConexaoEmprestimo().prepareStatement(res);
@@ -136,7 +143,8 @@ public int maiorIDEmprestimo() {
             throw new RuntimeException(erro);
         }
     }
- public boolean deleteEmprestimoDB(int IdEmprestimo) {
+
+    public boolean deleteEmprestimoDB(int IdEmprestimo) {
         try {
             Statement smt = this.getConexaoEmprestimo().createStatement();
             ResultSet res = smt.executeQuery("delete from tb_emprestimo where id=" + IdEmprestimo);

@@ -33,7 +33,7 @@ public class Amigo {
         this.idAmigo = idAmigo;
         this.nomeAmigo = nomeAmigo;
         this.telefone = telefone;
-    this.dao=new AmigoDAO();
+        this.dao = new AmigoDAO();
     }
 
     /**
