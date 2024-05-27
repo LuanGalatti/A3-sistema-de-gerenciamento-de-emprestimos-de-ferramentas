@@ -1,4 +1,5 @@
 Requisitos funcionais do sistema:
+
 1-> RF001 - O sistema deve permitir o registro do nome, marca, custo de aquisição da ferramenta;
 
 2-> RF002 - O sistema deve permitir o registro do nome e o telefone do cliente;
@@ -18,15 +19,19 @@ Requisitos funcionais do sistema:
 Requisitos não funcionais do sistema:
 
 1-> RNF001 - Desempenho do sistema:
-            * O sistema deve suportar até 100 registros de empréstimo simultaneamente sem causar erro no sistema.
+
+* O sistema deve suportar até 100 registros de empréstimo simultaneamente sem causar erro no sistema.
 
 2-> RNF002 - Usabilidade:
-            * Interface Intuitiva: A interface do usuário deve ser fácil de usar e de se compreender, permitindo que o usuário faça empréstimos e devoluções sem dificuldades;
+
+* Interface Intuitiva: A interface do usuário deve ser fácil de usar e de se compreender, permitindo que o usuário faça empréstimos e devoluções sem dificuldades;
             
 3-> RNF003 - Confiabilidade:
-            * Disponibilidade de Funcionamento: o sistema deve estar funcionando corretamente em 100% do tempo, possibilitanto o acesso do usuário a todo momento;
 
-4-> RNF004   - Manutenção:
-            * Modulação: o sistema deve apresentar uma facilidade de modulação, sendo de fácil adição de novas funcionalidades ou remoção de funcionalidades ultrapassadas/falhas;
-            * O sistema deve apresentar uma revisão de rotina sobre a funcionalidade do sistema e seus erros;
-            * Teste automatizado : o sistema deve apresentar uma funcionalidade de teste o sistema para conferir se funciona com a atualização inserida ou com alguma funcionalidade removida.
+* Disponibilidade de Funcionamento: o sistema deve estar funcionando corretamente em 100% do tempo, possibilitanto o acesso do usuário a todo momento;
+
+4-> RNF004 - Manutenção:
+
+* Modulação: o sistema deve apresentar uma facilidade de modulação, sendo de fácil adição de novas funcionalidades ou remoção de funcionalidades ultrapassadas/falhas;
+* O sistema deve apresentar uma revisão de rotina sobre a funcionalidade do sistema e seus erros;
+* Teste automatizado : o sistema deve apresentar uma funcionalidade de teste o sistema para conferir se funciona com a atualização inserida ou com alguma funcionalidade removida.
