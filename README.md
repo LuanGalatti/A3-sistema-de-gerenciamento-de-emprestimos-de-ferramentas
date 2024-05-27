@@ -18,20 +18,16 @@ Requisitos funcionais do sistema:
 
 Requisitos não funcionais do sistema:
 
-1-> RNF001 - Desempenho do sistema:
+RNF001-> O sistema deve ser utilizado nas seguintes versões: java 8; JDK 22; mysql 8.3.0;
 
-* O sistema deve suportar até 100 registros de empréstimo simultaneamente sem causar erro no sistema.
+RNF002-> O sistema deve suportar até 100 registros de empréstimo simultaneamente sem causar erro no sistema.
 
-2-> RNF002 - Usabilidade:
-
-* Interface Intuitiva: A interface do usuário deve ser fácil de usar e de se compreender, permitindo que o usuário faça empréstimos e devoluções sem dificuldades;
+RNF003-> A interface do usuário deve ser fácil de usar e de se compreender, permitindo que o usuário faça empréstimos e devoluções sem dificuldades;
             
-3-> RNF003 - Confiabilidade:
+RNF004-> O sistema deve estar funcionando corretamente em 100% do tempo, possibilitanto o acesso do usuário a todo momento;
 
-* Disponibilidade de Funcionamento: o sistema deve estar funcionando corretamente em 100% do tempo, possibilitanto o acesso do usuário a todo momento;
+RNF005-> O sistema deve apresentar uma facilidade de modulação, sendo de fácil adição de novas funcionalidades ou remoção de funcionalidades ultrapassadas/falhas;
 
-4-> RNF004 - Manutenção:
+RNF006-> O sistema deve apresentar uma revisão de rotina sobre a funcionalidade do sistema e seus erros;
 
-* Modulação: o sistema deve apresentar uma facilidade de modulação, sendo de fácil adição de novas funcionalidades ou remoção de funcionalidades ultrapassadas/falhas;
-* O sistema deve apresentar uma revisão de rotina sobre a funcionalidade do sistema e seus erros;
-* Teste automatizado : o sistema deve apresentar uma funcionalidade de teste o sistema para conferir se funciona com a atualização inserida ou com alguma funcionalidade removida.
+RNF007-> O sistema deve apresentar uma funcionalidade de teste o sistema para conferir se funciona com a atualização inserida ou com alguma funcionalidade removida.
