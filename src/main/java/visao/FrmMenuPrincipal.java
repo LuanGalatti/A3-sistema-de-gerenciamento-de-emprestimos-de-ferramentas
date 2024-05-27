@@ -113,6 +113,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuTransação2.setPreferredSize(new java.awt.Dimension(60, 22));
 
         jMenuItemEmpréstimo.setText("Empréstimo");
+        jMenuItemEmpréstimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemEmpréstimoActionPerformed(evt);
+            }
+        });
         jMenuTransação2.add(jMenuItemEmpréstimo);
         jMenuTransação2.add(jSeparator1);
 
@@ -161,6 +166,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         FrmCadastroFerramenta objeto = new FrmCadastroFerramenta();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemCadastrarFerramentasActionPerformed
+
+    private void jMenuItemEmpréstimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEmpréstimoActionPerformed
+FrmCadastroEmprestimo tela = new FrmCadastroEmprestimo();
+tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItemEmpréstimoActionPerformed
     private void jMenuItemGerenciarFerramentasMouseClicked(java.awt.event.MouseEvent evt) {
 
     }
