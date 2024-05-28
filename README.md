@@ -1,20 +1,25 @@
 Requisitos funcionais do sistema:
 
-1-> RF001 - O sistema deve permitir o registro do nome, marca, custo de aquisição da ferramenta;
+1-> RF001 -  O sistema deve ser utilizado nas seguintes versões: 
+                 * java 8 (linguagem de programação usada para contruir aplicativos, sites e sistemas); 
+                 * JDK 22 (kit de desenvolvimento para programadores que usam java como linguagem de programação principal);
+                 * mysql 8.3.0 ( sistema de gerenciamento de banco de dados utilizado para armazenar e gerenciar dados);
 
-2-> RF002 - O sistema deve permitir o registro do nome e o telefone do cliente;
+2-> RF002 - O sistema deve permitir o registro do nome, marca, custo de aquisição da ferramenta;
 
-3-> RF003 - O sistema deve permitir o registro do empréstimo de uma ou mais ferramentas para um amigo marcando a data de entrega e a data em que foi devolvido;
+3-> RF003 - O sistema deve permitir o registro do nome e o telefone do cliente;
 
-4-> RF004 - O sistema deve ter um relatório de empréstimos e o quanto ele gastou;
+4-> RF004 - O sistema deve permitir o registro do empréstimo de uma ou mais ferramentas para um amigo marcando a data de entrega e a data em que foi devolvido;
 
-5-> RF005 - O sistema deve mostrar os empréstimos ativos e outros empréstimos realizados;
+5-> RF005 - O sistema deve ter um relatório de empréstimos e o quanto ele gastou;
 
-6-> RF006 - O sistema deve mostrar quem realizou a maior quantidade de empréstimos;
+6-> RF006 - O sistema deve mostrar os empréstimos ativos e outros empréstimos realizados;
 
-7-> RF007 - O sistema deve mostrar quais ferramnetas ainda não foram devolvidas;
+7-> RF007 - O sistema deve mostrar quem realizou a maior quantidade de empréstimos;
 
-8-> RF008 - O sistema deve mostrar se alguém ainda não devolveu uma ferramenta ao requisitar um novo empréstimo.
+8-> RF008 - O sistema deve mostrar quais ferramnetas ainda não foram devolvidas;
+
+9-> RF009 - O sistema deve mostrar se alguém ainda não devolveu uma ferramenta ao requisitar um novo empréstimo.
 
 Requisitos não funcionais do sistema:
 
