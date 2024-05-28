@@ -1,5 +1,6 @@
 package visao;
 
+import javax.swing.JOptionPane;
 import modelo.Amigo;
 /**
  *
@@ -44,6 +45,11 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
         JLTelefone.setText("Telefone:");
 
         JBCadastrar.setText("Cadastrar");
+        JBCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBCadastrarActionPerformed(evt);
+            }
+        });
 
         JBLimpar.setText("Limpar");
         JBLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,8 +115,37 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void JBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimparActionPerformed
-        // TODO add your handling code here:
+        JTFNomeAmigo.setText("");
+        JTFTelefone.setText("");
     }//GEN-LAST:event_JBLimparActionPerformed
+
+    private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
+        try {
+
+            Amigo amigo = new Amigo();
+            String nome = "";
+            String telefone = "";
+            if (JTFNomeAmigo.getText().length() < 2) {
+                throw new Erro("Nome do amigo deve conter mais de 2 caracteres, tente novamente");
+            } else {
+                nome = (JTFNomeAmigo.getText());
+
+            }
+            if (JTFTelefone.getText().length() < 8) {
+                throw new Erro("Número de Telefone inválido.");
+            } else {
+                telefone = (JTFTelefone.getText());
+
+            }
+            if (amigo.insertAmigoDB(nome, telefone)) {
+                JOptionPane.showMessageDialog(null, "Amigo cadastrada com sucesso");
+                JTFNomeAmigo.setText("");
+                JTFTelefone.setText("");
+            }
+        } catch (Erro erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_JBCadastrarActionPerformed
 
     /**
      * @param args the command line arguments
