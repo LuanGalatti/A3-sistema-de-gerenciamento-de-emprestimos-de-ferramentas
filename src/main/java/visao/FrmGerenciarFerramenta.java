@@ -250,8 +250,8 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
     public void CarregaListaFerramenta() {
         DefaultTableModel model = (DefaultTableModel) jTableAmigos.getModel();
         JLId.setVisible(false);
-        double som=0;
-        DecimalFormat df=new DecimalFormat("0.00");
+        double som = 0;
+        DecimalFormat df = new DecimalFormat("0.00");
         model.setNumRows(0);
         ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
         for (Ferramenta objeto : listaFerramenta) {
@@ -262,9 +262,9 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 objeto.getCustoFerramenta(),
                 objeto.getDisponivel(),}
             );
-       som+=objeto.getCustoFerramenta();
+            som += objeto.getCustoFerramenta();
         }
-    JLCustoTotal.setText("Custo total: R$"+ df.format(som));
+        JLCustoTotal.setText("Custo total: R$" + df.format(som));
     }
 
     /**

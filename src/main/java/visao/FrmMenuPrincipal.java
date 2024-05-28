@@ -176,6 +176,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
 
     private void jMenuItemCadastrarAmigosActionPerformed(java.awt.event.ActionEvent evt) {
+
         //Instancia a tela de cadastrar amigo
         FrmCadastroAmigo objeto = new FrmCadastroAmigo();
         objeto.setVisible(true);

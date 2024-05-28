@@ -68,7 +68,7 @@ public class EmprestimoDAO {
         try {
             // Cria uma declaração para executar a consulta SQL
             Statement smt = this.getConexaoEmprestimo().createStatement();
-            ResultSet res = smt.executeQuery("select * from tb_Ferramenta");
+            ResultSet res = smt.executeQuery("select * from tb_emprestimo");
 
             // Itera sobre o resultado da consulta e adiciona empréstimos à lista
             while (res.next()) {

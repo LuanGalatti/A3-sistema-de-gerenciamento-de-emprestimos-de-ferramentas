@@ -2,24 +2,25 @@ package visao;
 
 import javax.swing.JOptionPane;
 import modelo.Ferramenta;
+
 /**
  *
  * @author 1072416842
  */
 public class FrmCadastroFerramenta extends javax.swing.JFrame {
-        /**
+
+    /**
      * Creates new form FrmCadastroFerramenta
      */
-
-
-    private Ferramenta objetoferramenta; 
+    private Ferramenta objetoferramenta;
     // cria o vínculo com Amigo.java
-    
+
     public FrmCadastroFerramenta() {
-    initComponents();
-    this.objetoferramenta = new Ferramenta(); 
-    // carrega o objeto vazio de ferramenta
-}
+        initComponents();
+        this.objetoferramenta = new Ferramenta();
+        // carrega o objeto vazio de ferramenta
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
