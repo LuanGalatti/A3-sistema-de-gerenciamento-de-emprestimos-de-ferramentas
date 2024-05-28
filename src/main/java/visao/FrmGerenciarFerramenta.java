@@ -104,7 +104,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         JLId.setText("0");
 
         JLCustoTotal.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        JLCustoTotal.setText("a");
+        JLCustoTotal.setText("Custo total");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,9 +134,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                                     .addComponent(JTFCustoFerramenta))))
                         .addGap(5, 5, 5)
                         .addComponent(JLCustoTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
