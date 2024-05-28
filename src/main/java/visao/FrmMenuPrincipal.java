@@ -177,7 +177,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
 
     private void jMenuItemCadastrarAmigosActionPerformed(java.awt.event.ActionEvent evt) {
-
+FrmCadastroAmigo amigo = new FrmCadastroAmigo();
+amigo.setVisible(true);
     }
 
     private void jMenuArquivoActionPerformed(java.awt.event.ActionEvent evt) {

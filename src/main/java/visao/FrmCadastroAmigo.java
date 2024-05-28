@@ -139,13 +139,13 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
 
             }
             if (amigo.insertAmigoDB(nome, telefone)) {
-                JOptionPane.showMessageDialog(null, "Amigo cadastrada com sucesso");
+                JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso");
                 JTFNomeAmigo.setText("");
                 JTFTelefone.setText("");
             }
         } catch (Erro erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
-        }        // TODO add your handling code here:
+        } 
     }//GEN-LAST:event_JBCadastrarActionPerformed
 
     /**
