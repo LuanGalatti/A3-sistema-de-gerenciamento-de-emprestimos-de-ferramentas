@@ -107,27 +107,27 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-        this.dispose();
+this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
-      try{
-        int posicaoFerramenta = JCBFerramenta.getSelectedIndex();
-        int posicaoAmigo = JCBAmigo.getSelectedIndex();
-        ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
-        ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
-        Emprestimo emprestimo = new Emprestimo();
-        if(listaFerramenta.get(posicaoFerramenta).getDisponivel()==false){
-            throw new Erro("Ferramenta ja emprestada");
+        try {
+            int posicaoFerramenta = JCBFerramenta.getSelectedIndex();
+            int posicaoAmigo = JCBAmigo.getSelectedIndex();
+            ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
+            ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
+            Emprestimo emprestimo = new Emprestimo();
+            if (listaFerramenta.get(posicaoFerramenta).getDisponivel() == false) {
+                throw new Erro("Ferramenta ja emprestada");
+            }
+            int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
+            int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramenta();
+            String DataInicio = LocalDate.now() + "";
+            emprestimo.InsertEmprestimoDB(idAmigo, idFerramenta, DataInicio);
+            ferramenta.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta(), false);
+        } catch (Erro erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
         }
-        int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
-        int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramenta();
-        String DataInicio = LocalDate.now() + "";
-        emprestimo.InsertEmprestimoDB(idAmigo, idFerramenta, DataInicio);
-      ferramenta.updateFerramentaDB(idFerramenta,listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(),listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(),listaFerramenta.get(posicaoFerramenta).getCustoFerramenta(),false);
-      }catch(Erro erro){
-          JOptionPane.showMessageDialog(null,erro.getMessage());
-      }
     }//GEN-LAST:event_JBCadastrarActionPerformed
     public void carregaCBFerramenta() {
         ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();

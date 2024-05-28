@@ -1,24 +1,25 @@
 package visao;
 
 import modelo.Amigo;
+
 /**
  *
  * @author 1072416842
  */
 public class FrmCadastroAmigo extends javax.swing.JFrame {
-        /**
+
+    /**
      * Creates new form FrmCadastroAmigo
      */
-
-
-    private Amigo objetoamigo; 
+    private Amigo objetoamigo;
     // cria o vínculo com Amigo.java
-    
+
     public FrmCadastroAmigo() {
-    initComponents();
-    this.objetoamigo = new Amigo(); 
-    // carrega o objeto vazio de amigo
-}
+        initComponents();
+        this.objetoamigo = new Amigo();
+        // carrega o objeto vazio de amigo
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
