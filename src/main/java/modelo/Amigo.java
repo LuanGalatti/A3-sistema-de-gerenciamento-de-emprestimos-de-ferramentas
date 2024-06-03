@@ -170,7 +170,20 @@ public class Amigo {
      *
      * @return O maior ID de amigo no banco de dados.
      */
-    public int MaiorID() {
+    public int maiorID() {
         return dao.maiorIDAmigo();
+    }
+
+    public boolean possuiEmprestimoAtivo(int id) {
+        boolean emprestimoAtivo = false;
+        Emprestimo emp = new Emprestimo();
+        ArrayList<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
+        for (int i = 0; i < listaEmprestimo.size(); i++) {
+            if (listaEmprestimo.get(i).getIDAmigo() == id) {
+                emprestimoAtivo = true;
+            }
+
+        }
+        return emprestimoAtivo;
     }
 }

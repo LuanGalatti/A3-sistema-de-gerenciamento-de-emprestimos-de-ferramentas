@@ -186,8 +186,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private void jMenuArquivoActionPerformed(java.awt.event.ActionEvent evt) {
 
     }
-private void jMenuCadastroActionPerformed(java.awt.event.ActionEvent evt) {
-}
+
+    private void jMenuCadastroActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
     private void jMenuItemGerenciarFerramentasActionPerformed(java.awt.event.ActionEvent evt) {
         // Instancia a tela de gerenciar ferramenta

@@ -145,7 +145,7 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
             }
         } catch (Erro erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
-        } 
+        }
     }//GEN-LAST:event_JBCadastrarActionPerformed
 
     /**
