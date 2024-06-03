@@ -206,7 +206,7 @@ public class Emprestimo {
      * @param DataDevolucao A Data de devolução da ferramenta a ser atualizada.
      * @return true se a inserção for bem-sucedida, false caso contrário.
      */
-    public boolean updateEmprestimoDB(int idEmprestimo, int idAmigo, int idFerrmaneta, String dataEmprestimo, String dataDevolucao) {
+    public boolean updateEmprestimoDB(int idEmprestimo, int idAmigo, int idFerramenta, String dataEmprestimo, String dataDevolucao) {
         Emprestimo emprestimo = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
         int indice = this.procuraIndice(idEmprestimo);
         dao.updateEmprestimoDB(emprestimo);
@@ -244,7 +244,6 @@ public class Emprestimo {
                 }
                 if (listaEmprestimo.get(i).getDataDevolucao() != null) {
                     Date dataDevolucao = sdf.parse(listaEmprestimo.get(i).getDataDevolucao());
-                    System.out.println(dataDevolucao);
                     Date dataAtual = sdf.parse(LocalDate.now() + "");
                     if (dataAtual.compareTo(dataDevolucao) < 0) {
                         listaEmprestimoAtivo.add(listaEmprestimo.get(i));

@@ -112,8 +112,8 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
 
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
         try {
-            int conf = 9;
-            String[] opcoes = {"confirmar", "cancelar"};
+            int conf = 0;
+
             int posicaoFerramenta = JCBFerramenta.getSelectedIndex();
             int posicaoAmigo = JCBAmigo.getSelectedIndex();
             ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
@@ -131,9 +131,9 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             if (conf == 0) {
                 if (emprestimo.insertEmprestimoDB(idAmigo, idFerramenta, DataInicio)) {
                     JOptionPane.showMessageDialog(null, "Emprestimo cadastrado com sucesso");
-                ferramenta.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta(), false);
+                    ferramenta.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta(), false);
                 };
-                
+
             }
         } catch (Erro erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
