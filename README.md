@@ -1,29 +1,24 @@
-Requisitos funcionais do sistema:
+**REQUISITOS FUNCIONAIS DO SISTEMA:**
 
- RF001 -  O sistema deve ser utilizado nas seguintes versões: 
-                 * java 8 (linguagem de programação usada para contruir aplicativos, sites e sistemas); 
-                 * JDK 22 (kit de desenvolvimento para programadores que usam java como linguagem de programação principal);
-                 * mysql 8.3.0 ( sistema de gerenciamento de banco de dados utilizado para armazenar e gerenciar dados);
+ RF001 - O sistema deve permitir o registro do nome, marca, custo de aquisição da ferramenta;
 
- RF002 - O sistema deve permitir o registro do nome, marca, custo de aquisição da ferramenta;
+ RF002 - O sistema deve permitir o registro do nome e o telefone do cliente;
 
- RF003 - O sistema deve permitir o registro do nome e o telefone do cliente;
+ RF003 - O sistema deve permitir o registro do empréstimo de uma ou mais ferramentas para um amigo marcando a data de entrega e a data em que foi devolvido;
 
- RF004 - O sistema deve permitir o registro do empréstimo de uma ou mais ferramentas para um amigo marcando a data de entrega e a data em que foi devolvido;
+ RF004 - O sistema deve ter um relatório de empréstimos e o quanto ele gastou;
 
- RF005 - O sistema deve ter um relatório de empréstimos e o quanto ele gastou;
+ RF005 - O sistema deve mostrar os empréstimos ativos e outros empréstimos realizados;
 
- RF006 - O sistema deve mostrar os empréstimos ativos e outros empréstimos realizados;
+ RF006 - O sistema deve mostrar quem realizou a maior quantidade de empréstimos;
 
- RF007 - O sistema deve mostrar quem realizou a maior quantidade de empréstimos;
+ RF007 - O sistema deve mostrar quais ferramnetas ainda não foram devolvidas;
 
- RF008 - O sistema deve mostrar quais ferramnetas ainda não foram devolvidas;
+ RF008 - O sistema deve mostrar se alguém ainda não devolveu uma ferramenta ao requisitar um novo empréstimo.
 
- RF009 - O sistema deve mostrar se alguém ainda não devolveu uma ferramenta ao requisitar um novo empréstimo.
+**REQUISITOS NÃO FUNCIONAIS DO SISTEMA:**
 
-Requisitos não funcionais do sistema:
-
-RNF001 - O sistema deve ser utilizado nas seguintes versões: java 8; JDK 22; mysql 8.3.0;
+RNF001 - O sistema deve ser utilizado nas seguintes versões: java 8; JDK 22; mysql 8.3.0; windows 10;
 
 RNF002 - O sistema deve suportar até 100 registros de empréstimo simultaneamente sem causar erro no sistema.
 
