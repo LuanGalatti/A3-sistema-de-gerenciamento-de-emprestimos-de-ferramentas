@@ -183,9 +183,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
     }
 
-    private void jMenuArquivoActionPerformed(java.awt.event.ActionEvent evt) {
-
-    }
 private void jMenuCadastroActionPerformed(java.awt.event.ActionEvent evt) {
 }
 

@@ -216,14 +216,14 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             String marca = "";
             double custo = 0;
             boolean disponivel = Boolean.parseBoolean(JTFDisponivel.getText());
-            if (JTFNome.getText().length() < 3) {
-                throw new Erro("Nome deve conter mais de 3 caracteres, tente novamente");
+            if (JTFNome.getText().length() < 2) {
+                throw new Erro("Nome deve conter mais de 2 caracteres, tente novamente");
             } else {
                 nome = (JTFNome.getText());
 
             }
-            if (JTFMarca.getText().length() < 3) {
-                throw new Erro("Marca deve conter mais de 3 caracteres, tente novamente");
+            if (JTFMarca.getText().length() < 2) {
+                throw new Erro("Marca deve conter pelo menos 2 caracteres, tente novamente");
             } else {
                 marca = (JTFMarca.getText());
 

@@ -159,12 +159,13 @@ public class AmigoDAO {
      * lança uma exceção.
      */
     public boolean updateAmigoDB(Amigo amigo) {
-        String res = "update tb_amigo set idAmigo=?,nomeAmigo=?,telefoneAmigo=?";
+        String res = "update tb_amigo set idAmigo=?,nomeAmigo=?,telefoneAmigo=? where idAmigo=?";
         try {
             PreparedStatement smt = this.getConexaoAmigo().prepareStatement(res);
             smt.setInt(1, amigo.getIdAmigo());
             smt.setString(2, amigo.getNomeAmigo());
             smt.setString(3, amigo.getTelefone());
+            smt.setInt(4, amigo.getIdAmigo());
             smt.execute();
             smt.close();
             return true;
