@@ -56,7 +56,7 @@ public class Emprestimo {
      * @return o id do emprestimo.
      *
      */
-    public int getidEmprestimo() {
+    public int getIDEmprestimo() {
         return idEmprestimo;
     }
 
@@ -65,7 +65,7 @@ public class Emprestimo {
      *
      * @param idEmprestimo O id do emprestimo a ser definido.
      */
-    public void setidEmprestimo(int idEmprestimo) {
+    public void setIDEmprestimo(int idEmprestimo) {
         this.idEmprestimo = idEmprestimo;
     }
 
@@ -75,7 +75,7 @@ public class Emprestimo {
      * @return para quem foi emprestado.
      *
      */
-    public int getidAmigo() {
+    public int getIDAmigo() {
         return idAmigo;
     }
 
@@ -84,7 +84,7 @@ public class Emprestimo {
      *
      * @param idAmigo O id do amigo a ser definido.
      */
-    public void setidAmigo(int idAmigo) {
+    public void setIDAmigo(int idAmigo) {
         this.idAmigo = idAmigo;
     }
 
@@ -94,7 +94,7 @@ public class Emprestimo {
      * @return o id da ferramenta.
      *
      */
-    public int getidFerramenta() {
+    public int getIDFerramenta() {
         return idFerramenta;
     }
 
@@ -103,7 +103,7 @@ public class Emprestimo {
      *
      * @param idFerramenta O id da ferramenta a ser definido.
      */
-    public void setidFerramenta(int idFerramenta) {
+    public void setIDFerramenta(int idFerramenta) {
         this.idFerramenta = idFerramenta;
     }
 
@@ -155,13 +155,13 @@ public class Emprestimo {
     /**
      * Insere um emprestimo no banco de dados.
      *
-     * @param idAmgio O id do amigo a ser inserido.
+     * @param idAmigo O id do amigo a ser inserido.
      * @param idFerramenta O id da ferramenta a ser inserido.
      * @param DataEmprestimo Data do emprestimo a ser inserido.
      * @param DataDevolucao Data de devolução da ferramenta a ser inserida.
      * @return true se a inserção for bem-sucedida, false caso contrário.
      */
-    public boolean InsertEmprestimoDB(int idAmigo, int idFerramenta, String dataEmprestimo) {
+    public boolean insertEmprestimoDB(int idAmigo, int idFerramenta, String dataEmprestimo) {
         int maiorID = dao.maiorIDEmprestimo() + 1;
         Emprestimo emprestimo = new Emprestimo(maiorID, idAmigo, idFerramenta, dataEmprestimo, null);
         dao.insertEmprestimoDB(emprestimo);
@@ -189,7 +189,7 @@ public class Emprestimo {
     private int procuraIndice(int idEmprestimo) {
         int indice = -1;
         for (int i = 0; i < EmprestimoDAO.listaEmprestimo.size(); i++) {
-            if (EmprestimoDAO.listaEmprestimo.get(i).getidEmprestimo() == idEmprestimo) {
+            if (EmprestimoDAO.listaEmprestimo.get(i).getIDEmprestimo() == idEmprestimo) {
                 indice = i;
             }
         }
@@ -228,7 +228,7 @@ public class Emprestimo {
      *
      * @return O maior ID de emprestimo no banco de dados.
      */
-    public int MaiorID() {
+    public int maiorID() {
         return dao.maiorIDEmprestimo();
     }
 
@@ -240,7 +240,7 @@ public class Emprestimo {
             for (int i = 0; i < listaEmprestimo.size(); i++) {
                 if (listaEmprestimo.get(i).getDataDevolucao() == null) {
                     listaEmprestimoAtivo.add(listaEmprestimo.get(i));
-                    System.out.println("roberto");
+
                 }
                 if (listaEmprestimo.get(i).getDataDevolucao() != null) {
                     Date dataDevolucao = sdf.parse(listaEmprestimo.get(i).getDataDevolucao());
@@ -248,7 +248,7 @@ public class Emprestimo {
                     Date dataAtual = sdf.parse(LocalDate.now() + "");
                     if (dataAtual.compareTo(dataDevolucao) < 0) {
                         listaEmprestimoAtivo.add(listaEmprestimo.get(i));
-                        System.out.println("carlos");
+
                     }
                 }
 

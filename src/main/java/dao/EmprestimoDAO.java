@@ -115,9 +115,9 @@ public class EmprestimoDAO {
         String res = "insert into tb_emprestimo(idEmprestimo,idAmigo,idFerramenta,dataInicio,dataDevolucao)values(?,?,?,?,?)";
         try {
             PreparedStatement smt = this.getConexaoEmprestimo().prepareCall(res);
-            smt.setInt(1, emprestimo.getidEmprestimo());
-            smt.setInt(2, emprestimo.getidAmigo());
-            smt.setInt(3, emprestimo.getidFerramenta());
+            smt.setInt(1, emprestimo.getIDEmprestimo());
+            smt.setInt(2, emprestimo.getIDAmigo());
+            smt.setInt(3, emprestimo.getIDFerramenta());
             smt.setString(4, emprestimo.getDataEmprestimo());
             smt.setString(5, emprestimo.getDataDevolucao());
             smt.execute();
@@ -131,16 +131,16 @@ public class EmprestimoDAO {
 
     public Emprestimo retrieveEmprestimoDB(int IdEmprestimo) {
         Emprestimo emprestimo = new Emprestimo();
-        emprestimo.setidEmprestimo(IdEmprestimo);
+        emprestimo.setIDEmprestimo(IdEmprestimo);
         try {
             Statement smt = this.getConexaoEmprestimo().createStatement();
             ResultSet res = smt.executeQuery("select * from tb_emprestimo where idEmprestimo = " + IdEmprestimo);
             res.next();
-            emprestimo.setidEmprestimo(res.getInt("idEmprestimo"));
+            emprestimo.setIDEmprestimo(res.getInt("idEmprestimo"));
             emprestimo.setDataDevolucao(res.getString("dataDevolucao"));
             emprestimo.setDataEmprestimo(res.getString("dataInicio"));
-            emprestimo.setidAmigo(res.getInt("idAmigo"));
-            emprestimo.setidFerramenta(res.getInt("idFerramenta"));
+            emprestimo.setIDAmigo(res.getInt("idAmigo"));
+            emprestimo.setIDFerramenta(res.getInt("idFerramenta"));
             smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
@@ -152,12 +152,12 @@ public class EmprestimoDAO {
         String res = "update tb_emprestimo set idEmprestimo=?,idAmigo=?, idFerramenta=?, dataInicio=?, dataDevolucao=? where idEmprestimo=?";
         try {
             PreparedStatement smt = this.getConexaoEmprestimo().prepareStatement(res);
-            smt.setInt(1, emprestimo.getidEmprestimo());
-            smt.setInt(2, emprestimo.getidAmigo());
-            smt.setInt(3, emprestimo.getidFerramenta());
+            smt.setInt(1, emprestimo.getIDEmprestimo());
+            smt.setInt(2, emprestimo.getIDAmigo());
+            smt.setInt(3, emprestimo.getIDFerramenta());
             smt.setString(4, emprestimo.getDataEmprestimo());
             smt.setString(5, emprestimo.getDataDevolucao());
-            smt.setInt(6, emprestimo.getidEmprestimo());
+            smt.setInt(6, emprestimo.getIDEmprestimo());
             smt.execute();
             smt.close();
             return true;

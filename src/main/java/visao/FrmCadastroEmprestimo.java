@@ -70,6 +70,12 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(226, Short.MAX_VALUE)
+                .addComponent(JBCadastrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(JBCancelar)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,12 +84,6 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
                     .addComponent(JCBFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(226, Short.MAX_VALUE)
-                .addComponent(JBCadastrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JBCancelar)
-                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,11 +107,13 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-this.dispose();
+        this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
         try {
+            int conf = 9;
+            String[] opcoes = {"confirmar", "cancelar"};
             int posicaoFerramenta = JCBFerramenta.getSelectedIndex();
             int posicaoAmigo = JCBAmigo.getSelectedIndex();
             ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
@@ -121,10 +123,18 @@ this.dispose();
                 throw new Erro("Ferramenta ja emprestada");
             }
             int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
+            if (amigo.possuiEmprestimoAtivo(idAmigo)) {
+                conf = JOptionPane.showConfirmDialog(null, "Este amigo ja possui um emprestimo ativo, deseja continuar?");
+            }
             int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramenta();
             String DataInicio = LocalDate.now() + "";
-            emprestimo.InsertEmprestimoDB(idAmigo, idFerramenta, DataInicio);
-            ferramenta.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta(), false);
+            if (conf == 0) {
+                if (emprestimo.insertEmprestimoDB(idAmigo, idFerramenta, DataInicio)) {
+                    JOptionPane.showMessageDialog(null, "Emprestimo cadastrado com sucesso");
+                ferramenta.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta(), false);
+                };
+                
+            }
         } catch (Erro erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
