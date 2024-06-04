@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexaoDAO {
-        public Connection getConexao() {
+
+    public Connection getConexao() {
         Connection connection = null;
         try {
             // Carrega o driver do banco de dados
@@ -40,5 +41,5 @@ public class ConexaoDAO {
             return null;
         }
     }
-    
+
 }

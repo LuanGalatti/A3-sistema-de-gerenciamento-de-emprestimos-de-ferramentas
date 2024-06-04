@@ -176,14 +176,31 @@ public class Amigo {
 
     public boolean possuiEmprestimoAtivo(int id) {
         boolean emprestimoAtivo = false;
+
         Emprestimo emp = new Emprestimo();
+
         ArrayList<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
+
         for (int i = 0; i < listaEmprestimo.size(); i++) {
+
             if (listaEmprestimo.get(i).getIDAmigo() == id) {
                 emprestimoAtivo = true;
+
             }
 
         }
         return emprestimoAtivo;
+    }
+
+    public int quantidadeEmprestimo(int id) {
+        int som = 0;
+        Emprestimo emp = new Emprestimo();
+        ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
+        for (int i = 0; i < listaEmprestimo.size(); i++) {
+            if (listaEmprestimo.get(i).getIDAmigo() == id) {
+                som++;
+            }
+        }
+        return som;
     }
 }

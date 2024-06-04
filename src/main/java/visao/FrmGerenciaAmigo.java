@@ -39,19 +39,20 @@ public class FrmGerenciaAmigo extends javax.swing.JFrame {
         JBModificar = new javax.swing.JButton();
         JBCancelar = new javax.swing.JButton();
         JLId = new javax.swing.JLabel();
+        JLAmigoSuperior = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciador de Amigos");
 
         jTableAmigos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nome", "Telefone"
+                "ID", "Nome", "Telefone", "QuantidadeEmprestimo", "EmprestimoAtivo"
             }
         ));
         jTableAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,46 +92,57 @@ public class FrmGerenciaAmigo extends javax.swing.JFrame {
 
         JLId.setText("0");
 
+        JLAmigoSuperior.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JLTelefone)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFTelefone))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JLNome)
-                        .addGap(18, 18, 18)
-                        .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JLID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JLId)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(JBApagar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBModificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JBCancelar))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(420, Short.MAX_VALUE)
+                                .addComponent(JBApagar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JBModificar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(JLTelefone)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JTFTelefone))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(JLNome)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(JLID)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JLId)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JLAmigoSuperior)
+                            .addComponent(JBCancelar))))
                 .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JLID)
-                    .addComponent(JLId))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JLID)
+                            .addComponent(JLId)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(JLAmigoSuperior)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLNome)
@@ -198,6 +210,8 @@ public class FrmGerenciaAmigo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTableAmigosMouseClicked
     public void CarregaListaAmigo() {
+        int amigoSuperior = 0;
+        int quantidadeAmigoSuperior = 0;
         DefaultTableModel model = (DefaultTableModel) jTableAmigos.getModel();
         JLId.setVisible(false);
         model.setNumRows(0);
@@ -206,9 +220,21 @@ public class FrmGerenciaAmigo extends javax.swing.JFrame {
             model.addRow(new Object[]{
                 objeto.getIdAmigo(),
                 objeto.getNomeAmigo(),
-                objeto.getTelefone(),}
-            );
+                objeto.getTelefone(),
+                objeto.quantidadeEmprestimo(objeto.getIdAmigo()),
+                objeto.possuiEmprestimoAtivo(objeto.getIdAmigo()
+                )});
+
         }
+        for (int i = 0; i < listaAmigo.size(); i++) {
+            if (listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo()) >= quantidadeAmigoSuperior) {
+
+                quantidadeAmigoSuperior = listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo());
+                amigoSuperior = listaAmigo.get(i).getIdAmigo();
+
+            }
+        }
+        JLAmigoSuperior.setText("Amigo com maior quantidade de emprestimo: " + listaAmigo.get(amigoSuperior - 1).getNomeAmigo());
     }
 
     /**
@@ -251,6 +277,7 @@ public class FrmGerenciaAmigo extends javax.swing.JFrame {
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBCancelar;
     private javax.swing.JButton JBModificar;
+    private javax.swing.JLabel JLAmigoSuperior;
     private javax.swing.JLabel JLID;
     private javax.swing.JLabel JLId;
     private javax.swing.JLabel JLNome;

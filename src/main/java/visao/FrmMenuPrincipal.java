@@ -4,6 +4,8 @@
  */
 package visao;
 
+import modelo.Amigo;
+
 /**
  *
  * @author 1072416842

@@ -237,7 +237,9 @@ public class Emprestimo {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             ArrayList<Emprestimo> listaEmprestimo = this.listaEmprestimo();
+
             for (int i = 0; i < listaEmprestimo.size(); i++) {
+
                 if (listaEmprestimo.get(i).getDataDevolucao() == null) {
                     listaEmprestimoAtivo.add(listaEmprestimo.get(i));
 
@@ -245,6 +247,7 @@ public class Emprestimo {
                 if (listaEmprestimo.get(i).getDataDevolucao() != null) {
                     Date dataDevolucao = sdf.parse(listaEmprestimo.get(i).getDataDevolucao());
                     Date dataAtual = sdf.parse(LocalDate.now() + "");
+
                     if (dataAtual.compareTo(dataDevolucao) < 0) {
                         listaEmprestimoAtivo.add(listaEmprestimo.get(i));
 
