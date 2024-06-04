@@ -74,17 +74,16 @@ public class Ferramenta {
      * caso contrário.
      */
     public boolean getDisponivel(int id) {
-        boolean disponivel=true;
-        Emprestimo emp= new Emprestimo();
-        ArrayList<Emprestimo> listaEmprestimoAtivo= emp.getListaEmprestimoAtivo();
-        for(int i=0;i<listaEmprestimoAtivo.size();i++){
-        if(listaEmprestimoAtivo.get(i).getIDFerramenta()==id){
-            disponivel=false;
+        boolean disponivel = true;
+        Emprestimo emp = new Emprestimo();
+        ArrayList<Emprestimo> listaEmprestimoAtivo = emp.getListaEmprestimoAtivo();
+        for (int i = 0; i < listaEmprestimoAtivo.size(); i++) {
+            if (listaEmprestimoAtivo.get(i).getIDFerramenta() == id) {
+                disponivel = false;
+            }
         }
+        return disponivel;
     }
-    return disponivel;
-    }
-
 
     /**
      * Obtém a marca da ferramenta.

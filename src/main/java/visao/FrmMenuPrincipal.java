@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package visao;
 
 import modelo.Amigo;
@@ -43,6 +39,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuItemGerenciarAmigos = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jMenuItemGerenciarFerramentas = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        jMenuItemGerenciarEmprestimo = new javax.swing.JMenuItem();
         jMenuSobre = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,6 +108,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenuTransação);
 
         jMenuGerenciamento.setText("Gerenciamento");
+        jMenuGerenciamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuGerenciamentoActionPerformed(evt);
+            }
+        });
 
         jMenuItemGerenciarAmigos.setText("Gerenciar Amigos");
         jMenuItemGerenciarAmigos.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +135,15 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         jMenuGerenciamento.add(jMenuItemGerenciarFerramentas);
+        jMenuGerenciamento.add(jSeparator5);
+
+        jMenuItemGerenciarEmprestimo.setText("Gerenciar Empréstimo");
+        jMenuItemGerenciarEmprestimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGerenciarEmprestimoActionPerformed(evt);
+            }
+        });
+        jMenuGerenciamento.add(jMenuItemGerenciarEmprestimo);
 
         jMenuBar1.add(jMenuGerenciamento);
 
@@ -162,7 +174,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemGerenciarAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciarAmigosActionPerformed
         //Instancia a tela de gerenciar amigo
-        FrmGerenciaAmigo objeto = new FrmGerenciaAmigo();
+        FrmGerenciarAmigo objeto = new FrmGerenciarAmigo();
         objeto.setVisible(true);
 
     }//GEN-LAST:event_jMenuItemGerenciarAmigosActionPerformed
@@ -184,6 +196,16 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         FrmCadastroDevolucao tela = new FrmCadastroDevolucao();
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemDevoluçãoActionPerformed
+
+    private void jMenuGerenciamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGerenciamentoActionPerformed
+
+    }//GEN-LAST:event_jMenuGerenciamentoActionPerformed
+
+    private void jMenuItemGerenciarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciarEmprestimoActionPerformed
+        //Instancia a tela de gerenciar emprestimo
+        FrmGerenciarEmprestimo objeto = new FrmGerenciarEmprestimo();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_jMenuItemGerenciarEmprestimoActionPerformed
     private void jMenuItemGerenciarFerramentasMouseClicked(java.awt.event.MouseEvent evt) {
 
     }
@@ -250,6 +272,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemDevolução;
     private javax.swing.JMenuItem jMenuItemEmpréstimo;
     private javax.swing.JMenuItem jMenuItemGerenciarAmigos;
+    private javax.swing.JMenuItem jMenuItemGerenciarEmprestimo;
     private javax.swing.JMenuItem jMenuItemGerenciarFerramentas;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenuSobre;
@@ -258,5 +281,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
     // End of variables declaration//GEN-END:variables
 }

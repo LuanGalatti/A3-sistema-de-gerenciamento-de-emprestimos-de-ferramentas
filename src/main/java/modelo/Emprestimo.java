@@ -206,7 +206,7 @@ public class Emprestimo {
      * @param DataDevolucao A Data de devolução da ferramenta a ser atualizada.
      * @return true se a inserção for bem-sucedida, false caso contrário.
      */
-    public boolean updateEmprestimoDB(int idEmprestimo, int idAmigo, int idFerramenta, String dataEmprestimo, String dataDevolucao) {
+    public boolean updateEmprestimoDB(int idEmprestimo, String dataEmprestimo, String dataDevolucao, String dataInicio, String dataDevolucao1, boolean ativo) {
         Emprestimo emprestimo = new Emprestimo(idEmprestimo, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao);
         int indice = this.procuraIndice(idEmprestimo);
         dao.updateEmprestimoDB(emprestimo);
