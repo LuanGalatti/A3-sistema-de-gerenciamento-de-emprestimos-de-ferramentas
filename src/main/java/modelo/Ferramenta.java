@@ -73,13 +73,13 @@ public class Ferramenta {
      * @return {@code true} se a ferramenta estiver disponível, {@code false}
      * caso contrário.
      */
-    public boolean getDisponivel(int id) {
-        boolean disponivel = true;
+    public String getDisponivel(int id) {
+        String disponivel = "Sim";
         Emprestimo emp = new Emprestimo();
         ArrayList<Emprestimo> listaEmprestimoAtivo = emp.getListaEmprestimoAtivo();
         for (int i = 0; i < listaEmprestimoAtivo.size(); i++) {
             if (listaEmprestimoAtivo.get(i).getIDFerramenta() == id) {
-                disponivel = false;
+                disponivel = "Não";
             }
         }
         return disponivel;

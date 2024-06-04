@@ -51,15 +51,16 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="JLAtivo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="JLativo" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="JTFDataDevolucao" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="JTFDataEmprestimo" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="JTFIdFerramenta" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="JTFIdAmigo" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="JTFAtivo" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="JTFDataDevolucao" alignment="1" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="JTFDataEmprestimo" alignment="1" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="JTFIdFerramenta" alignment="1" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="JTFIdAmigo" alignment="1" min="-2" pref="64" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -108,9 +109,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JLAtivo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFAtivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLativo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JBCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JBApagar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -232,6 +233,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Apagar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBApagarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="JBModificar">
       <Properties>
@@ -242,6 +246,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="JTFIdAmigo">
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JTextField" name="JTFIdFerramenta">
     </Component>
@@ -249,10 +256,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="JTFDataDevolucao">
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFAtivo">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFAtivoActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JLabel" name="JLativo">
     </Component>
   </SubComponents>
 </Form>

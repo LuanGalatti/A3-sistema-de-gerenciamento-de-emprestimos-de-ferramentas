@@ -126,7 +126,7 @@ public class EmprestimoDAO extends ConexaoDAO {
     public boolean deleteEmprestimoDB(int IdEmprestimo) {
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("delete from tb_emprestimo where id=" + IdEmprestimo);
+            smt.executeUpdate("delete from tb_emprestimo where idEmprestimo=" + IdEmprestimo);
             smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);

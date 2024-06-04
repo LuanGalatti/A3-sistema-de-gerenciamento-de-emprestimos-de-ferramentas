@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
+import modelo.Emprestimo;
 
 /**
  *
@@ -16,7 +17,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
     public FrmGerenciarAmigo() {
         initComponents();
         this.amigo = new Amigo();
-        this.CarregaListaAmigo();
+        this.carregaListaAmigo();
     }
 
     /**
@@ -74,6 +75,11 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         JLTelefone.setText("Telefone:");
 
         JBApagar.setText("Apagar");
+        JBApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBApagarActionPerformed(evt);
+            }
+        });
 
         JBModificar.setText("Modificar");
         JBModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +186,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
                 JLId.setVisible(false);
                 JTFNome.setText("");
                 JTFTelefone.setText("");
-                this.CarregaListaAmigo();
+                this.carregaListaAmigo();
             }
         } catch (Erro erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
@@ -195,7 +201,29 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             JTFTelefone.setText(jTableAmigos.getValueAt(this.jTableAmigos.getSelectedRow(), 2).toString());
         }
     }//GEN-LAST:event_jTableAmigosMouseClicked
-    public void CarregaListaAmigo() {
+
+    private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
+        int conf = 0;
+        Emprestimo emp = new Emprestimo();
+        ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
+        int idEmprestimo = 0;
+        conf = JOptionPane.showConfirmDialog(null, "Esta ação tambem apagará todos os empréstimos associados a este amigo, deseja continuar?");
+        if (conf == 0) {
+
+            for (int i = 0; i < listaEmprestimo.size(); i++) {
+                if (listaEmprestimo.get(i).getIDAmigo() == Integer.parseInt(JLId.getText())) {
+                    emp.deleteEmprestimoDB(listaEmprestimo.get(i).getIDEmprestimo());
+                }
+            }
+            amigo.deleteAmigoDB(Integer.parseInt(JLId.getText()));
+            JLId.setVisible(false);
+            JTFNome.setText("");
+            JTFTelefone.setText("");
+            this.carregaListaAmigo();
+        }
+
+    }//GEN-LAST:event_JBApagarActionPerformed
+    public void carregaListaAmigo() {
         DefaultTableModel model = (DefaultTableModel) jTableAmigos.getModel();
         JLId.setVisible(false);
         model.setNumRows(0);

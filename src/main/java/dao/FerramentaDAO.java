@@ -153,7 +153,7 @@ public class FerramentaDAO extends ConexaoDAO {
     public boolean deleteFerramentaDB(int IdFerramenta) {
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("delete from tb_Ferramenta where idFerramenta=" + IdFerramenta);
+            smt.executeUpdate("delete from tb_Ferramenta where idFerramenta=" + IdFerramenta);
             smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);

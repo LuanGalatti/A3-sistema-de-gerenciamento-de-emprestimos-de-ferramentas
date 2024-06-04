@@ -148,7 +148,7 @@ public class AmigoDAO extends ConexaoDAO {
     public boolean deleteAmigoDB(int IdAmigo) {
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("delete from tb_amigo where id=" + IdAmigo);
+            smt.executeUpdate("delete from tb_amigo where idAmigo = " + IdAmigo);
             smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);

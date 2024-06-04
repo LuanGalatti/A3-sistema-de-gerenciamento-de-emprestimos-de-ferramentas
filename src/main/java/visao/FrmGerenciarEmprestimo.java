@@ -44,7 +44,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         JTFIdFerramenta = new javax.swing.JTextField();
         JTFDataEmprestimo = new javax.swing.JTextField();
         JTFDataDevolucao = new javax.swing.JTextField();
-        JTFAtivo = new javax.swing.JTextField();
+        JLativo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciador de Empréstimos");
@@ -89,17 +89,16 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         });
 
         JBApagar.setText("Apagar");
+        JBApagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBApagarActionPerformed(evt);
+            }
+        });
 
         JBModificar.setText("Modificar");
         JBModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBModificarActionPerformed(evt);
-            }
-        });
-
-        JTFAtivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFAtivoActionPerformed(evt);
             }
         });
 
@@ -129,13 +128,14 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JLAtivo)
-                                .addGap(73, 73, 73)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JLativo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JTFDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JTFDataEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JTFIdFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JTFIdAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JTFAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(JTFDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTFDataEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTFIdFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTFIdAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -173,14 +173,16 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLAtivo)
-                    .addComponent(JTFAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                    .addComponent(JLativo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBCancelar)
                     .addComponent(JBApagar)
                     .addComponent(JBModificar))
                 .addGap(15, 15, 15))
         );
+
+        JTFIdAmigo.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,14 +205,9 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
             JTFIdFerramenta.setText("");
             JTFDataEmprestimo.setText("");
             JTFDataDevolucao.setText("");
-            JTFAtivo.setText("");
             this.CarregaListaEmprestimo();
         }
     }//GEN-LAST:event_JBModificarActionPerformed
-
-    private void JTFAtivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFAtivoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFAtivoActionPerformed
 
     private void JTableEmprestimoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableEmprestimoMouseClicked
         if (this.JTableEmprestimo.getSelectedRow() != -1) {
@@ -220,10 +217,19 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
             JTFIdFerramenta.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 2).toString());
             JTFDataEmprestimo.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 3).toString());
             JTFDataDevolucao.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 4).toString());
-            JTFAtivo.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 4).toString());
 
         }
     }//GEN-LAST:event_JTableEmprestimoMouseClicked
+
+    private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
+        emprestimo.deleteEmprestimoDB(Integer.parseInt(JLId.getText()));
+        JLId.setVisible(false);
+        JTFIdAmigo.setText("");
+        JTFIdFerramenta.setText("");
+        JTFDataEmprestimo.setText("");
+        JTFDataDevolucao.setText("");
+        this.CarregaListaEmprestimo();
+    }//GEN-LAST:event_JBApagarActionPerformed
     public void CarregaListaEmprestimo() {
         DefaultTableModel model = (DefaultTableModel) JTableEmprestimo.getModel();
         JLId.setVisible(false);
@@ -286,7 +292,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     private javax.swing.JLabel JLId;
     private javax.swing.JLabel JLIdAmigo;
     private javax.swing.JLabel JLIdFerramenta;
-    private javax.swing.JTextField JTFAtivo;
+    private javax.swing.JLabel JLativo;
     private javax.swing.JTextField JTFDataDevolucao;
     private javax.swing.JTextField JTFDataEmprestimo;
     private javax.swing.JTextField JTFIdAmigo;

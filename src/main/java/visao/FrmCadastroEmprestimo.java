@@ -120,7 +120,7 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
             ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
             Emprestimo emprestimo = new Emprestimo();
-            if (listaFerramenta.get(posicaoFerramenta).getDisponivel(listaFerramenta.get(posicaoFerramenta).getIdFerramenta()) == false) {
+            if (listaFerramenta.get(posicaoFerramenta).getDisponivel(listaFerramenta.get(posicaoFerramenta).getIdFerramenta()) == "Não") {
                 throw new Erro("Ferramenta ja emprestada");
             }
             int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
