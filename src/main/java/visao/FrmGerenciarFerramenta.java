@@ -234,7 +234,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
 
             }
-            if (ferramenta.updateFerramentaDB(id, nome, marca, custo, disponivel)) {
+            if (ferramenta.updateFerramentaDB(id, nome, marca, custo)) {
                 JOptionPane.showMessageDialog(null, "Ferramenta atualizada com sucesso");
                 JLId.setVisible(false);
                 JTFMarca.setText("");
@@ -260,7 +260,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
                 objeto.getNomeFerramenta(),
                 objeto.getMarcaFerramenta(),
                 objeto.getCustoFerramenta(),
-                objeto.getDisponivel(),}
+                objeto.getDisponivel(objeto.getIdFerramenta()),}
             );
             som += objeto.getCustoFerramenta();
         }

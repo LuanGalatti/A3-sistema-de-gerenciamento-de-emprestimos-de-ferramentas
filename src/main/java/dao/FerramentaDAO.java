@@ -32,8 +32,7 @@ public class FerramentaDAO extends ConexaoDAO {
                 String nomeFerramenta = res.getString("nomeFerramenta");
                 String marcaFerramenta = res.getString("marcaFerramenta");
                 double custoFerramenta = res.getDouble("custoFerramenta");
-                boolean disponivelFerramenta = res.getBoolean("disponivel");
-                Ferramenta objeto = new Ferramenta(idFerramenta, nomeFerramenta, custoFerramenta, marcaFerramenta, disponivelFerramenta);
+                Ferramenta objeto = new Ferramenta(idFerramenta, nomeFerramenta, custoFerramenta, marcaFerramenta);
 
                 listaFerramenta.add(objeto);
             }
@@ -80,14 +79,13 @@ public class FerramentaDAO extends ConexaoDAO {
      * lança uma exceção.
      */
     public boolean insertFerramentaDB(Ferramenta ferramenta) {
-        String res = "insert into tb_Ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta,disponivel)values(?,?,?,?,?)";
+        String res = "insert into tb_Ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta)values(?,?,?,?)";
         try {
             PreparedStatement smt = super.getConexao().prepareCall(res);
             smt.setInt(1, ferramenta.getIdFerramenta());
             smt.setString(2, ferramenta.getNomeFerramenta());
             smt.setString(3, ferramenta.getMarcaFerramenta());
             smt.setDouble(4, ferramenta.getCustoFerramenta());
-            smt.setBoolean(5, true);
             smt.execute();
             smt.close();
             return true;
@@ -113,7 +111,6 @@ public class FerramentaDAO extends ConexaoDAO {
             ferramenta.setNomeFerramenta(res.getString("nomeFerramenta"));
             ferramenta.setMarcaFerramenta(res.getString("marcaFerramenta"));
             ferramenta.setCustoFerramenta(res.getDouble("custoFerramenta"));
-            ferramenta.setDisponivel(res.getBoolean("disponivel"));
             smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
@@ -129,15 +126,14 @@ public class FerramentaDAO extends ConexaoDAO {
      * lança uma exceção.
      */
     public boolean updateFerramentaDB(Ferramenta ferramenta) {
-        String res = "update tb_Ferramenta set idFerramenta=?,nomeFerramenta=?, marcaFerramenta=?, custoFerramenta=?, disponivel=? where idFerramenta=?";
+        String res = "update tb_Ferramenta set idFerramenta=?,nomeFerramenta=?, marcaFerramenta=?, custoFerramenta=? where idFerramenta=?";
         try {
             PreparedStatement smt = super.getConexao().prepareStatement(res);
             smt.setInt(1, ferramenta.getIdFerramenta());
             smt.setString(2, ferramenta.getNomeFerramenta());
             smt.setString(3, ferramenta.getMarcaFerramenta());
             smt.setDouble(4, ferramenta.getCustoFerramenta());
-            smt.setBoolean(5, ferramenta.getDisponivel());
-            smt.setInt(6, ferramenta.getIdFerramenta());
+            smt.setInt(5, ferramenta.getIdFerramenta());
             smt.execute();
             smt.close();
             return true;
@@ -157,7 +153,7 @@ public class FerramentaDAO extends ConexaoDAO {
     public boolean deleteFerramentaDB(int IdFerramenta) {
         try {
             Statement smt = super.getConexao().createStatement();
-            ResultSet res = smt.executeQuery("delete from tb_Ferramenta where id=" + IdFerramenta);
+            ResultSet res = smt.executeQuery("delete from tb_Ferramenta where idFerramenta=" + IdFerramenta);
             smt.close();
         } catch (SQLException erro) {
             System.out.println("Erro: " + erro);
