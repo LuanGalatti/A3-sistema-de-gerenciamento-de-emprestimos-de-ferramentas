@@ -51,10 +51,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
         JTableEmprestimo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID EMPRESTIMO", "ID AMIGO", "ID FERRAMENTA", "DATA INÍCIO", "DATA DEVOLUÇÃO", "ATIVO"
@@ -222,6 +219,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     }//GEN-LAST:event_JTableEmprestimoMouseClicked
 
     private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
+
         emprestimo.deleteEmprestimoDB(Integer.parseInt(JLId.getText()));
         JLId.setVisible(false);
         JTFIdAmigo.setText("");
@@ -232,16 +230,18 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     }//GEN-LAST:event_JBApagarActionPerformed
     public void CarregaListaEmprestimo() {
         DefaultTableModel model = (DefaultTableModel) JTableEmprestimo.getModel();
+            model.setRowCount(0);
         JLId.setVisible(false);
-        model.setNumRows(0);
         ArrayList<Emprestimo> listaEmprestimo = emprestimo.listaEmprestimo();
-        for (Emprestimo objeto : listaEmprestimo) {
+        for (int i=0;i<listaEmprestimo.size();i++) {
             model.addRow(new Object[]{
-                objeto.getIDEmprestimo(),
-                objeto.getIDAmigo(),
-                objeto.getIDFerramenta(),
-                objeto.getDataEmprestimo(),
-                objeto.getDataDevolucao(),}
+                listaEmprestimo.get(i).getIDEmprestimo(),
+                listaEmprestimo.get(i).getIDAmigo(),
+                listaEmprestimo.get(i).getIDFerramenta(),
+                listaEmprestimo.get(i).getDataEmprestimo(),
+                listaEmprestimo.get(i).getDataDevolucao(),
+                listaEmprestimo.get(i).emprestimoAtivo(listaEmprestimo.get(i).getIDEmprestimo()),
+            }
             );
         }
     }

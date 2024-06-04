@@ -260,5 +260,15 @@ public class Emprestimo {
 
         return listaEmprestimoAtivo;
     }
-
+public String emprestimoAtivo(int idEmprestimo){
+            String ativo = "Não";
+        Emprestimo emp = new Emprestimo();
+        ArrayList<Emprestimo> listaEmprestimoAtivo = emp.getListaEmprestimoAtivo();
+        for (int i = 0; i < listaEmprestimoAtivo.size(); i++) {
+            if (listaEmprestimoAtivo.get(i).getIDEmprestimo() == idEmprestimo) {
+                ativo = "Sim";
+            }
+        }
+        return ativo;
+}
 }
