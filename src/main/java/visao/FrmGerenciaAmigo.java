@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
+
 /**
  *
  * @author 1072416842
@@ -11,7 +12,7 @@ import modelo.Amigo;
 public class FrmGerenciaAmigo extends javax.swing.JFrame {
 
     private Amigo amigo;
-    
+
     public FrmGerenciaAmigo() {
         initComponents();
         this.amigo = new Amigo();
@@ -207,12 +208,13 @@ public class FrmGerenciaAmigo extends javax.swing.JFrame {
                 objeto.getNomeAmigo(),
                 objeto.getTelefone(),}
             );
+        }
     }
-    }
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {        
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

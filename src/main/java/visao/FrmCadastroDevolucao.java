@@ -4,12 +4,8 @@
  */
 package visao;
 
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.Amigo;
 import modelo.Emprestimo;
@@ -20,15 +16,17 @@ import modelo.Ferramenta;
  * @author 1072419087
  */
 public class FrmCadastroDevolucao extends javax.swing.JFrame {
-private Emprestimo emprestimo;
-private Amigo amigo;
-private Ferramenta ferramenta;
+
+    private Emprestimo emprestimo;
+    private Amigo amigo;
+    private Ferramenta ferramenta;
+
     public FrmCadastroDevolucao() {
         initComponents();
-    emprestimo= new Emprestimo();
-    amigo= new Amigo();
-    ferramenta= new Ferramenta();
-    this.carregaCBEmprestimo();
+        emprestimo = new Emprestimo();
+        amigo = new Amigo();
+        ferramenta = new Ferramenta();
+        this.carregaCBEmprestimo();
     }
 
     /**
@@ -187,22 +185,22 @@ private Ferramenta ferramenta;
     }// </editor-fold>//GEN-END:initComponents
 
     private void JCBTipoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBTipoRegistroActionPerformed
-int tipo = JCBTipoRegistro.getSelectedIndex();   
-switch(tipo){
-    case 1:
-    JTFData.setVisible(true);
-    JTFMes.setVisible(true);
-    JTFAno.setVisible(true);
-    jLabel3.setVisible(true);
-    jLabel4.setVisible(true);
-break;
-    case 0:
-    JTFData.setVisible(false);
-    JTFMes.setVisible(false);
-    JTFAno.setVisible(false);
-    jLabel3.setVisible(false);
-    jLabel4.setVisible(false);        
-}
+        int tipo = JCBTipoRegistro.getSelectedIndex();
+        switch (tipo) {
+            case 1:
+                JTFData.setVisible(true);
+                JTFMes.setVisible(true);
+                JTFAno.setVisible(true);
+                jLabel3.setVisible(true);
+                jLabel4.setVisible(true);
+                break;
+            case 0:
+                JTFData.setVisible(false);
+                JTFMes.setVisible(false);
+                JTFAno.setVisible(false);
+                jLabel3.setVisible(false);
+                jLabel4.setVisible(false);
+        }
 
     }//GEN-LAST:event_JCBTipoRegistroActionPerformed
 
@@ -219,67 +217,60 @@ break;
     }//GEN-LAST:event_JTFAnoActionPerformed
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
-this.dispose();
+        this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void JBLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBLimparActionPerformed
-JTFData.setText("");
-JTFMes.setText("");
-JTFAno.setText("");
+        JTFData.setText("");
+        JTFMes.setText("");
+        JTFAno.setText("");
 
     }//GEN-LAST:event_JBLimparActionPerformed
 
     private void JTFDataKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFDataKeyTyped
-if(JTFData.getText().length()==1){
-    JTFMes.requestFocus();
-}
+        if (JTFData.getText().length() == 1) {
+            JTFMes.requestFocus();
+        }
     }//GEN-LAST:event_JTFDataKeyTyped
 
     private void JTFMesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTFMesKeyTyped
-if(JTFMes.getText().length()==1){
-    JTFAno.requestFocus();
-}
+        if (JTFMes.getText().length() == 1) {
+            JTFAno.requestFocus();
+        }
     }//GEN-LAST:event_JTFMesKeyTyped
 
     private void JBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCadastrarActionPerformed
 
-int posicaoEmprestimo = JCBEmprestimo.getSelectedIndex();
-ArrayList<Emprestimo> listaEmprestimo = emprestimo.getListaEmprestimoAtivo();
-SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-Emprestimo emp= new Emprestimo();
-            String data="";
- switch(JCBTipoRegistro.getSelectedIndex()){
-     case 0:
-      data = LocalDate.now()+"";
-      break;
-     case 1:
-      data =JTFAno.getText()+"-"+JTFMes.getText()+"-"+JTFData.getText();   
- }
-            if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIDEmprestimo(),listaEmprestimo.get(posicaoEmprestimo).getIDAmigo(),listaEmprestimo.get(posicaoEmprestimo).getIDFerramenta(),listaEmprestimo.get(posicaoEmprestimo).getDataEmprestimo(),data+"")) {
-               JOptionPane.showMessageDialog(null, "Devolucao cadastrada com sucesso");
-             this.carregaCBEmprestimo();
-            }else{
-                
-            }
-                  
-            
-        
-        
-            
+        int posicaoEmprestimo = JCBEmprestimo.getSelectedIndex();
+        ArrayList<Emprestimo> listaEmprestimo = emprestimo.getListaEmprestimoAtivo();
+        Emprestimo emp = new Emprestimo();
+        String data = "";
+        switch (JCBTipoRegistro.getSelectedIndex()) {
+            case 0:
+                data = LocalDate.now() + "";
+                break;
+            case 1:
+                data = JTFAno.getText() + "-" + JTFMes.getText() + "-" + JTFData.getText();
+        }
+        if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIDEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getIDAmigo(), listaEmprestimo.get(posicaoEmprestimo).getIDFerramenta(), listaEmprestimo.get(posicaoEmprestimo).getDataEmprestimo(), data + "")) {
+            JOptionPane.showMessageDialog(null, "Devolucao cadastrada com sucesso");
+            this.carregaCBEmprestimo();
+        } else {
 
-
+        }
     }//GEN-LAST:event_JBCadastrarActionPerformed
 
-    public void carregaCBEmprestimo(){
-    Emprestimo emprestimo= new Emprestimo();
+    public void carregaCBEmprestimo() {
+        Emprestimo emprestimo = new Emprestimo();
         ArrayList<Emprestimo> listaEmprestimo = emprestimo.getListaEmprestimoAtivo();
-        ArrayList<Amigo> listaAmigo= amigo.listaAmigo();
-        ArrayList<Ferramenta> listaFerramenta= ferramenta.listaFerramenta();
-        
-                for (Emprestimo objeto : listaEmprestimo) {
-            JCBEmprestimo.addItem(objeto.getIDEmprestimo()+"- "+listaAmigo.get(objeto.getIDAmigo()-1).getNomeAmigo()+"- "+listaFerramenta.get(objeto.getIDFerramenta()-1).getNomeFerramenta() );
+        ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
+        ArrayList<Ferramenta> listaFerramenta = ferramenta.listaFerramenta();
+
+        for (Emprestimo objeto : listaEmprestimo) {
+            JCBEmprestimo.addItem(objeto.getIDEmprestimo() + "- " + listaAmigo.get(objeto.getIDAmigo() - 1).getNomeAmigo() + "- " + listaFerramenta.get(objeto.getIDFerramenta() - 1).getNomeFerramenta());
         }
     }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -1,7 +1,5 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,47 +10,12 @@ import modelo.Ferramenta;
 /**
  * Classe responsável pelo acesso aos dados das ferramentas no banco de dados.
  */
-public class FerramentaDAO {
+public class FerramentaDAO extends ConexaoDAO {
 
     /**
      * Lista de ferramentas em armazenamento.
      */
     public static ArrayList<Ferramenta> listaFerramenta = new ArrayList<>();
-
-    /**
-     * Obtém uma conexão com o banco de dados de ferramentas.
-     *
-     * @return Conexão com o banco de dados ou null se a conexão falhar.
-     */
-    public Connection getConexaoFerramenta() {
-        Connection connection = null;
-        try {
-            String driver = "com.mysql.cj.jdbc.Driver";
-            Class.forName(driver);
-
-            String server = "localhost";
-            String database = "db_emprestimo";
-            String url = "jdbc:mysql://" + server + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
-            String user = "root";
-            String password = "root";
-
-            connection = DriverManager.getConnection(url, user, password);
-
-            if (connection != null) {
-                System.out.println("Status: Conectado!");
-            } else {
-                System.out.println("Status: NÃO CONECTADO!");
-            }
-            return connection;
-
-        } catch (ClassNotFoundException erro) {
-            System.out.println("O driver não foi encontrado. " + erro.getMessage());
-            return null;
-        } catch (SQLException erro) {
-            System.out.println("Não foi possível conectar...");
-            return null;
-        }
-    }
 
     /**
      * Obtém a lista de ferramentas do banco de dados.
@@ -62,7 +25,7 @@ public class FerramentaDAO {
     public ArrayList<Ferramenta> getListaFerramenta() {
         listaFerramenta.clear();
         try {
-            Statement smt = this.getConexaoFerramenta().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("select * from tb_Ferramenta");
             while (res.next()) {
                 int idFerramenta = res.getInt("IdFerramenta");
@@ -98,7 +61,7 @@ public class FerramentaDAO {
     public int maiorIDFerramenta() {
         int MaiorID = 0;
         try {
-            Statement smt = this.getConexaoFerramenta().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("select MAX(idFerramenta)idFerramenta from tb_Ferramenta");
             res.next();
             MaiorID = res.getInt("idFerramenta");
@@ -119,7 +82,7 @@ public class FerramentaDAO {
     public boolean insertFerramentaDB(Ferramenta ferramenta) {
         String res = "insert into tb_Ferramenta(idFerramenta,nomeFerramenta,marcaFerramenta,custoFerramenta,disponivel)values(?,?,?,?,?)";
         try {
-            PreparedStatement smt = this.getConexaoFerramenta().prepareCall(res);
+            PreparedStatement smt = super.getConexao().prepareCall(res);
             smt.setInt(1, ferramenta.getIdFerramenta());
             smt.setString(2, ferramenta.getNomeFerramenta());
             smt.setString(3, ferramenta.getMarcaFerramenta());
@@ -144,7 +107,7 @@ public class FerramentaDAO {
         Ferramenta ferramenta = new Ferramenta();
         ferramenta.setIdFerramenta(IdFerramenta);
         try {
-            Statement smt = this.getConexaoFerramenta().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("select * from tb_Ferramenta where idFerramenta = " + IdFerramenta);
             res.next();
             ferramenta.setNomeFerramenta(res.getString("nomeFerramenta"));
@@ -168,7 +131,7 @@ public class FerramentaDAO {
     public boolean updateFerramentaDB(Ferramenta ferramenta) {
         String res = "update tb_Ferramenta set idFerramenta=?,nomeFerramenta=?, marcaFerramenta=?, custoFerramenta=?, disponivel=? where idFerramenta=?";
         try {
-            PreparedStatement smt = this.getConexaoFerramenta().prepareStatement(res);
+            PreparedStatement smt = super.getConexao().prepareStatement(res);
             smt.setInt(1, ferramenta.getIdFerramenta());
             smt.setString(2, ferramenta.getNomeFerramenta());
             smt.setString(3, ferramenta.getMarcaFerramenta());
@@ -193,7 +156,7 @@ public class FerramentaDAO {
      */
     public boolean deleteFerramentaDB(int IdFerramenta) {
         try {
-            Statement smt = this.getConexaoFerramenta().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("delete from tb_Ferramenta where id=" + IdFerramenta);
             smt.close();
         } catch (SQLException erro) {

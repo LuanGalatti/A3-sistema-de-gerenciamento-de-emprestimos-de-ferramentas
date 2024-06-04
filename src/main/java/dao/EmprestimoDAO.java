@@ -1,7 +1,5 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Emprestimo;
 
-public class EmprestimoDAO {
+public class EmprestimoDAO extends ConexaoDAO {
 
     // Lista para armazenar os dados dos empréstimos
     public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
@@ -19,55 +17,13 @@ public class EmprestimoDAO {
      *
      * @return Conexão com o banco de dados ou null se a conexão falhar.
      */
-    public Connection getConexaoEmprestimo() {
-        Connection connection = null;
-        try {
-            // Carrega o driver do banco de dados
-            String driver = "com.mysql.cj.jdbc.Driver";
-            Class.forName(driver);
-
-            // Informações de conexão com o banco de dados
-            String server = "localhost";
-            String database = "db_emprestimo";
-            String url = "jdbc:mysql://" + server + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
-            String user = "root";
-            String password = "root";
-
-            // Estabelece a conexão com o banco de dados
-            connection = DriverManager.getConnection(url, user, password);
-
-            // Verifica se a conexão foi bem-sucedida e exibe uma mensagem
-            if (connection != null) {
-                System.out.println("Status: Conectado!");
-            } else {
-                System.out.println("Status: NÃO CONECTADO!");
-            }
-            return connection;
-
-        } catch (ClassNotFoundException erro) {
-            // Trata o erro caso o driver não seja encontrado
-            System.out.println("O driver não foi encontrado. " + erro.getMessage());
-            return null;
-        } catch (SQLException erro) {
-            // Trata o erro caso a conexão com o banco de dados falhe
-            System.out.println("Não foi possível conectar...");
-            return null;
-        }
-    }
-
-    // Métodos para manipulação de empréstimos
-    /**
-     * Obtém a lista de empréstimos do banco de dados.
-     *
-     * @return Lista de empréstimos
-     */
     public ArrayList<Emprestimo> getListaEmprestimo() {
         // Limpa a lista para evitar duplicatas
 
         listaEmprestimo.clear();
         try {
             // Cria uma declaração para executar a consulta SQL
-            Statement smt = this.getConexaoEmprestimo().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("select * from tb_emprestimo");
 
             // Itera sobre o resultado da consulta e adiciona empréstimos à lista
@@ -100,7 +56,7 @@ public class EmprestimoDAO {
     public int maiorIDEmprestimo() {
         int MaiorID = 0;
         try {
-            Statement smt = this.getConexaoEmprestimo().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("select MAX(idEmprestimo)idEmprestimo from tb_emprestimo");
             res.next();
             MaiorID = res.getInt("idEmprestimo");
@@ -114,7 +70,7 @@ public class EmprestimoDAO {
     public boolean insertEmprestimoDB(Emprestimo emprestimo) {
         String res = "insert into tb_emprestimo(idEmprestimo,idAmigo,idFerramenta,dataInicio,dataDevolucao)values(?,?,?,?,?)";
         try {
-            PreparedStatement smt = this.getConexaoEmprestimo().prepareCall(res);
+            PreparedStatement smt = super.getConexao().prepareCall(res);
             smt.setInt(1, emprestimo.getIDEmprestimo());
             smt.setInt(2, emprestimo.getIDAmigo());
             smt.setInt(3, emprestimo.getIDFerramenta());
@@ -133,7 +89,7 @@ public class EmprestimoDAO {
         Emprestimo emprestimo = new Emprestimo();
         emprestimo.setIDEmprestimo(IdEmprestimo);
         try {
-            Statement smt = this.getConexaoEmprestimo().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("select * from tb_emprestimo where idEmprestimo = " + IdEmprestimo);
             res.next();
             emprestimo.setIDEmprestimo(res.getInt("idEmprestimo"));
@@ -151,7 +107,7 @@ public class EmprestimoDAO {
     public boolean updateEmprestimoDB(Emprestimo emprestimo) {
         String res = "update tb_emprestimo set idEmprestimo=?,idAmigo=?, idFerramenta=?, dataInicio=?, dataDevolucao=? where idEmprestimo=?";
         try {
-            PreparedStatement smt = this.getConexaoEmprestimo().prepareStatement(res);
+            PreparedStatement smt = super.getConexao().prepareStatement(res);
             smt.setInt(1, emprestimo.getIDEmprestimo());
             smt.setInt(2, emprestimo.getIDAmigo());
             smt.setInt(3, emprestimo.getIDFerramenta());
@@ -169,7 +125,7 @@ public class EmprestimoDAO {
 
     public boolean deleteEmprestimoDB(int IdEmprestimo) {
         try {
-            Statement smt = this.getConexaoEmprestimo().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("delete from tb_emprestimo where id=" + IdEmprestimo);
             smt.close();
         } catch (SQLException erro) {

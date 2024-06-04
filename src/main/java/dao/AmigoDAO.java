@@ -1,7 +1,5 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,47 +10,12 @@ import modelo.Amigo;
 /**
  * Classe responsável pelo acesso aos dados dos amigos no banco de dados.
  */
-public class AmigoDAO {
+public class AmigoDAO extends ConexaoDAO {
 
     /**
      * Lista de amigos em memória.
      */
     public static ArrayList<Amigo> listaAmigo = new ArrayList<>();
-
-    /**
-     * Se conecta com o banco de dados de emprestimos.
-     *
-     * @return Conexão com o banco de dados ou null se a conexão falhar.
-     */
-    public Connection getConexaoAmigo() {
-        Connection connection = null;
-        try {
-            String driver = "com.mysql.cj.jdbc.Driver";
-            Class.forName(driver);
-
-            String server = "localhost";
-            String database = "db_emprestimo";
-            String url = "jdbc:mysql://" + server + ":3306/" + database + "?useTimezone=true&serverTimezone=UTC";
-            String user = "root";
-            String password = "root";
-
-            connection = DriverManager.getConnection(url, user, password);
-
-            if (connection != null) {
-                System.out.println("Status: Conectado!");
-            } else {
-                System.out.println("Status: NÃO CONECTADO!");
-            }
-            return connection;
-
-        } catch (ClassNotFoundException erro) {
-            System.out.println("O driver não foi encontrado. " + erro.getMessage());
-            return null;
-        } catch (SQLException erro) {
-            System.out.println("Não foi possível conectar...");
-            return null;
-        }
-    }
 
     /**
      * Obtém a lista de amigos do banco de dados.
@@ -62,7 +25,7 @@ public class AmigoDAO {
     public ArrayList<Amigo> getListaAmigo() {
         listaAmigo.clear();
         try {
-            Statement smt = this.getConexaoAmigo().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("select * from tb_amigo");
             while (res.next()) {
                 int idAmigo = res.getInt("IdAmigo");
@@ -95,7 +58,7 @@ public class AmigoDAO {
     public int maiorIDAmigo() {
         int MaiorID = 0;
         try {
-            Statement smt = this.getConexaoAmigo().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("select MAX(idAmigo)idAmigo from tb_amigo");
             res.next();
             MaiorID = res.getInt("idAmigo");
@@ -116,7 +79,7 @@ public class AmigoDAO {
     public boolean insertAmigoDB(Amigo amigo) {
         String res = "insert into tb_amigo(idAmigo,nomeAmigo,telefoneAmigo)values(?,?,?)";
         try {
-            PreparedStatement smt = this.getConexaoAmigo().prepareCall(res);
+            PreparedStatement smt = super.getConexao().prepareCall(res);
             smt.setInt(1, amigo.getIdAmigo());
             smt.setString(2, amigo.getNomeAmigo());
             smt.setString(3, amigo.getTelefone());
@@ -139,7 +102,7 @@ public class AmigoDAO {
         Amigo amigo = new Amigo();
         amigo.setIdAmigo(IdAmigo);
         try {
-            Statement smt = this.getConexaoAmigo().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("select * from tb_amigo where idAmigo = " + IdAmigo);
             res.next();
             amigo.setNomeAmigo(res.getString("nomeAmigo"));
@@ -161,7 +124,7 @@ public class AmigoDAO {
     public boolean updateAmigoDB(Amigo amigo) {
         String res = "update tb_amigo set idAmigo=?,nomeAmigo=?,telefoneAmigo=? where idAmigo=?";
         try {
-            PreparedStatement smt = this.getConexaoAmigo().prepareStatement(res);
+            PreparedStatement smt = super.getConexao().prepareStatement(res);
             smt.setInt(1, amigo.getIdAmigo());
             smt.setString(2, amigo.getNomeAmigo());
             smt.setString(3, amigo.getTelefone());
@@ -184,7 +147,7 @@ public class AmigoDAO {
      */
     public boolean deleteAmigoDB(int IdAmigo) {
         try {
-            Statement smt = this.getConexaoAmigo().createStatement();
+            Statement smt = super.getConexao().createStatement();
             ResultSet res = smt.executeQuery("delete from tb_amigo where id=" + IdAmigo);
             smt.close();
         } catch (SQLException erro) {
