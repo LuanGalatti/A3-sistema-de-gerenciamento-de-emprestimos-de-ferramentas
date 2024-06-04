@@ -217,7 +217,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             double custo = 0;
             boolean disponivel = Boolean.parseBoolean(JTFDisponivel.getText());
             if (JTFNome.getText().length() < 2) {
-                throw new Erro("Nome deve conter mais de 2 caracteres, tente novamente");
+                throw new Erro("Nome deve conter pelo menos 2 caracteres, tente novamente");
             } else {
                 nome = (JTFNome.getText());
 

@@ -76,6 +76,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Devolu&#xe7;&#xe3;o"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemDevolu&#xe7;&#xe3;oActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

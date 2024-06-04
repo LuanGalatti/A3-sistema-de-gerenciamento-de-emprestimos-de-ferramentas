@@ -126,8 +126,8 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
             Amigo amigo = new Amigo();
             String nome = "";
             String telefone = "";
-            if (JTFNomeAmigo.getText().length() < 2) {
-                throw new Erro("Nome do amigo deve conter mais de 2 caracteres, tente novamente");
+            if (JTFNomeAmigo.getText().length() < 3) {
+                throw new Erro("Nome do amigo deve conter mais de 3 caracteres, tente novamente");
             } else {
                 nome = (JTFNomeAmigo.getText());
 

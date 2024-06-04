@@ -153,14 +153,14 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
             String nome = "";
             String marca = "";
             double custo = 0;
-            if (JTFNomeFerramenta.getText().length() < 3) {
-                throw new Erro("Nome deve conter mais de 3 caracteres, tente novamente");
+            if (JTFNomeFerramenta.getText().length() < 2) {
+                throw new Erro("Nome deve conter pelo menos 2 caracteres, tente novamente");
             } else {
                 nome = (JTFNomeFerramenta.getText());
 
             }
-            if (JTFMarcaFerramenta.getText().length() < 3) {
-                throw new Erro("Marca deve conter mais de 3 caracteres, tente novamente");
+            if (JTFMarcaFerramenta.getText().length() < 2) {
+                throw new Erro("Marca deve conter pelo menos 2 caracteres, tente novamente");
             } else {
                 marca = (JTFMarcaFerramenta.getText());
 

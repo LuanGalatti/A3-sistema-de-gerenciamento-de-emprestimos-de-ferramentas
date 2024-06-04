@@ -98,6 +98,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuTransação.add(jSeparator1);
 
         jMenuItemDevolução.setText("Devolução");
+        jMenuItemDevolução.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDevoluçãoActionPerformed(evt);
+            }
+        });
         jMenuTransação.add(jMenuItemDevolução);
 
         jMenuBar1.add(jMenuTransação);
@@ -171,6 +176,12 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         FrmCadastroEmprestimo tela = new FrmCadastroEmprestimo();
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItemEmpréstimoActionPerformed
+
+    private void jMenuItemDevoluçãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDevoluçãoActionPerformed
+        // Instancia a tela de cadastro devoluçao
+        FrmCadastroDevolucao tela = new FrmCadastroDevolucao();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenuItemDevoluçãoActionPerformed
     private void jMenuItemGerenciarFerramentasMouseClicked(java.awt.event.MouseEvent evt) {
 
     }
