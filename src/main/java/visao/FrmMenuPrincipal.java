@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package visao;
 
 /**
@@ -160,7 +156,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItemGerenciarAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciarAmigosActionPerformed
         //Instancia a tela de gerenciar amigo
-        FrmGerenciaAmigo objeto = new FrmGerenciaAmigo();
+        FrmGerenciarAmigo objeto = new FrmGerenciarAmigo();
         objeto.setVisible(true);
 
     }//GEN-LAST:event_jMenuItemGerenciarAmigosActionPerformed

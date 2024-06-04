@@ -45,6 +45,7 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
         JBCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Empréstimo");
 
         jLabel1.setText("Ferramenta:");
 

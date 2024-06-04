@@ -87,7 +87,7 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
                 .addComponent(JBLimpar)
                 .addGap(39, 39, 39)
                 .addComponent(JBCancelar)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

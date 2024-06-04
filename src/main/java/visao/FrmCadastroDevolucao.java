@@ -57,6 +57,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
         JBCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Devolução");
 
         jLabel1.setText("Emprestimo:");
 
@@ -252,7 +253,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
             case 1:
                 data = JTFAno.getText() + "-" + JTFMes.getText() + "-" + JTFData.getText();
         }
-        if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIDEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getIDAmigo(), listaEmprestimo.get(posicaoEmprestimo).getIDFerramenta(), listaEmprestimo.get(posicaoEmprestimo).getDataEmprestimo(), data + "")) {
+        if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIDEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getDataEmprestimo(), data + "", dataInicio, data + "", ativo)) {
             JOptionPane.showMessageDialog(null, "Devolucao cadastrada com sucesso");
             this.carregaCBEmprestimo();
         } else {
