@@ -116,6 +116,15 @@ public class Emprestimo {
         return dataEmprestimo;
     }
 
+    public String getDataEmprestimoInvertido() {
+        String dataEmprestimo = this.dataEmprestimo;
+        if (dataEmprestimo != null) {
+            String[] DataEmprestimoSeparado = this.dataEmprestimo.split("-");
+            dataEmprestimo = DataEmprestimoSeparado[2] + "-" + DataEmprestimoSeparado[1] + "-" + DataEmprestimoSeparado[0];
+        }
+        return dataEmprestimo;
+    }
+
     /**
      * Define a data do emprestimo.
      *
@@ -131,6 +140,15 @@ public class Emprestimo {
      * @return A data de devolução do emprestimo.
      */
     public String getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public String getDataDevolucaoInvertido() {
+        String dataDevolucao = this.dataDevolucao;
+        if (dataDevolucao != null) {
+            String[] DataDevolucaoSeparado = this.dataDevolucao.split("-");
+            dataDevolucao = DataDevolucaoSeparado[2] + "-" + DataDevolucaoSeparado[1] + "-" + DataDevolucaoSeparado[0];
+        }
         return dataDevolucao;
     }
 
@@ -260,8 +278,9 @@ public class Emprestimo {
 
         return listaEmprestimoAtivo;
     }
-public String emprestimoAtivo(int idEmprestimo){
-            String ativo = "Não";
+
+    public String emprestimoAtivo(int idEmprestimo) {
+        String ativo = "Não";
         Emprestimo emp = new Emprestimo();
         ArrayList<Emprestimo> listaEmprestimoAtivo = emp.getListaEmprestimoAtivo();
         for (int i = 0; i < listaEmprestimoAtivo.size(); i++) {
@@ -270,5 +289,5 @@ public String emprestimoAtivo(int idEmprestimo){
             }
         }
         return ativo;
-}
+    }
 }

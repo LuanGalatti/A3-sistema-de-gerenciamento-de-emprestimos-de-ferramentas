@@ -193,8 +193,11 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         int id = Integer.parseInt(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 0).toString());
         int idAmigo = Integer.parseInt(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 1).toString());
         int idFerramenta = Integer.parseInt(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 2).toString());
-        String dataEmprestimo = JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 3).toString();
-        String dataDevolucao = JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 4).toString();
+        String[] DataEmprestimoSeparado = JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 3).toString().split("-");
+        String dataEmprestimo = DataEmprestimoSeparado[2] + "-" + DataEmprestimoSeparado[1] + "-" + DataEmprestimoSeparado[0];
+        String[] DataDevolucaoSeparado = JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 4).toString().split("-");
+        String dataDevolucao = DataDevolucaoSeparado[2] + "-" + DataDevolucaoSeparado[1] + "-" + DataDevolucaoSeparado[0];
+
         if (emprestimo.updateEmprestimoDB(id, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao)) {
             JOptionPane.showMessageDialog(null, "Emprestimo atualizado com sucesso");
             JLId.setVisible(false);
@@ -230,18 +233,17 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     }//GEN-LAST:event_JBApagarActionPerformed
     public void CarregaListaEmprestimo() {
         DefaultTableModel model = (DefaultTableModel) JTableEmprestimo.getModel();
-            model.setRowCount(0);
+        model.setRowCount(0);
         JLId.setVisible(false);
         ArrayList<Emprestimo> listaEmprestimo = emprestimo.listaEmprestimo();
-        for (int i=0;i<listaEmprestimo.size();i++) {
+        for (int i = 0; i < listaEmprestimo.size(); i++) {
             model.addRow(new Object[]{
                 listaEmprestimo.get(i).getIDEmprestimo(),
                 listaEmprestimo.get(i).getIDAmigo(),
                 listaEmprestimo.get(i).getIDFerramenta(),
-                listaEmprestimo.get(i).getDataEmprestimo(),
-                listaEmprestimo.get(i).getDataDevolucao(),
-                listaEmprestimo.get(i).emprestimoAtivo(listaEmprestimo.get(i).getIDEmprestimo()),
-            }
+                listaEmprestimo.get(i).getDataEmprestimoInvertido(),
+                listaEmprestimo.get(i).getDataDevolucaoInvertido(),
+                listaEmprestimo.get(i).emprestimoAtivo(listaEmprestimo.get(i).getIDEmprestimo()),}
             );
         }
     }
