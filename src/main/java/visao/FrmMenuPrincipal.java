@@ -41,6 +41,8 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jMenuItemGerenciarFerramentas = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMenuItemGerenciarEmprestimo = new javax.swing.JMenuItem();
+        jMenuRelatorio = new javax.swing.JMenu();
+        jMenuItemRelatorio = new javax.swing.JMenuItem();
         jMenuSobre = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,6 +149,18 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuGerenciamento);
 
+        jMenuRelatorio.setText("Relatório");
+        jMenuRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuRelatorioActionPerformed(evt);
+            }
+        });
+
+        jMenuItemRelatorio.setText("Relatório");
+        jMenuRelatorio.add(jMenuItemRelatorio);
+
+        jMenuBar1.add(jMenuRelatorio);
+
         jMenuSobre.setText("Sobre");
         jMenuSobre.setMinimumSize(new java.awt.Dimension(60, 22));
         jMenuBar1.add(jMenuSobre);
@@ -161,7 +175,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 278, Short.MAX_VALUE)
         );
 
         pack();
@@ -206,6 +220,12 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         FrmGerenciarEmprestimo objeto = new FrmGerenciarEmprestimo();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemGerenciarEmprestimoActionPerformed
+
+    private void jMenuRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuRelatorioActionPerformed
+//Instancia a tela de gerenciar emprestimo
+        FrmRelatorio objeto = new FrmRelatorio();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_jMenuRelatorioActionPerformed
     private void jMenuItemGerenciarFerramentasMouseClicked(java.awt.event.MouseEvent evt) {
 
     }
@@ -274,7 +294,9 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemGerenciarAmigos;
     private javax.swing.JMenuItem jMenuItemGerenciarEmprestimo;
     private javax.swing.JMenuItem jMenuItemGerenciarFerramentas;
+    private javax.swing.JMenuItem jMenuItemRelatorio;
     private javax.swing.JMenuItem jMenuItemSair;
+    private javax.swing.JMenu jMenuRelatorio;
     private javax.swing.JMenu jMenuSobre;
     private javax.swing.JMenu jMenuTransação;
     private javax.swing.JPopupMenu.Separator jSeparator1;
