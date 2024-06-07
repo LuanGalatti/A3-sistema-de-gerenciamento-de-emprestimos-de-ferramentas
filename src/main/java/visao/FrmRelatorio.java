@@ -4,6 +4,11 @@
  */
 package visao;
 
+import java.util.ArrayList;
+import modelo.Amigo;
+import modelo.Emprestimo;
+import modelo.Ferramenta;
+
 /**
  *
  * @author JUNIOR
@@ -15,6 +20,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
      */
     public FrmRelatorio() {
         initComponents();
+    this.criaRelatorio();
     }
 
     /**
@@ -49,10 +55,35 @@ public class FrmRelatorio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * @param args the command line arguments
-     */
+public void criaRelatorio(){
+String string="FERRAMENTAS: \n";
+String lista="";
+double som=0;
+Amigo amg= new Amigo();
+Ferramenta frmt= new Ferramenta();
+Emprestimo emp= new Emprestimo();
+    ArrayList<Amigo> listaAmigo = amg.listaAmigo();
+    ArrayList<Ferramenta> listaFerramenta = frmt.listaFerramenta();
+    ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
+    
+    for(int i=0;i<listaFerramenta.size();i++){
+    lista=lista+  "\n id da Ferramenta: "+listaFerramenta.get(i).getIdFerramenta()+"\n Nome da Ferramenta: "+listaFerramenta.get(i).getNomeFerramenta()+"\n Marca da Ferramenta: "+listaFerramenta.get(i).getMarcaFerramenta()+"\n Custo da Ferramenta: "+listaFerramenta.get(i).getCustoFerramenta()+"\n";
+    som += listaFerramenta.get(i).getCustoFerramenta();
+    }
+    string = string + lista+"\n Custo total das ferramentas: R$"+som+"\n\n AMIGOS: \n";
+         lista="";
+    for(int i=0;i<listaAmigo.size();i++){
+     lista=lista+"\n id do Amigo: "+ listaAmigo.get(i).getIdAmigo()+"\n Nome do amigo: "+listaAmigo.get(i).getNomeAmigo()+"\n Telefone do amigo: "+listaAmigo.get(i).getTelefone()+"\n Numero de emprestimos: "+listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo())+"\n possui emprestimo ativo: "+listaAmigo.get(i).possuiEmprestimoAtivo(listaAmigo.get(i).getIdAmigo())+"\n";
+    }
+    string = string + lista+"\n EMPRESTIMOS: \n";
+    lista="";
+    for(int i=0;i<listaEmprestimo.size();i++){
+        lista=lista+"\n id do Emprestimo: "+listaEmprestimo.get(i).getIDEmprestimo()+"\n Nome do Amigo: "+amg.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo())+"\n Nome da ferramenta: "+frmt.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta())+"\n Data de Inicio: "+listaEmprestimo.get(i).getDataEmprestimoInvertido()+"\n Data de Devolucao: "+listaEmprestimo.get(i).getDataDevolucaoInvertido()+"\n";
+    }
+string = string + lista;
+    JTARelatorio.setText(string);
+}
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

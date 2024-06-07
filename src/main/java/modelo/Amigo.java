@@ -203,4 +203,14 @@ public class Amigo {
         }
         return som;
     }
+public String getNomeAmigo(int id){
+String nome="";
+    ArrayList<Amigo> listaAmigo=this.listaAmigo();
+for(int i=0;i<listaAmigo.size();i++){
+    if(id==listaAmigo.get(i).getIdAmigo()){
+        nome=listaAmigo.get(i).getNomeAmigo();
+    }
+}
+return nome;
+}
 }

@@ -157,6 +157,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         });
 
         jMenuItemRelatorio.setText("Relatório");
+        jMenuItemRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRelatorioActionPerformed(evt);
+            }
+        });
         jMenuRelatorio.add(jMenuItemRelatorio);
 
         jMenuBar1.add(jMenuRelatorio);
@@ -226,6 +231,12 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         FrmRelatorio objeto = new FrmRelatorio();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuRelatorioActionPerformed
+
+    private void jMenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRelatorioActionPerformed
+//Instancia a tela de relatorio
+        FrmRelatorio objeto = new FrmRelatorio();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_jMenuItemRelatorioActionPerformed
     private void jMenuItemGerenciarFerramentasMouseClicked(java.awt.event.MouseEvent evt) {
 
     }

@@ -148,4 +148,15 @@ public class Ferramenta {
     public int MaiorID() {
         return dao.maiorIDFerramenta();
     }
+public String getNomeFerramenta(int id){
+String nome="";
+    ArrayList<Ferramenta> listaFerramenta=this.listaFerramenta();
+    for(int i=0;i<listaFerramenta.size();i++){
+        if(id==listaFerramenta.get(i).getIdFerramenta()){
+            nome= listaFerramenta.get(i).getNomeFerramenta();
+
+        }
+    }
+return nome;
+}
 }
