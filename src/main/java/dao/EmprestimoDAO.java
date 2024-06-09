@@ -12,11 +12,7 @@ public class EmprestimoDAO extends ConexaoDAO {
     // Lista para armazenar os dados dos empréstimos
     public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
 
-    /**
-     * Estabelece uma conexão com o banco de dados de empréstimos.
-     *
-     * @return Conexão com o banco de dados ou null se a conexão falhar.
-     */
+
     public ArrayList<Emprestimo> getListaEmprestimo() {
         // Limpa a lista para evitar duplicatas
 
