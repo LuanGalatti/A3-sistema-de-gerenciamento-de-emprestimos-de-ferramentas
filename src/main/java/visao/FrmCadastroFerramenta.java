@@ -9,12 +9,10 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
      * Creates new form FrmCadastroFerramenta
      */
     private Ferramenta objetoferramenta;
-    // cria o vínculo com Amigo.java
 
     public FrmCadastroFerramenta() {
         initComponents();
         this.objetoferramenta = new Ferramenta();
-        // carrega o objeto vazio de ferramenta
     }
 
     /**

@@ -166,7 +166,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         //Instancia a tela de gerenciar amigo
         FrmGerenciarAmigo objeto = new FrmGerenciarAmigo();
         objeto.setVisible(true);
-
     }//GEN-LAST:event_jMenuItemGerenciarAmigosActionPerformed
 
     private void jMenuItemCadastrarFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastrarFerramentasActionPerformed
@@ -194,13 +193,12 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemGerenciarEmprestimoActionPerformed
 
     private void jMenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRelatorioActionPerformed
-//Instancia a tela de relatorio
+        //Instancia a tela de relatorio
         FrmRelatorio objeto = new FrmRelatorio();
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemRelatorioActionPerformed
 
     private void jMenuItemCadastrarAmigosActionPerformed(java.awt.event.ActionEvent evt) {
-
         //Instancia a tela de cadastrar amigo
         FrmCadastroAmigo objeto = new FrmCadastroAmigo();
         objeto.setVisible(true);

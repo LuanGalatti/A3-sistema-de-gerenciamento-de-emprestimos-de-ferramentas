@@ -18,7 +18,7 @@ public class Emprestimo {
     private int idFerramenta;
     private String dataEmprestimo;
     private String dataDevolucao;
-    EmprestimoDAO dao;
+    private EmprestimoDAO dao;
 
     /**
      * Construtor padrão para a classe Emprestimo. Inicializa o id do

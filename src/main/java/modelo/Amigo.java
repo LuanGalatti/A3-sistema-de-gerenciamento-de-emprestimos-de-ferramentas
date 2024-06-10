@@ -11,7 +11,7 @@ public class Amigo {
     private int idAmigo;
     private String nomeAmigo;
     private String telefone;
-    AmigoDAO dao;
+    private AmigoDAO dao;
 
     /**
      * Construtor padrão para a classe Amigo. Inicializa o amigo com id, nome e
