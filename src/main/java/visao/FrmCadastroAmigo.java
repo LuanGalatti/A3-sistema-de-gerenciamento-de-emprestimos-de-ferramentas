@@ -3,10 +3,6 @@ package visao;
 import javax.swing.JOptionPane;
 import modelo.Amigo;
 
-/**
- *
- * @author 1072416842
- */
 public class FrmCadastroAmigo extends javax.swing.JFrame {
 
     /**

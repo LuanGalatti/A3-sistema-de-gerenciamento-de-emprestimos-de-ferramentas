@@ -5,10 +5,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Emprestimo;
 
-/**
- *
- * @author JUNIOR
- */
 public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
     private Emprestimo emprestimo;
@@ -54,7 +50,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID EMPRESTIMO", "ID AMIGO", "ID FERRAMENTA", "DATA INÍCIO", "DATA DEVOLUÇÃO", "ATIVO"
+                "ID Empréstimo", "ID Amigo", "ID Ferramenta", "Data Início", "Data Devolução", "Emprestimo Ativo"
             }
         ));
         JTableEmprestimo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -64,7 +60,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(JTableEmprestimo);
 
-        JLID.setText("ID Empréstimo::");
+        JLID.setText("ID Empréstimo:");
 
         JLId.setText("0");
 
@@ -76,7 +72,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
         JLDataDevolucao.setText("Data Devolução:");
 
-        JLAtivo.setText("Ativo:");
+        JLAtivo.setText("Empréstimo Ativo:");
 
         JBCancelar.setText("Cancelar");
         JBCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -107,40 +103,36 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(JLID)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(JBApagar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JLId))
+                        .addComponent(JBModificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JBCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(JLIdFerramenta)
-                                        .addComponent(JLIdAmigo)
-                                        .addComponent(JLDataInicio))
-                                    .addGap(27, 27, 27))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(JLDataDevolucao)
-                                    .addGap(18, 18, 18)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JLAtivo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JLativo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JTFDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JTFDataEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JTFIdFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JTFIdAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JBApagar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBModificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBCancelar)
+                                .addComponent(JLativo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(JLID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JLId))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JLIdFerramenta)
+                                    .addComponent(JLIdAmigo)
+                                    .addComponent(JLDataInicio)
+                                    .addComponent(JLDataDevolucao, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(JTFDataDevolucao, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                    .addComponent(JTFDataEmprestimo)
+                                    .addComponent(JTFIdFerramenta)
+                                    .addComponent(JTFIdAmigo))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -170,7 +162,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLAtivo)
-                    .addComponent(JLativo))
+                    .addComponent(JLativo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBCancelar)
@@ -190,14 +182,16 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
     }//GEN-LAST:event_JBCancelarActionPerformed
 
     private void JBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBModificarActionPerformed
+        String dataDevolucao = null;
         int id = Integer.parseInt(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 0).toString());
-        int idAmigo = Integer.parseInt(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 1).toString());
-        int idFerramenta = Integer.parseInt(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 2).toString());
-        String[] DataEmprestimoSeparado = JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 3).toString().split("-");
+        int idAmigo = Integer.parseInt(JTFIdAmigo.getText());
+        int idFerramenta = Integer.parseInt(JTFIdFerramenta.getText());
+        String[] DataEmprestimoSeparado = JTFDataEmprestimo.getText().split("-");
         String dataEmprestimo = DataEmprestimoSeparado[2] + "-" + DataEmprestimoSeparado[1] + "-" + DataEmprestimoSeparado[0];
-        String[] DataDevolucaoSeparado = JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 4).toString().split("-");
-        String dataDevolucao = DataDevolucaoSeparado[2] + "-" + DataDevolucaoSeparado[1] + "-" + DataDevolucaoSeparado[0];
-
+        if ("".equals(JTFDataDevolucao.getText()) == false) {
+            String[] DataDevolucaoSeparado = JTFDataDevolucao.getText().split("-");
+            dataDevolucao = DataDevolucaoSeparado[2] + "-" + DataDevolucaoSeparado[1] + "-" + DataDevolucaoSeparado[0];
+        }
         if (emprestimo.updateEmprestimoDB(id, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao)) {
             JOptionPane.showMessageDialog(null, "Emprestimo atualizado com sucesso");
             JLId.setVisible(false);
@@ -216,8 +210,10 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
             JTFIdAmigo.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 1).toString());
             JTFIdFerramenta.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 2).toString());
             JTFDataEmprestimo.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 3).toString());
-            JTFDataDevolucao.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 4).toString());
-
+            JLAtivo.setText("Empréstimo Ativo: " + JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 5).toString());
+            if (JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 4) != null) {
+                JTFDataDevolucao.setText(JTableEmprestimo.getValueAt(this.JTableEmprestimo.getSelectedRow(), 4).toString());
+            }
         }
     }//GEN-LAST:event_JTableEmprestimoMouseClicked
 

@@ -12,7 +12,7 @@ public class Ferramenta {
     private String nome;
     private String marca;
     private double custo;
-    FerramentaDAO dao;
+    private FerramentaDAO dao;
 
     /**
      * Construtor para a classe Ferramenta. Inicializa a ferramenta com nome e
@@ -130,7 +130,6 @@ public class Ferramenta {
             if (FerramentaDAO.listaFerramenta.get(i).getIdFerramenta() == id) {
                 indice = i;
             }
-
         }
         return indice;
     }
@@ -148,15 +147,15 @@ public class Ferramenta {
     public int MaiorID() {
         return dao.maiorIDFerramenta();
     }
-public String getNomeFerramenta(int id){
-String nome="";
-    ArrayList<Ferramenta> listaFerramenta=this.listaFerramenta();
-    for(int i=0;i<listaFerramenta.size();i++){
-        if(id==listaFerramenta.get(i).getIdFerramenta()){
-            nome= listaFerramenta.get(i).getNomeFerramenta();
 
+    public String getNomeFerramenta(int id) {
+        String nome = "";
+        ArrayList<Ferramenta> listaFerramenta = this.listaFerramenta();
+        for (int i = 0; i < listaFerramenta.size(); i++) {
+            if (id == listaFerramenta.get(i).getIdFerramenta()) {
+                nome = listaFerramenta.get(i).getNomeFerramenta();
+            }
         }
+        return nome;
     }
-return nome;
-}
 }

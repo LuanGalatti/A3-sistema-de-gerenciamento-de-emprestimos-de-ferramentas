@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package visao;
 
 import java.util.ArrayList;
@@ -9,18 +5,11 @@ import modelo.Amigo;
 import modelo.Emprestimo;
 import modelo.Ferramenta;
 
-/**
- *
- * @author JUNIOR
- */
 public class FrmRelatorio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmRelatorio
-     */
     public FrmRelatorio() {
         initComponents();
-    this.criaRelatorio();
+        this.criaRelatorio();
     }
 
     /**
@@ -43,7 +32,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
         JTARelatorio.setRows(5);
         jScrollPane1.setViewportView(JTARelatorio);
 
-        jButton1.setText("Sair");
+        jButton1.setText("Cancelar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -75,37 +64,37 @@ public class FrmRelatorio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-public void criaRelatorio(){
-String string="FERRAMENTAS: \n";
-String lista="";
-double som=0;
-Amigo amg= new Amigo();
-Ferramenta frmt= new Ferramenta();
-Emprestimo emp= new Emprestimo();
-    ArrayList<Amigo> listaAmigo = amg.listaAmigo();
-    ArrayList<Ferramenta> listaFerramenta = frmt.listaFerramenta();
-    ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
-    
-    for(int i=0;i<listaFerramenta.size();i++){
-    lista=lista+  "\n id da Ferramenta: "+listaFerramenta.get(i).getIdFerramenta()+"\n Nome da Ferramenta: "+listaFerramenta.get(i).getNomeFerramenta()+"\n Marca da Ferramenta: "+listaFerramenta.get(i).getMarcaFerramenta()+"\n Custo da Ferramenta: "+listaFerramenta.get(i).getCustoFerramenta()+"\n";
-    som += listaFerramenta.get(i).getCustoFerramenta();
+    public void criaRelatorio() {
+        String string = "FERRAMENTAS: \n";
+        String lista = "";
+        double som = 0;
+        Amigo amg = new Amigo();
+        Ferramenta frmt = new Ferramenta();
+        Emprestimo emp = new Emprestimo();
+        ArrayList<Amigo> listaAmigo = amg.listaAmigo();
+        ArrayList<Ferramenta> listaFerramenta = frmt.listaFerramenta();
+        ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
+
+        for (int i = 0; i < listaFerramenta.size(); i++) {
+            lista = lista + "\n ID da Ferramenta: " + listaFerramenta.get(i).getIdFerramenta() + "\n Nome da Ferramenta: " + listaFerramenta.get(i).getNomeFerramenta() + "\n Marca da Ferramenta: " + listaFerramenta.get(i).getMarcaFerramenta() + "\n Custo da Ferramenta: " + listaFerramenta.get(i).getCustoFerramenta() + "\n";
+            som += listaFerramenta.get(i).getCustoFerramenta();
+        }
+        string = string + lista + "\n Custo total das ferramentas: R$" + som + "\n\n AMIGOS: \n";
+        lista = "";
+        for (int i = 0; i < listaAmigo.size(); i++) {
+            lista = lista + "\n ID do Amigo: " + listaAmigo.get(i).getIdAmigo() + "\n Nome do Amigo: " + listaAmigo.get(i).getNomeAmigo() + "\n Telefone do Amigo: " + listaAmigo.get(i).getTelefone() + "\n Número de Empréstimos: " + listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo()) + "\n Possui empréstimo ativo: " + listaAmigo.get(i).possuiEmprestimoAtivo(listaAmigo.get(i).getIdAmigo()) + "\n";
+        }
+        string = string + lista + "\n EMPRÉSTIMOS: \n";
+        lista = "";
+        for (int i = 0; i < listaEmprestimo.size(); i++) {
+            lista = lista + "\n ID do Empréstimo: " + listaEmprestimo.get(i).getIDEmprestimo() + "\n Nome do Amigo: " + amg.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo()) + "\n Nome da Ferramenta: " + frmt.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta()) + "\n Data de Início: " + listaEmprestimo.get(i).getDataEmprestimoInvertido() + "\n Data de Devolução: " + listaEmprestimo.get(i).getDataDevolucaoInvertido() + "\n";
+        }
+        string = string + lista;
+        JTARelatorio.setText(string);
     }
-    string = string + lista+"\n Custo total das ferramentas: R$"+som+"\n\n AMIGOS: \n";
-         lista="";
-    for(int i=0;i<listaAmigo.size();i++){
-     lista=lista+"\n id do Amigo: "+ listaAmigo.get(i).getIdAmigo()+"\n Nome do amigo: "+listaAmigo.get(i).getNomeAmigo()+"\n Telefone do amigo: "+listaAmigo.get(i).getTelefone()+"\n Numero de emprestimos: "+listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo())+"\n possui emprestimo ativo: "+listaAmigo.get(i).possuiEmprestimoAtivo(listaAmigo.get(i).getIdAmigo())+"\n";
-    }
-    string = string + lista+"\n EMPRESTIMOS: \n";
-    lista="";
-    for(int i=0;i<listaEmprestimo.size();i++){
-        lista=lista+"\n id do Emprestimo: "+listaEmprestimo.get(i).getIDEmprestimo()+"\n Nome do Amigo: "+amg.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo())+"\n Nome da ferramenta: "+frmt.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta())+"\n Data de Inicio: "+listaEmprestimo.get(i).getDataEmprestimoInvertido()+"\n Data de Devolucao: "+listaEmprestimo.get(i).getDataDevolucaoInvertido()+"\n";
-    }
-string = string + lista;
-    JTARelatorio.setText(string);
-}
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

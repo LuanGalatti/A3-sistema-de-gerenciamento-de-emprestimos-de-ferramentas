@@ -12,7 +12,6 @@ public class EmprestimoDAO extends ConexaoDAO {
     // Lista para armazenar os dados dos empréstimos
     public static ArrayList<Emprestimo> listaEmprestimo = new ArrayList<>();
 
-
     public ArrayList<Emprestimo> getListaEmprestimo() {
         // Limpa a lista para evitar duplicatas
 

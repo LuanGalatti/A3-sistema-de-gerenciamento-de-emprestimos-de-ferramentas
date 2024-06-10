@@ -6,10 +6,6 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
 import modelo.Emprestimo;
 
-/**
- *
- * @author 1072416842
- */
 public class FrmGerenciarAmigo extends javax.swing.JFrame {
 
     private Amigo amigo;

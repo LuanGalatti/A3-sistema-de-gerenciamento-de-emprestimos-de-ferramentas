@@ -174,24 +174,33 @@ public class Amigo {
         return dao.maiorIDAmigo();
     }
 
+    /**
+     * Retorna true caso o amigo com id de entrada tenha um emprestimo ativo
+     *
+     * @param id
+     * @return true caso o amigo com o id de entrada tenha um emprestimo ativo
+     */
     public boolean possuiEmprestimoAtivo(int id) {
         boolean emprestimoAtivo = false;
 
         Emprestimo emp = new Emprestimo();
 
         ArrayList<Emprestimo> listaEmprestimo = emp.getListaEmprestimoAtivo();
-
         for (int i = 0; i < listaEmprestimo.size(); i++) {
-
             if (listaEmprestimo.get(i).getIDAmigo() == id) {
                 emprestimoAtivo = true;
-
             }
-
         }
         return emprestimoAtivo;
     }
 
+    /**
+     * retorna a quantidade de emprestimos que o amigo com o id de entrada tem
+     *
+     * @param id
+     * @return retorna a quantidade de emprestimos que o amigo com o id de
+     * entrada tem
+     */
     public int quantidadeEmprestimo(int id) {
         int som = 0;
         Emprestimo emp = new Emprestimo();
@@ -203,14 +212,21 @@ public class Amigo {
         }
         return som;
     }
-public String getNomeAmigo(int id){
-String nome="";
-    ArrayList<Amigo> listaAmigo=this.listaAmigo();
-for(int i=0;i<listaAmigo.size();i++){
-    if(id==listaAmigo.get(i).getIdAmigo()){
-        nome=listaAmigo.get(i).getNomeAmigo();
+
+    /**
+     * retorna o nome do amigo com o id de entrada
+     *
+     * @param id
+     * @return retorna o nome do amigo com o id de entrada
+     */
+    public String getNomeAmigo(int id) {
+        String nome = "";
+        ArrayList<Amigo> listaAmigo = this.listaAmigo();
+        for (int i = 0; i < listaAmigo.size(); i++) {
+            if (id == listaAmigo.get(i).getIdAmigo()) {
+                nome = listaAmigo.get(i).getNomeAmigo();
+            }
+        }
+        return nome;
     }
-}
-return nome;
-}
 }
