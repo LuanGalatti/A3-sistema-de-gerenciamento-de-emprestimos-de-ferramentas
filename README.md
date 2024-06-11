@@ -6,19 +6,20 @@ Esse projeto tem como objetivo poder gerenciar os emprestimos de ferramentas que
 Angelo José Soares Junior: Angelo-Soares, 1072416842, JUNIOR \
 Luan Campi Galatti: LuanGalatti, 1072419087, Luan Galatti \
 Pedro Henrique Perez Kruk: pedrokrukz
-## Tecnologias utilizadas:
- O projeto utiliza Java 8. \
- O projeto foi desenvolivido no NetBeans 21. \
- O projeto usa o MySQL 8.3.0 para gerenciar os dados. \
- Utiliza o Apache Maven para a automação de compilação.
 
-## Principais funcionalidades
+## Tecnologias utilizadas:
+O projeto utiliza Java 8. \
+O projeto foi desenvolivido no NetBeans 21. \
+O projeto usa o MySQL 8.3.0 para gerenciar os dados. \
+Utiliza o Apache Maven para a automação de compilação.
+
+## Principais funcionalidades:
 CRUD de amigos: adicionar, ler, atualizar e excluir amigos do BD. \
 CRUD de ferramentas: adicionar, ler, atualizar e excluir ferramentas do BD. \
 CRUD de empréstimos: adicionar, ler, atualizar e excluir empréstimos do BD. \
 Relatório: criar um relatório sobre cada ferramenta, amigos e empréstimos. 
 
-## REQUISITOS FUNCIONAIS DO SISTEMA:
+## Requisitos Funcionais do Sistema:
 
 **RF001** - O sistema deve permitir o registro do nome, marca, custo de aquisição da ferramenta. \
 **RF002** - O sistema deve permitir o registro do nome e o telefone do cliente.  \
@@ -29,7 +30,7 @@ Relatório: criar um relatório sobre cada ferramenta, amigos e empréstimos.
 **RF007** - O sistema deve mostrar quem ainda não devolveu uma ferramenta. \
 **RF008** - O sistema deve mostrar se o amigo ainda não devolveu uma ferramenta ao requisitar um novo empréstimo.
 
-## REQUISITOS NÃO FUNCIONAIS DO SISTEMA:
+## Requisitos Não Funcionais do Sistema:
 
 **RNF001** - O sistema deve ser utilizado nas seguintes versões: Java 8; JDK 22; MySQL 8.3.0; Windows 10. \
 **RNF002** - O sistema deve rodar localmente (desktop). \
