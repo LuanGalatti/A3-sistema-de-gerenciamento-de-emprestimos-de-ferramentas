@@ -165,20 +165,20 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
             String nome = "";
             String telefone = "";
             if (JTFNome.getText().length() < 3) {
-                throw new Erro("Nome deve conter pelo menos 3 caracteres, tente novamente");
+                throw new Erro("Nome deve conter pelo menos 3 caracteres, tente novamente.");
             } else {
                 nome = (JTFNome.getText());
 
             }
             if (JTFTelefone.getText().length() < 8) {
-                throw new Erro("Telefone deve conter pelo menos 8 caracteres, tente novamente");
+                throw new Erro("Telefone deve conter pelo menos 8 caracteres, tente novamente.");
             } else {
                 telefone = (JTFTelefone.getText());
 
             }
 
             if (amigo.updateAmigoDB(id, nome, telefone)) {
-                JOptionPane.showMessageDialog(null, "Amigo atualizado com sucesso");
+                JOptionPane.showMessageDialog(null, "Amigo atualizado com sucesso.");
                 JLId.setVisible(false);
                 JTFNome.setText("");
                 JTFTelefone.setText("");
@@ -203,7 +203,7 @@ public class FrmGerenciarAmigo extends javax.swing.JFrame {
         Emprestimo emp = new Emprestimo();
         ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
         int idEmprestimo = 0;
-        conf = JOptionPane.showConfirmDialog(null, "Esta ação tambem apagará todos os empréstimos associados a este amigo, deseja continuar?");
+        conf = JOptionPane.showConfirmDialog(null, "Esta ação também apagará todos os empréstimos associados a este amigo, deseja continuar?");
         if (conf == 0) {
 
             for (int i = 0; i < listaEmprestimo.size(); i++) {

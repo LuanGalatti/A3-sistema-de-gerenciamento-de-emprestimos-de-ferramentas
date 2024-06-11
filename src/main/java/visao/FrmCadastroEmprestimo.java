@@ -113,17 +113,17 @@ public class FrmCadastroEmprestimo extends javax.swing.JFrame {
             ArrayList<Amigo> listaAmigo = amigo.listaAmigo();
             Emprestimo emprestimo = new Emprestimo();
             if (listaFerramenta.get(posicaoFerramenta).getDisponivel(listaFerramenta.get(posicaoFerramenta).getIdFerramenta()) == "Não") {
-                throw new Erro("Ferramenta ja emprestada");
+                throw new Erro("Ferramenta já emprestada.");
             }
             int idAmigo = listaAmigo.get(posicaoAmigo).getIdAmigo();
             if (amigo.possuiEmprestimoAtivo(idAmigo)) {
-                conf = JOptionPane.showConfirmDialog(null, "Este amigo ja possui um emprestimo ativo, deseja continuar?");
+                conf = JOptionPane.showConfirmDialog(null, "Este amigo já possui um empréstimo ativo, deseja continuar?");
             }
             int idFerramenta = listaFerramenta.get(posicaoFerramenta).getIdFerramenta();
             String DataInicio = LocalDate.now() + "";
             if (conf == 0) {
                 if (emprestimo.insertEmprestimoDB(idAmigo, idFerramenta, DataInicio)) {
-                    JOptionPane.showMessageDialog(null, "Emprestimo cadastrado com sucesso");
+                    JOptionPane.showMessageDialog(null, "Empréstimo cadastrado com sucesso.");
                     ferramenta.updateFerramentaDB(idFerramenta, listaFerramenta.get(posicaoFerramenta).getNomeFerramenta(), listaFerramenta.get(posicaoFerramenta).getMarcaFerramenta(), listaFerramenta.get(posicaoFerramenta).getCustoFerramenta());
                 };
 

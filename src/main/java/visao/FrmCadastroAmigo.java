@@ -123,19 +123,19 @@ public class FrmCadastroAmigo extends javax.swing.JFrame {
             String nome = "";
             String telefone = "";
             if (JTFNomeAmigo.getText().length() < 3) {
-                throw new Erro("Nome do amigo deve conter mais de 3 caracteres, tente novamente");
+                throw new Erro("Nome do amigo deve conter mais de 3 caracteres, tente novamente.");
             } else {
                 nome = (JTFNomeAmigo.getText());
 
             }
             if (JTFTelefone.getText().length() < 8) {
-                throw new Erro("Número de Telefone inválido.");
+                throw new Erro("Número de telefone inválido.");
             } else {
                 telefone = (JTFTelefone.getText());
 
             }
             if (amigo.insertAmigoDB(nome, telefone)) {
-                JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso");
+                JOptionPane.showMessageDialog(null, "Amigo cadastrado com sucesso.");
                 JTFNomeAmigo.setText("");
                 JTFTelefone.setText("");
             }

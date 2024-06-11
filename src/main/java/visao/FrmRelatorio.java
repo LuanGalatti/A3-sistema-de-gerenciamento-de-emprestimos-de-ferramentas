@@ -92,7 +92,7 @@ public class FrmRelatorio extends javax.swing.JFrame {
         maior=listaAmigo.get(i).quantidadeEmprestimo(listaAmigo.get(i).getIdAmigo());
         }
         }
-        string = string + lista + "\n Amigo com maior quantidade de empréstimos: "+amg.getNomeAmigo(idAmigo)+"\n quantidade de empréstimos: "+maior+"\n\n EMPRÉSTIMOS: \n";
+        string = string + lista + "\n Amigo com maior quantidade de empréstimos: "+amg.getNomeAmigo(idAmigo)+"\n Quantidade de empréstimos: "+maior+"\n\n EMPRÉSTIMOS: \n";
         lista = "";
         for (int i = 0; i < listaEmprestimo.size(); i++) {
             lista = lista + "\n ID do Empréstimo: " + listaEmprestimo.get(i).getIDEmprestimo() + "\n Nome do Amigo: " + amg.getNomeAmigo(listaEmprestimo.get(i).getIDAmigo()) + "\n Nome da Ferramenta: " + frmt.getNomeFerramenta(listaEmprestimo.get(i).getIDFerramenta()) + "\n Data de Início: " + listaEmprestimo.get(i).getDataEmprestimoInvertido() + "\n Data de Devolução: " + listaEmprestimo.get(i).getDataDevolucaoInvertido() + "\n";

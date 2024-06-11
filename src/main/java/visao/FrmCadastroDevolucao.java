@@ -110,7 +110,7 @@ public class FrmCadastroDevolucao extends javax.swing.JFrame {
         String data = LocalDate.now() + "";
 
         if (emp.updateEmprestimoDB(listaEmprestimo.get(posicaoEmprestimo).getIDEmprestimo(), listaEmprestimo.get(posicaoEmprestimo).getIDAmigo(), listaEmprestimo.get(posicaoEmprestimo).getIDFerramenta(), listaEmprestimo.get(posicaoEmprestimo).getDataEmprestimo(), data + "")) {
-            JOptionPane.showMessageDialog(null, "Devolucao cadastrada com sucesso");
+            JOptionPane.showMessageDialog(null, "Devolucao cadastrada com sucesso.");
             JCBEmprestimo.removeAllItems();
             this.carregaCBEmprestimo();
         } else {

@@ -50,7 +50,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID Empréstimo", "ID Amigo", "ID Ferramenta", "Data Início", "Data Devolução", "Emprestimo Ativo"
+                "ID Empréstimo", "ID Amigo", "ID Ferramenta", "Data Início", "Data Devolução", "Empréstimo Ativo"
             }
         ));
         JTableEmprestimo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,7 +193,7 @@ public class FrmGerenciarEmprestimo extends javax.swing.JFrame {
             dataDevolucao = DataDevolucaoSeparado[2] + "-" + DataDevolucaoSeparado[1] + "-" + DataDevolucaoSeparado[0];
         }
         if (emprestimo.updateEmprestimoDB(id, idAmigo, idFerramenta, dataEmprestimo, dataDevolucao)) {
-            JOptionPane.showMessageDialog(null, "Emprestimo atualizado com sucesso");
+            JOptionPane.showMessageDialog(null, "Empréstimo atualizado com sucesso.");
             JLId.setVisible(false);
             JTFIdAmigo.setText("");
             JTFIdFerramenta.setText("");

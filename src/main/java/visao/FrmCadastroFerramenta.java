@@ -141,25 +141,25 @@ public class FrmCadastroFerramenta extends javax.swing.JFrame {
             String marca = "";
             double custo = 0;
             if (JTFNomeFerramenta.getText().length() < 2) {
-                throw new Erro("Nome deve conter pelo menos 2 caracteres, tente novamente");
+                throw new Erro("Nome deve conter pelo menos 2 caracteres, tente novamente.");
             } else {
                 nome = (JTFNomeFerramenta.getText());
 
             }
             if (JTFMarcaFerramenta.getText().length() < 2) {
-                throw new Erro("Marca deve conter pelo menos 2 caracteres, tente novamente");
+                throw new Erro("Marca deve conter pelo menos 2 caracteres, tente novamente.");
             } else {
                 marca = (JTFMarcaFerramenta.getText());
 
             }
             if (Double.parseDouble(JTFCustoFerramenta.getText()) <= 0) {
-                throw new Erro("Custo deve ser maior que 0, tente novamente");
+                throw new Erro("Custo deve ser maior que 0, tente novamente.");
             } else {
                 custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
 
             }
             if (ferramenta.InsertFerramentaDB(nome, marca, custo)) {
-                JOptionPane.showMessageDialog(null, "Ferramenta cadastrada com sucesso");
+                JOptionPane.showMessageDialog(null, "Ferramenta cadastrada com sucesso.");
                 JTFMarcaFerramenta.setText("");
                 JTFNomeFerramenta.setText("");
                 JTFCustoFerramenta.setText("");

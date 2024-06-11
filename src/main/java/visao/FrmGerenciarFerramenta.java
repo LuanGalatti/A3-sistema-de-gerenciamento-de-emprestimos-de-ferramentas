@@ -215,25 +215,25 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
             String marca = "";
             double custo = 0;
             if (JTFNome.getText().length() < 2) {
-                throw new Erro("Nome deve conter pelo menos 2 caracteres, tente novamente");
+                throw new Erro("Nome deve conter pelo menos 2 caracteres, tente novamente.");
             } else {
                 nome = (JTFNome.getText());
 
             }
             if (JTFMarca.getText().length() < 2) {
-                throw new Erro("Marca deve conter pelo menos 2 caracteres, tente novamente");
+                throw new Erro("Marca deve conter pelo menos 2 caracteres, tente novamente.");
             } else {
                 marca = (JTFMarca.getText());
 
             }
             if (Double.parseDouble(JTFCustoFerramenta.getText()) <= 0) {
-                throw new Erro("Custo deve ser maior que 0, tente novamente");
+                throw new Erro("Custo deve ser maior que 0, tente novamente.");
             } else {
                 custo = (Double.parseDouble(JTFCustoFerramenta.getText()));
 
             }
             if (ferramenta.updateFerramentaDB(id, nome, marca, custo)) {
-                JOptionPane.showMessageDialog(null, "Ferramenta atualizada com sucesso");
+                JOptionPane.showMessageDialog(null, "Ferramenta atualizada com sucesso.");
                 JLId.setVisible(false);
                 JTFMarca.setText("");
                 JTFNome.setText("");
@@ -251,7 +251,7 @@ public class FrmGerenciarFerramenta extends javax.swing.JFrame {
         Emprestimo emp = new Emprestimo();
         ArrayList<Emprestimo> listaEmprestimo = emp.listaEmprestimo();
         int idEmprestimo = 0;
-        conf = JOptionPane.showConfirmDialog(null, "Esta ação tambem apagará todos os empréstimos associados a esta ferramenta, deseja continuar?");
+        conf = JOptionPane.showConfirmDialog(null, "Esta ação também apagará todos os empréstimos associados a esta ferramenta, deseja continuar?");
         if (conf == 0) {
 
             for (int i = 0; i < listaEmprestimo.size(); i++) {
