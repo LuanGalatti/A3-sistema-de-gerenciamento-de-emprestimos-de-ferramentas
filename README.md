@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Ferramentas
 ## Sobre o projeto:
-Esse projeto tem como objetivo poder gerenciar os emprestimos de ferramentas que o usuário faria para seus amigos, desenvolvido para a A3 da UC de Programação de Soluções Computacionais da UNISUL.
+Esse projeto tem como objetivo poder gerenciar os empréstimos de ferramentas que o usuário faria para seus amigos, desenvolvido para a A3 da UC de Programação de Soluções Computacionais da UNISUL.
 
 ## Integrantes do trabalho:
 Angelo José Soares Junior: Angelo-Soares, 1072416842, JUNIOR \
